@@ -59,7 +59,7 @@
                     src="images/book_images/1a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -73,7 +73,7 @@
                     src="images/book_images/2a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -87,7 +87,7 @@
                     src="images/book_images/3a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -101,7 +101,7 @@
                     src="images/book_images/4a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -115,7 +115,7 @@
                     src="images/book_images/5a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -129,7 +129,7 @@
                     src="images/book_images/6a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -142,7 +142,7 @@
                 <div class="product_img"> <img class="img-responsive" src="images/book_images/7a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Mcafee Livesafe Antivirus</a></h4>
+                    <h4><a href="book_detail.jsp">Mcafee Livesafe Antivirus</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
@@ -160,7 +160,7 @@
                 <div class="product_img"> <img class="img-responsive" src="images/book_images/8a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Norton Internet Security</a></h4>
+                    <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
@@ -178,7 +178,7 @@
                 <div class="product_img"> <img class="img-responsive" src="images/book_images/9a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Norton Internet Security</a></h4>
+                    <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
@@ -196,7 +196,7 @@
                 <div class="product_img"> <img class="img-responsive" src="images/book_images/10a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Kaspersky Internet Security</a></h4>
+                    <h4><a href="book_detail.jsp">Kaspersky Internet Security</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
@@ -214,7 +214,7 @@
                 <div class="product_img"> <img class="img-responsive" src="images/book_images/11a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Mcafee Livesafe Antivirus</a></h4>
+                    <h4><a href="book_detail.jsp">Mcafee Livesafe Antivirus</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
@@ -232,7 +232,7 @@
                 <div class="product_img"> <img class="img-responsive" src="images/book_images/12a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Norton Internet Security</a></h4>
+                    <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
                   </div>
                   <div class="starratin">
                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"

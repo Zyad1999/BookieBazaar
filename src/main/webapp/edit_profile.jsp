@@ -57,7 +57,7 @@
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appointment_form">
                 <div class="form_section">
-                  <form class="form_contant" action="index.html">
+                  <form class="form_contant" action="index.jsp">
                     <fieldset class="row">
 
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -123,8 +123,8 @@
                           onblur="(this.type='text')" required />
                       </div>
                       <div class="center">
-                        <a class="btn sqaure_bt" id="allProudcts" style="margin-right: 10px ;" href="profile.html">cansel</a>
-                        <a class="btn sqaure_bt" id="allProudcts" href="profile.html">Save</a>
+                        <a class="btn sqaure_bt" id="allProudcts" style="margin-right: 10px ;" href="profile.jsp">cansel</a>
+                        <a class="btn sqaure_bt" id="allProudcts" href="profile.jsp">Save</a>
                       </div>
                     </fieldset>
                   </form>

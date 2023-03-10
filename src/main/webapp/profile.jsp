@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="col-sm-9"></div>
                                     <div class="col-sm-3">
-                                        <a class="btn sqaure_bt" id="allProudcts" href="edit_profile.html">Edit
+                                        <a class="btn sqaure_bt" id="allProudcts" href="edit_profile.jsp">Edit
                                             Profile</a>
                                     </div>
                                 </div>

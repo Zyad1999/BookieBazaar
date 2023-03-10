@@ -48,7 +48,7 @@
           <div class="heading text_align_center">
             <h2>OOOPS, THIS PAGE COULD NOT BE FOUND!</h2>
           </div>
-          <div class="center"> <a class="btn sqaure_bt light_theme_bt" href="it_home.html">Back Home</a> </div>
+          <div class="center"> <a class="btn sqaure_bt light_theme_bt" href="it_home.jsp">Back Home</a> </div>
         </div>
       </div>
     </div>

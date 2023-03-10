@@ -239,7 +239,7 @@
                 src="images/book_images/harryBook.jpeg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Harry Potter</a></h4>
+                <h4><a href="book_detail.jsp">Harry Potter</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price">$25.00</span></p>
@@ -253,7 +253,7 @@
                 src="images/book_images/harryBook2.jpg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Harry Potter</a></h4>
+                <h4><a href="book_detail.jsp">Harry Potter</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price"> $12.49</span></p>
@@ -267,7 +267,7 @@
                 src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price"> $12.49</span></p>
@@ -281,7 +281,7 @@
                 src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">The Lord of the Rings</a></h4>
+                <h4><a href="book_detail.jsp">The Lord of the Rings</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price">$25.00</span></p>
@@ -295,7 +295,7 @@
                 src="images/book_images/harryBook.jpeg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Norton Internet Security</a></h4>
+                <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price">$25.00</span></p>
@@ -309,7 +309,7 @@
                 src="images/book_images/harryBook2.jpg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Kaspersky Internet Security</a></h4>
+                <h4><a href="book_detail.jsp">Kaspersky Internet Security</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price"> $12.49</span></p>
@@ -323,7 +323,7 @@
                 src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Mcafee Livesafe Antivirus</a></h4>
+                <h4><a href="book_detail.jsp">Mcafee Livesafe Antivirus</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price"> $12.49</span></p>
@@ -337,7 +337,7 @@
                 src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
             <div class="product_detail_btm">
               <div class="center">
-                <h4><a href="book_detail.html">Norton Internet Security</a></h4>
+                <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
               </div>
               <div class="product_price">
                 <p><span class="new_price">$25.00</span></p>
@@ -346,9 +346,9 @@
           </div>
         </div>
         <div class="center">
-          <a class="btn sqaure_bt" id="allProudcts" href="shop.html">View More</a>
+          <a class="btn sqaure_bt" id="allProudcts" href="shop.jsp">View More</a>
         </div>
-        <!-- <a class="btn sqaure_bt" id="allProudcts" href="shop.html">View More</a> -->
+        <!-- <a class="btn sqaure_bt" id="allProudcts" href="shop.jsp">View More</a> -->
       </div>
     </div>
 
@@ -387,7 +387,7 @@
                         <div class="thumb-content">
                           <h4>Arts & Photography</h4>
                           </p>
-                          <a class="btn sqaure_bt" style="min-width: 130px;" href="shop.html">More <i
+                          <a class="btn sqaure_bt" style="min-width: 130px;" href="shop.jsp">More <i
                               class="fa fa-angle-right"></i></a>
                         </div>
                       </div>

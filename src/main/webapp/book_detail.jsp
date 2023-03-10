@@ -63,7 +63,7 @@
                   leo.<br>
                   <span class="stock">2 in stock</span>
                 </p>
-                <form class="cart" method="post" action="it_cart.html">
+                <form class="cart" method="post" action="it_cart.jsp">
                   <div class="quantity">
                     <input step="1" min="1" max="5" name="quantity" value="1" title="Qty" class="input-text qty text"
                       size="4" type="number">
@@ -89,7 +89,7 @@
                     src="images/book_images/harryBook.jpeg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Harry Potter</a></h4>
+                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price">$25.00</span></p>
@@ -103,7 +103,7 @@
                     src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -117,7 +117,7 @@
                     src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">The Lord of the Rings</a></h4>
+                    <h4><a href="book_detail.jsp">The Lord of the Rings</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price">$25.00</span></p>

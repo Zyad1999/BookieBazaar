@@ -97,7 +97,7 @@
                     src="images/book_images/harryBook.jpeg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Harry Potter</a></h4>
+                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price">$25.00</span></p>
@@ -111,7 +111,7 @@
                     src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -125,7 +125,7 @@
                     src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.html">The Lord of the Rings</a></h4>
+                    <h4><a href="book_detail.jsp">The Lord of the Rings</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price">$25.00</span></p>

@@ -52,7 +52,7 @@
                 <div class="main_heading text_align_center">
                   <h2>Login</h2>
                 </div>
-                <form class="form_contant" action="index.html">
+                <form class="form_contant" action="index.jsp">
                   <fieldset class="row">
                     <div class="center">
                       <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -65,10 +65,10 @@
                       </div>
                     </div>
                     <div class="center" style="margin-top:20px;">
-                      <a class="btn sqaure_bt" id="allProudcts" href="index.html">login</a>
+                      <a class="btn sqaure_bt" id="allProudcts" href="index.jsp">login</a>
                     </div>
                     <div class="center">
-                      <p id="account">Don't have an account? <a href="signup.html" style="color:#b87906fa">Signup</a>.
+                      <p id="account">Don't have an account? <a href="signup.jsp" style="color:#b87906fa">Signup</a>.
                       </p>
                     </div>
                   </fieldset>
