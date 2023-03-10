@@ -15,7 +15,7 @@ public class HomeController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("view/index.jsp").include(req, resp);
+        req.getRequestDispatcher("index.jsp").include(req, resp);
     }
     
 }
