@@ -9,36 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Book Store</title>
+    <title>Profile</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- site icons -->
-    <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Site css -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- responsive css -->
-    <link rel="stylesheet" href="css/responsive.css" />
-    <!-- colors css -->
-    <link rel="stylesheet" href="css/colors1.css" />
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/custom.css" />
-    <!-- wow Animation css -->
-    <link rel="stylesheet" href="css/animate.css" />
-    <!-- revolution slider css -->
-    <link rel="stylesheet" type="text/css" href="revolution/css/settings.css" />
-    <link rel="stylesheet" type="text/css" href="revolution/css/layers.css" />
-    <link rel="stylesheet" type="text/css" href="revolution/css/navigation.css" />
-
     <link rel="stylesheet" href="css/profileStyle.css" />
 </head>
 
 <body id="default_theme" class="book_images" style="background-color: #fff;">
 
+    <%@include file="header.jsp" %>
     <!-- <div class="page-content page-container" id="page-content"> -->
-    <div class="padding">
+    <div class="padding" style="margin-top: 100px;">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-20 col-md-10">
                 <div class="card user-card-full">
@@ -119,27 +101,7 @@
     <!-- </div> -->
 
     <!-- js section -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- menu js -->
-  <script src="js/menumaker.js"></script>
-  <!-- wow animation -->
-  <script src="js/wow.js"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
-  <!-- revolution js files -->
-  <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-  <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-  <!-- map js -->
+    <%@include file="footer.jsp" %>
 </body>
 
 </html>

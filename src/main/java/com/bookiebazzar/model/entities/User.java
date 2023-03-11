@@ -50,6 +50,25 @@ public class User {
     @Column(name = "job")
     private String job;
 
+    @Column(name = "interests")
+    private String interests;
+
+    public Set<CartItem> getCartItems() {
+        return CartItems;
+    }
+
+    public void setCartItems(Set<CartItem> cartItems) {
+        CartItems = cartItems;
+    }
+
+    public String getInterests() {
+        return interests;
+    }
+
+    public void setInterests(String interests) {
+        this.interests = interests;
+    }
+
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
