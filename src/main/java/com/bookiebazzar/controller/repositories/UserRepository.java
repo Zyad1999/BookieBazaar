@@ -17,7 +17,7 @@ public class UserRepository implements UserRepo {
 
     public UserRepository() {
 
-        entityManagerFactory = Persistence.createEntityManagerFactory("pu");
+        entityManagerFactory = Persistence.createEntityManagerFactory("main");
         entityManager = entityManagerFactory.createEntityManager();
 
     }
