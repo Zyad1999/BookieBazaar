@@ -1,9 +1,11 @@
 package com.bookiebazzar.model.entities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,7 +19,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "USER_ORDER")
-public class UserOrder {
+public class UserOrder implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -29,11 +31,11 @@ public class UserOrder {
     @Column(name = "total_price", nullable = false)
     private int totalPrice;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order", cascade = CascadeType.ALL)
     private Set<BookOrder> BookOrders = new HashSet<BookOrder>();
 
     public int getId() {

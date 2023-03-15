@@ -1,5 +1,8 @@
 package com.bookiebazzar.model.entities;
 
+import java.io.Serializable;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -9,17 +12,17 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 
 @Entity(name = "BOOK_ORDER")
-public class BookOrder {
+public class BookOrder implements Serializable {
 
     @EmbeddedId
-    private BookOrderId id;
+    private BookOrderId id = new BookOrderId();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @MapsId("orderId")
     @JoinColumn(name = "order_id")
     private UserOrder order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @MapsId("bookId")
     @JoinColumn(name = "book_id")
     private Book book;

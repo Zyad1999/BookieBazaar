@@ -1,5 +1,9 @@
 package com.bookiebazzar.model.entities;
 
+import java.io.Serializable;
+
+import com.bookiebazzar.model.enums.Language;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "BOOK")
-public class Book {
+public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +25,12 @@ public class Book {
 
     @Column(name = "price", nullable = false)
     private int price;
+
+    @Column(name = "author", nullable = false)
+    private int author;
+
+    @Column(name = "language", nullable = false)
+    private Language language;
 
     @Column(name = "quantity", nullable = false)
     private String quantity;

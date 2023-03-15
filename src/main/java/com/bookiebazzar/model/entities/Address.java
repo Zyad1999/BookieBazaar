@@ -1,8 +1,11 @@
 package com.bookiebazzar.model.entities;
 
+import java.io.Serializable;
+
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,9 +17,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ADDRESS")
-public class Address {
+public class Address implements Serializable {
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REFRESH)
     @PrimaryKeyJoinColumn
     private User user;
     

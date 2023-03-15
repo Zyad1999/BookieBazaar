@@ -3,8 +3,10 @@ package com.bookiebazzar.model.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
+import java.io.Serializable;
+
 @Embeddable
-public class CartItemId {
+public class CartItemId implements Serializable {
 
     @Column(name = "user_id")
     private int userId;
