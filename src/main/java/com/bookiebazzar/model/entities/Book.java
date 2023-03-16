@@ -33,7 +33,7 @@ public class Book implements Serializable {
     private Language language;
 
     @Column(name = "quantity", nullable = false)
-    private String quantity;
+    private int quantity;
 
     @Column(name = "description", nullable = false)
     private String description;
@@ -42,7 +42,7 @@ public class Book implements Serializable {
     private String img;
 
     @Column(name = "no_pages", nullable = false)
-    private String numberOfPages;
+    private int numberOfPages;
 
     public int getId() {
         return id;
@@ -68,11 +68,11 @@ public class Book implements Serializable {
         this.price = price;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -92,11 +92,11 @@ public class Book implements Serializable {
         this.img = img;
     }
 
-    public String getNumberOfPages() {
+    public int getNumberOfPages() {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(String numberOfPages) {
+    public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
 
@@ -113,10 +113,9 @@ public class Book implements Serializable {
         result = prime * result + id;
         result = prime * result + ((name == null) ? 0 : name.hashCode());
         result = prime * result + price;
-        result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
+        result = prime * result + quantity;
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((img == null) ? 0 : img.hashCode());
-        result = prime * result + ((numberOfPages == null) ? 0 : numberOfPages.hashCode());
         return result;
     }
 
@@ -138,10 +137,10 @@ public class Book implements Serializable {
             return false;
         if (price != other.price)
             return false;
-        if (quantity == null) {
-            if (other.quantity != null)
+        if (quantity == 0) {
+            if (other.quantity != 0)
                 return false;
-        } else if (!quantity.equals(other.quantity))
+        } else if (!(quantity == other.quantity))
             return false;
         if (description == null) {
             if (other.description != null)
@@ -153,12 +152,28 @@ public class Book implements Serializable {
                 return false;
         } else if (!img.equals(other.img))
             return false;
-        if (numberOfPages == null) {
-            if (other.numberOfPages != null)
+        if (numberOfPages == 0) {
+            if (other.numberOfPages != 0)
                 return false;
-        } else if (!numberOfPages.equals(other.numberOfPages))
+        } else if (!(numberOfPages == other.numberOfPages))
             return false;
         return true;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
     
     

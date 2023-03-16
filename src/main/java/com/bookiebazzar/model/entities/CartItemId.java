@@ -29,5 +29,10 @@ public class CartItemId implements Serializable {
     public void setBookId(int bookId) {
         this.bookId = bookId;
     }
+
+    @Override
+    public String toString() {
+        return "CartItemId [userId=" + userId + ", bookId=" + bookId + "]";
+    }
     
 }

@@ -28,6 +28,15 @@ public class CartItem implements Serializable {
     @JoinColumn(name = "book_id")
     private Book book;
 
+    public CartItem(User user, Book book, int quantity) {
+        this.user = user;
+        this.book = book;
+        this.quantity = quantity;
+    }
+
+    public CartItem() {
+    }
+
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
@@ -61,6 +70,11 @@ public class CartItem implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem [id=" + id + ", user=" + user + ", book=" + book + ", quantity=" + quantity + "]";
     }
 
     

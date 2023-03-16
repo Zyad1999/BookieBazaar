@@ -32,7 +32,7 @@ public class User implements Serializable {
     private Set<UserOrder> orders = new HashSet<UserOrder>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<CartItem> CartItems = new HashSet<CartItem>();
+    private Set<CartItem> cartItems = new HashSet<CartItem>();
 
     @Column(name = "user_name", nullable = false, unique = true)
     private String userName;
@@ -50,11 +50,11 @@ public class User implements Serializable {
     private String job;
 
     public Set<CartItem> getCartItems() {
-        return CartItems;
+        return cartItems;
     }
 
     public void setCartItems(Set<CartItem> cartItems) {
-        CartItems = cartItems;
+        cartItems = cartItems;
     }
 
     @Column(name = "birth_date")
@@ -168,7 +168,7 @@ public class User implements Serializable {
         result = prime * result + id;
         result = prime * result + ((adress == null) ? 0 : adress.hashCode());
         result = prime * result + ((orders == null) ? 0 : orders.hashCode());
-        result = prime * result + ((CartItems == null) ? 0 : CartItems.hashCode());
+        result = prime * result + ((cartItems == null) ? 0 : cartItems.hashCode());
         result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -201,10 +201,10 @@ public class User implements Serializable {
                 return false;
         } else if (!orders.equals(other.orders))
             return false;
-        if (CartItems == null) {
-            if (other.CartItems != null)
+        if (cartItems == null) {
+            if (other.cartItems != null)
                 return false;
-        } else if (!CartItems.equals(other.CartItems))
+        } else if (!cartItems.equals(other.cartItems))
             return false;
         if (userName == null) {
             if (other.userName != null)
