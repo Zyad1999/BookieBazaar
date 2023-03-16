@@ -27,7 +27,7 @@ public class Book implements Serializable {
     private int price;
 
     @Column(name = "author", nullable = false)
-    private int author;
+    private String author;
 
     @Column(name = "language", nullable = false)
     private Language language;

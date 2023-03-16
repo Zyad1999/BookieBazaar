@@ -30,9 +30,9 @@ public class HomeController extends HttpServlet {
         User user2 = new User();
 
         user1.setAdmin(false);
-        user1.setFirstName("yassin");
+        user1.setUserName("yassin");
         user1.setEmail("yassin@gmail.com");
-        user1.setLastName("yassin");
+        user1.setUserName("yassin");
         user1.setPassword("123");
         user1.setPhoneNumber("0123");
         user1.setInterests("football");
@@ -55,9 +55,9 @@ public class HomeController extends HttpServlet {
         add2.setStreet("23 street");
 
         user2.setAdmin(true);
-        user2.setFirstName("aya");
+        user2.setUserName("aya");
         user2.setEmail("ayagmailcom");
-        user2.setLastName("aya");
+        user2.setUserName("aya");
         user2.setPassword("456");
         user2.setPhoneNumber("456");
         user2.setInterests("no interest");

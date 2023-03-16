@@ -34,13 +34,10 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<CartItem> CartItems = new HashSet<CartItem>();
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
+    @Column(name = "user_name", nullable = false, unique = true)
+    private String userName;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)
@@ -52,23 +49,12 @@ public class User implements Serializable {
     @Column(name = "job")
     private String job;
 
-    @Column(name = "interests")
-    private String interests;
-
     public Set<CartItem> getCartItems() {
         return CartItems;
     }
 
     public void setCartItems(Set<CartItem> cartItems) {
         CartItems = cartItems;
-    }
-
-    public String getInterests() {
-        return interests;
-    }
-
-    public void setInterests(String interests) {
-        this.interests = interests;
     }
 
     @Column(name = "birth_date")
@@ -88,20 +74,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUserName(String firstName) {
+        this.userName = firstName;
     }
 
     public String getEmail() {
@@ -178,7 +156,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+        return "User [id=" + id + ", firstName=" + userName + ", email=" + email
                 + ", password=" + password + ", phoneNumber=" + phoneNumber + ", job=" + job + ", birthDate="
                 + birthDate + ", creditLimit=" + creditLimit + ", isAdmin=" + isAdmin + "]";
     }
@@ -188,8 +166,10 @@ public class User implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-        result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+        result = prime * result + ((adress == null) ? 0 : adress.hashCode());
+        result = prime * result + ((orders == null) ? 0 : orders.hashCode());
+        result = prime * result + ((CartItems == null) ? 0 : CartItems.hashCode());
+        result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
@@ -211,15 +191,25 @@ public class User implements Serializable {
         User other = (User) obj;
         if (id != other.id)
             return false;
-        if (firstName == null) {
-            if (other.firstName != null)
+        if (adress == null) {
+            if (other.adress != null)
                 return false;
-        } else if (!firstName.equals(other.firstName))
+        } else if (!adress.equals(other.adress))
             return false;
-        if (lastName == null) {
-            if (other.lastName != null)
+        if (orders == null) {
+            if (other.orders != null)
                 return false;
-        } else if (!lastName.equals(other.lastName))
+        } else if (!orders.equals(other.orders))
+            return false;
+        if (CartItems == null) {
+            if (other.CartItems != null)
+                return false;
+        } else if (!CartItems.equals(other.CartItems))
+            return false;
+        if (userName == null) {
+            if (other.userName != null)
+                return false;
+        } else if (!userName.equals(other.userName))
             return false;
         if (email == null) {
             if (other.email != null)
@@ -252,5 +242,7 @@ public class User implements Serializable {
             return false;
         return true;
     }
+
+    
 
 }
