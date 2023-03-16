@@ -2,7 +2,7 @@ package com.bookiebazzar.controller.controllers;
 
 import java.io.IOException;
 
-import com.bookiebazzar.controller.repositories.UserRepository;
+import com.bookiebazzar.controller.repositories.impls.UserRepoImpl;
 import com.bookiebazzar.model.entities.Address;
 import com.bookiebazzar.model.entities.User;
 
@@ -21,7 +21,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserRepository userRepo = new UserRepository();
+        UserRepoImpl userRepo = new UserRepoImpl();
 
         Address add = new Address();
         Address add2 = new Address();
