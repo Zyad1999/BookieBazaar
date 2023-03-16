@@ -1,4 +1,4 @@
-package com.bookiebazzar.controller.repositories;
+package com.bookiebazzar.controller.repositories.impls;
 
 import java.util.List;
 import com.bookiebazzar.controller.repositories.interfaces.UserRepo;
@@ -10,12 +10,12 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 
-public class UserRepository implements UserRepo {
+public class UserRepoImpl implements UserRepo {
 
     private EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 
-    public UserRepository() {
+    public UserRepoImpl() {
 
         entityManagerFactory = Persistence.createEntityManagerFactory("main");
         entityManager = entityManagerFactory.createEntityManager();
