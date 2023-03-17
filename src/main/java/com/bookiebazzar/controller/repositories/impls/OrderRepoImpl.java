@@ -2,6 +2,8 @@ package com.bookiebazzar.controller.repositories.impls;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
+
 import com.bookiebazzar.controller.repositories.interfaces.OrderRepo;
 import com.bookiebazzar.model.entities.BookOrder;
 import com.bookiebazzar.model.entities.CartItem;
@@ -19,11 +21,11 @@ public class OrderRepoImpl implements OrderRepo {
         LocalDateTime now = LocalDateTime.now();
         CartRepoImpl cartRepoImpl = new CartRepoImpl();
         User user = entityManager.find(User.class, userID);
-        List<CartItem> listOfCartItem = cartRepoImpl.getUserCart(userID, entityManager);
+        Set<CartItem> setOfCartItem = user.getCartItems();
         UserOrder userOrder = new UserOrder();
         userOrder.setCreatedAt(now);
         userOrder.setUser(user);
-        for (CartItem cartItem : listOfCartItem) {
+        for (CartItem cartItem : setOfCartItem) {
             sum += cartItem.getBook().getPrice() * cartItem.getQuantity();
             BookOrder bookOrder = new BookOrder();
             bookOrder.setOrder(userOrder);
