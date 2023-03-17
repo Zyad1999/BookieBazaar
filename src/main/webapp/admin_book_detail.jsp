@@ -131,11 +131,13 @@
                   <span class="stock">2 in stock</span>
                 </p>
                 <form class="cart" method="post" action="">
-
                   <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
                     Edit Book</a>
-
+                    <a href="" class="btn sqaure_bt" data-toggle="modal">
+                      Delete Book</a>
                 </form>
+              
+              </form>
               </div>
             </div>
           </div>
