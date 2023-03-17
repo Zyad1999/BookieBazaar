@@ -24,79 +24,80 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("main");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+      
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("main");
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        UserRepoImpl userRepo = new UserRepoImpl();
-        Address add = new Address();
-        Address add2 = new Address();
-        User user1 = new User();
-        User user2 = new User();
+    UserRepoImpl userRepo = new UserRepoImpl();
+    Address add = new Address();
+    User user = new User();
 
-        user1.setAdmin(false);
-        user1.setUserName("eman");
-        user1.setEmail("yassin@gmail.com");
-        user1.setPassword("123");
-        user1.setPhoneNumber("0123");
-        user1.setJob("java developer");
-        LocalDate date = LocalDate.now();
-        user1.setBirthDate(date);
+    user.setAdmin(false);
+    user.setUserName("ahmed yassin");
+    user.setEmail("yassinahmed670@gmail.com");
+    user.setPassword("123456789");
+    user.setPhoneNumber("01147775184");
+    user.setJob("java developer");
+    LocalDate date = LocalDate.now();
+    user.setBirthDate(date);
 
-        add.setBuildingNumber(21);
-        add.setCity("new cairo");
-        add.setCountry("Cairo");
-        add.setStreet("23 street");
+    add.setBuildingNumber(21);
+    add.setCity("new cairo");
+    add.setCountry("Cairo");
+    add.setStreet("23 street");
 
-        user1.setAdress(add);
-        add.setUser(user1);
-        userRepo.addUser(user1, entityManager);
+    user.setAdress(add);
+    add.setUser(user);
 
-        add2.setBuildingNumber(21);
-        add2.setCity("new cairo");
-        add2.setCountry("Cairo");
-        add2.setStreet("23 street");
+    System.out.println("---------------add user --------------------");
 
-        user2.setAdmin(true);
-        user2.setUserName("ramadan");
-        user2.setEmail("ayagmailcom");
-        user2.setPassword("456");
-        user2.setPhoneNumber("456");
-        user2.setJob("fultter developer");
-        user2.setBirthDate(date);
-        user2.setAdress(add2);
-        add2.setUser(user2);
-        userRepo.addUser(user2, entityManager);
+    System.out.println(userRepo.addUser(user, entityManager));
 
-        System.out.println("---------------find user 1 date--------------------");
-        System.out.println(userRepo.findUserById(1, entityManager).toString());
-        System.out.println("---------------find user 2 date--------------------");
-        System.out.println(userRepo.findUserById(1, entityManager).getAdress().toString());
-        System.out.println("---------------find user 2 date--------------------");
-        System.out.println(userRepo.findUserById(2, entityManager).toString());
-        System.out.println("---------------find user 2 date--------------------");
-        System.out.println(userRepo.findUserById(2, entityManager).getAdress().toString());
-        System.out.println("---------------find user by email--------------------");
-        System.out.println(userRepo.findUserByEmail("ayagmailcom", entityManager).toString());
-        System.out.println("---------------find all user--------------------");
-        for (int i = 0; i < userRepo.getAllUsers(entityManager).size(); i++) {
-            System.out.println(userRepo.getAllUsers(entityManager).get(i).toString());
-        }
-        userRepo.makeUserAdmin(1, entityManager);
-        System.out.println("---------------find all user--------------------");
-        for (int i = 0; i < userRepo.getAllUsers(entityManager).size(); i++) {
-            System.out.println(userRepo.getAllUsers(entityManager).get(i).toString());
-        }
-        user1.setEmail("ali@gmail.com");
-        userRepo.updateUser(user1, entityManager);
-        System.out.println("---------------find all user--------------------");
-        for (int i = 0; i < userRepo.getAllUsers(entityManager).size(); i++) {
-            System.out.println(userRepo.getAllUsers(entityManager).get(i).toString());
-        }
+    System.out.println("---------------find user  date--------------------");
+    System.out.println(userRepo.findUserById(1, entityManager).toString());
 
-        System.out.println("---------------find user by user name--------------------");
-        System.out.println(userRepo.findUserByUserName("eman", entityManager).toString());
+    System.out.println("---------------find user  address--------------------");
+    System.out.println(userRepo.findUserById(1, entityManager).getAdress().toString());
 
-        req.getRequestDispatcher("index.jsp").include(req, resp);
+    System.out.println("---------------find user by email--------------------");
+    System.out.println(userRepo.findUserByEmail("yassinahmed670@gmail.com", entityManager).toString());
+
+    System.out.println("---------------find all user--------------------");
+    for (int i = 0; i < userRepo.getAllUsers(entityManager).size(); i++) {
+      System.out.println(userRepo.getAllUsers(entityManager).get(i).toString());
+    }
+
+    System.out.println("---------------find all user--------------------");
+    userRepo.makeUserAdmin(1, entityManager);
+    for (int i = 0; i < userRepo.getAllUsers(entityManager).size(); i++) {
+      System.out.println(userRepo.getAllUsers(entityManager).get(i).toString());
+    }
+
+    System.out.println("---------------find all user--------------------");
+    user.setEmail("ali@gmail.com");
+    userRepo.updateUser(user, entityManager);
+    for (int i = 0; i < userRepo.getAllUsers(entityManager).size(); i++) {
+      System.out.println(userRepo.getAllUsers(entityManager).get(i).toString());
+    }
+
+    System.out.println("---------------find user by user name--------------------");
+    System.out.println(userRepo.findUserByUserName("ahmed yassin", entityManager).toString());
+
+    System.out.println("---------------check user name availability--------------------");
+    System.out.println(userRepo.checkUserNameAvailability("ahmed l", entityManager));
+
+    System.out.println("---------------check email availability--------------------");
+    System.out.println(userRepo.checkEmailAvailability("ali@gmail.com", entityManager));
+
+    userRepo.findUserById(1, entityManager).getAdress().setBuildingNumber(100);
+    userRepo.findUserById(1, entityManager).getAdress().setCity("giza");
+    userRepo.findUserById(1, entityManager).getAdress().setCountry("cairo");;
+    userRepo.findUserById(1, entityManager).getAdress().setStreet("147 street");
+
+    userRepo.updateUser(user, entityManager);
+
+    System.out.println("---------------find user  address--------------------");
+    System.out.println(userRepo.findUserById(1, entityManager).getAdress().toString());
 
     }
 

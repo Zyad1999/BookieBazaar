@@ -21,4 +21,8 @@ public interface UserRepo {
     public boolean makeUserAdmin(int userId, EntityManager entityManager);
 
     public User findUserByUserName(String userName, EntityManager entityManager);
+
+    public boolean checkEmailAvailability(String email, EntityManager entityManager);
+
+    public boolean checkUserNameAvailability(String userName, EntityManager entityManager) ;
 }

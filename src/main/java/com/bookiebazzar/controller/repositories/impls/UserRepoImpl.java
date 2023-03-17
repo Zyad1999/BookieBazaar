@@ -7,20 +7,14 @@ import com.bookiebazzar.model.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 
 public class UserRepoImpl implements UserRepo {
 
-   
-
     public UserRepoImpl() {
 
-
-    }
-
-    public void closeResource(EntityManager entityManager) {
-        entityManager.close();
     }
 
     @Override
@@ -32,54 +26,107 @@ public class UserRepoImpl implements UserRepo {
         entityManager.persist(user);
         entityTransaction.commit();
         entityManager.refresh(user);
-        return 1;
+        return user.getId();
     }
 
     @Override
-    public boolean updateUser(User user,EntityManager entityManager) {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        entityTransaction.begin();
-        entityManager.merge(user);
-        entityTransaction.commit();
-        entityManager.refresh(user);
-        return true;
+    public boolean updateUser(User user, EntityManager entityManager) {
+
+        try {
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            entityManager.merge(user);
+            // entityManager.persist(user.getAdress());
+            entityTransaction.commit();
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
     @Override
-    public User findUserByEmail(String email,EntityManager entityManager) {
-        Query query = entityManager.createQuery("select u from User u where u.email=:email");
-        query.setParameter("email", email);
-        return (User) query.getSingleResult();
+    public User findUserByEmail(String email, EntityManager entityManager) {
+        try {
+            Query query = entityManager.createQuery("select u from User u where u.email=:email");
+            query.setParameter("email", email);
+            return (User) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
-    public User findUserById(int id,EntityManager entityManager) {
+    public User findUserById(int id, EntityManager entityManager) {
+
         User user = entityManager.find(User.class, id);
-        return user;
+        if (user != null) {
+            return user;
+        } else {
+            return null;
+        }
     }
 
     @Override
     public List<User> getAllUsers(EntityManager entityManager) {
-        Query query = entityManager.createQuery("select u from User u");
-        return (List<User>) query.getResultList();
+        try {
+            Query query = entityManager.createQuery("select u from User u");
+            return (List<User>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
-    public boolean makeUserAdmin(int userId,EntityManager entityManager) {
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        User userTemp = findUserById(userId,entityManager);
-        entityTransaction.begin();
-        userTemp.setAdmin(true);
-        entityTransaction.commit();
-        return true;
+    public boolean makeUserAdmin(int userId, EntityManager entityManager) {
+        try {
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            User userTemp = findUserById(userId, entityManager);
+            entityTransaction.begin();
+            userTemp.setAdmin(true);
+            entityTransaction.commit();
+            return true;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+
     }
-    
+
     @Override
     public User findUserByUserName(String userName, EntityManager entityManager) {
-        Query query = entityManager.createQuery("select u from User u where u.userName=:userName");
-        query.setParameter("userName", userName);
-        return (User) query.getSingleResult();
+        try {
+            Query query = entityManager.createQuery("select u from User u where u.userName=:userName");
+            query.setParameter("userName", userName);
+            return (User) query.getSingleResult();
+
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
+    @Override
+    public boolean checkEmailAvailability(String email, EntityManager entityManager) {
+        try {
+            Query query = entityManager.createQuery("select u from User u where u.email=:email");
+            query.setParameter("email", email);
+            User user = (User) query.getSingleResult();
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkUserNameAvailability(String userName, EntityManager entityManager) {
+        try {
+            Query query = entityManager.createQuery("select u from User u where u.userName=:userName");
+            query.setParameter("userName", userName);
+            System.out.println("return is " + query.getSingleResult());
+            User user = (User) query.getSingleResult();
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
 
 }
