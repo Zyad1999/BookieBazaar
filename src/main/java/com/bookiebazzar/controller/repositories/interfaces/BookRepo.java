@@ -16,5 +16,5 @@ public interface BookRepo {
 
     public boolean removeBook(int bookID, EntityManager entityManager);
 
-    public List<Book> getAllBooks(BookFilter filter, EntityManager entityManager);
+    public List<Book> getAllBooks(BookFilter filter, int page, EntityManager entityManager);
 }

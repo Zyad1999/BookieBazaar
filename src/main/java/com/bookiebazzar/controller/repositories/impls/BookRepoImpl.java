@@ -15,6 +15,8 @@ import jakarta.persistence.criteria.Root;
 
 public class BookRepoImpl implements BookRepo {
 
+    public static final int PAGE_SIZE = 15;
+
     @Override
     public int addBook(Book book, EntityManager entityManager) {
         Book newBook;
@@ -62,14 +64,15 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> getAllBooks(BookFilter filter, EntityManager entityManager) {
-        
+    public List<Book> getAllBooks(BookFilter filter, int page,EntityManager entityManager) {
+
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Book> query = cb.createQuery(Book.class);
         Root<Book> bookRoot = query.from(Book.class);
 
         List<Predicate> predicates = new ArrayList<>();
 
+        // Add predicates for non-null fields of the filter
         if (filter.getMinPages() != null) {
             predicates.add(cb.greaterThanOrEqualTo(bookRoot.get("numberOfPages"), filter.getMinPages()));
         }
@@ -85,6 +88,12 @@ public class BookRepoImpl implements BookRepo {
         if (filter.getLanguage() != null) {
             predicates.add(cb.equal(bookRoot.get("language"), filter.getLanguage()));
         }
+        if (filter.getMinPrice() != null) {
+            predicates.add(cb.greaterThanOrEqualTo(bookRoot.get("price"), filter.getMinPrice()));
+        }
+        if (filter.getMaxPrice() != null) {
+            predicates.add(cb.lessThanOrEqualTo(bookRoot.get("price"), filter.getMaxPrice()));
+        }
         if (filter.getCategories() != null && !filter.getCategories().isEmpty()) {
             List<Predicate> categoryPredicates = new ArrayList<>();
             for (String category : filter.getCategories()) {
@@ -92,8 +101,15 @@ public class BookRepoImpl implements BookRepo {
             }
             predicates.add(cb.or(categoryPredicates.toArray(new Predicate[0])));
         }
+
         query.where(predicates.toArray(new Predicate[0]));
-        return entityManager.createQuery(query).getResultList();
+        query.orderBy(cb.asc(bookRoot.get("id")));
+
+        int offset = (page - 1) * PAGE_SIZE;
+        return entityManager.createQuery(query)
+                .setFirstResult(offset)
+                .setMaxResults(PAGE_SIZE)
+                .getResultList();
     }
 
 }
