@@ -9,39 +9,58 @@ import com.bookiebazzar.model.entities.BookOrder;
 import com.bookiebazzar.model.entities.CartItem;
 import com.bookiebazzar.model.entities.User;
 import com.bookiebazzar.model.entities.UserOrder;
+import com.bookiebazzar.utils.objects.ValidationMsg;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
 public class OrderRepoImpl implements OrderRepo {
 
+    ValidationMsg validationMsg;
+
     @Override
-    public int createNewOrder(int userID, EntityManager entityManager) {
+    public ValidationMsg createNewOrder(int userID, EntityManager entityManager) {
         int sum = 0;
         LocalDateTime now = LocalDateTime.now();
-        CartRepoImpl cartRepoImpl = new CartRepoImpl();
         User user = entityManager.find(User.class, userID);
         Set<CartItem> setOfCartItem = user.getCartItems();
         UserOrder userOrder = new UserOrder();
         userOrder.setCreatedAt(now);
         userOrder.setUser(user);
         for (CartItem cartItem : setOfCartItem) {
-            sum += cartItem.getBook().getPrice() * cartItem.getQuantity();
-            BookOrder bookOrder = new BookOrder();
-            bookOrder.setOrder(userOrder);
-            bookOrder.setBook(cartItem.getBook());
-            bookOrder.setQuantity(cartItem.getQuantity());
-            userOrder.getBookOrders().add(bookOrder);
+            if (cartItem.getQuantity() <= cartItem.getBook().getQuantity()) {
+                sum += cartItem.getBook().getPrice() * cartItem.getQuantity();
+                BookOrder bookOrder = new BookOrder();
+                bookOrder.setOrder(userOrder);
+                bookOrder.setBook(cartItem.getBook());
+                bookOrder.setQuantity(cartItem.getQuantity());
+                userOrder.getBookOrders().add(bookOrder);
+                bookOrder.getBook().setQuantity(bookOrder.getBook().getQuantity() - bookOrder.getQuantity());
+            } else {
+                validationMsg = new ValidationMsg(1, "The available quantity of " + cartItem.getBook().getName()
+                        + " Book is " + cartItem.getBook().getQuantity());
+                return validationMsg;
+            }
         }
         userOrder.setTotalPrice(sum);
+        if (sum < user.getCreditLimit()) {
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            user.setCreditLimit(user.getCreditLimit() - sum);
+            entityManager.persist(userOrder);
 
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        entityTransaction.begin();
-        entityManager.persist(userOrder);
-        cartRepoImpl.emptyUserCart(userID, entityManager);
-        entityTransaction.commit();
+            Query query = entityManager.createQuery("DELETE FROM CartItem ci WHERE ci.user.id = :id");
+            query.setParameter("id", userID);
+            int rowsDeleted = query.executeUpdate();
 
-        return 0;
+            entityTransaction.commit();
+            validationMsg = new ValidationMsg(0, "succeeded");
+        } else {
+            validationMsg = new ValidationMsg(1, "There is no enough money in the credit");
+        }
+        return validationMsg;
     }
 
     @Override

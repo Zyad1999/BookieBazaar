@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.bookiebazzar.model.entities.BookOrder;
 import com.bookiebazzar.model.entities.UserOrder;
+import com.bookiebazzar.utils.objects.ValidationMsg;
 
 import jakarta.persistence.EntityManager;
 
 public interface OrderRepo {
     
-    public int createNewOrder(int userID, EntityManager entityManager);
+    public ValidationMsg createNewOrder(int userID, EntityManager entityManager);
 
     public List<UserOrder> getUserOrders(int userID, EntityManager entityManager);
 

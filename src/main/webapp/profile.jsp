@@ -38,16 +38,10 @@
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600" style="font-size: 30px;">Information</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">First Name</p>
+                                        <p class="m-b-10 f-w-600">Username</p>
                                     </div>
                                     <div class="col-sm-6">
                                         <h6 class="text-muted f-w-400">Esraa</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Last Name</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">Naser</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Birthdate</p>

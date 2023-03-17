@@ -13,8 +13,8 @@
             <property name="jakarta.persistence.jdbc.password" value="root" />
             <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
             <!-- <property name="jakarta.persistence.schema-generation.create-source" value="metadata" /> -->
-            <property name="jakarta.persistence.schema-generation.database.action"
-            value="drop-and-create" />
+            <!-- <property name="jakarta.persistence.schema-generation.database.action"
+            value="drop-and-create" /> -->
         </properties>
     </persistence-unit>
 
