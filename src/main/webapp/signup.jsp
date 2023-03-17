@@ -40,11 +40,13 @@
                     <fieldset class="row">
 
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="First Name" type="text" required>
+                        <input class="field_custom" placeholder="User Name" type="text" required>
                       </div>
 
+                  
+
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Last Name" type="text" required>
+                        <input class="field_custom" placeholder="Phone Number" type="number" required>
                       </div>
 
 
@@ -85,13 +87,7 @@
                       </div>
 
 
-                      <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Phone Number" type="number" required>
-                      </div>
-
-                      <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Interests" type="text" required>
-                      </div>
+                    
 
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <input class="field_custom" placeholder="Credit Limit" type="number" required>

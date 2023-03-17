@@ -78,8 +78,8 @@ public class User implements Serializable {
         return userName;
     }
 
-    public void setUserName(String firstName) {
-        this.userName = firstName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -156,7 +156,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", firstName=" + userName + ", email=" + email
+        return "User [id=" + id + ", userName=" + userName + ", email=" + email
                 + ", password=" + password + ", phoneNumber=" + phoneNumber + ", job=" + job + ", birthDate="
                 + birthDate + ", creditLimit=" + creditLimit + ", isAdmin=" + isAdmin + "]";
     }

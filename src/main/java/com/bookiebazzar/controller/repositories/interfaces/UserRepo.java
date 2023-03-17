@@ -4,17 +4,21 @@ import java.util.List;
 
 import com.bookiebazzar.model.entities.User;
 
+import jakarta.persistence.EntityManager;
+
 public interface UserRepo {
     
-    public int addUser(User user);
+    public int addUser(User user,EntityManager entityManager);
 
-    public boolean updateUser(User user);
+    public boolean updateUser(User user,EntityManager entityManager);
 
-    public User findUserByEmail(String email);
+    public User findUserByEmail(String email,EntityManager entityManager);
 
-    public User findUserById(int id);
+    public User findUserById(int id, EntityManager entityManager);
 
-    public List<User> getAllUsers();
+    public List<User> getAllUsers(EntityManager entityManager);
 
-    public boolean makeUserAdmin(int userId);
+    public boolean makeUserAdmin(int userId, EntityManager entityManager);
+
+    public User findUserByUserName(String userName, EntityManager entityManager);
 }
