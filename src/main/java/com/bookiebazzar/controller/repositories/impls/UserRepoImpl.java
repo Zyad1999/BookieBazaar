@@ -12,23 +12,19 @@ import jakarta.persistence.Query;
 
 public class UserRepoImpl implements UserRepo {
 
-    private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
+   
 
     public UserRepoImpl() {
 
-        entityManagerFactory = Persistence.createEntityManagerFactory("main");
-        entityManager = entityManagerFactory.createEntityManager();
 
     }
 
-    public void closeResource() {
+    public void closeResource(EntityManager entityManager) {
         entityManager.close();
-        entityManagerFactory.close();
     }
 
     @Override
-    public int addUser(User user) {
+    public int addUser(User user, EntityManager entityManager) {
 
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
@@ -40,7 +36,7 @@ public class UserRepoImpl implements UserRepo {
     }
 
     @Override
-    public boolean updateUser(User user) {
+    public boolean updateUser(User user,EntityManager entityManager) {
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
         entityManager.merge(user);
@@ -49,32 +45,40 @@ public class UserRepoImpl implements UserRepo {
     }
 
     @Override
-    public User findUserByEmail(String email) {
+    public User findUserByEmail(String email,EntityManager entityManager) {
         Query query = entityManager.createQuery("select u from User u where u.email=:email");
         query.setParameter("email", email);
         return (User) query.getSingleResult();
     }
 
     @Override
-    public User findUserById(int id) {
+    public User findUserById(int id,EntityManager entityManager) {
         User user = entityManager.find(User.class, id);
         return user;
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(EntityManager entityManager) {
         Query query = entityManager.createQuery("select u from User u");
         return (List<User>) query.getResultList();
     }
 
     @Override
-    public boolean makeUserAdmin(int userId) {
+    public boolean makeUserAdmin(int userId,EntityManager entityManager) {
         EntityTransaction entityTransaction = entityManager.getTransaction();
-        User userTemp = findUserById(userId);
+        User userTemp = findUserById(userId,entityManager);
         entityTransaction.begin();
         userTemp.setAdmin(true);
         entityTransaction.commit();
         return true;
     }
+    
+    @Override
+    public User findUserByUserName(String userName, EntityManager entityManager) {
+        Query query = entityManager.createQuery("select u from User u where u.userName=:userName");
+        query.setParameter("userName", userName);
+        return (User) query.getSingleResult();
+    }
+
 
 }
