@@ -10,8 +10,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
+import jakarta.persistence.Table;
 
-@Entity(name = "BOOK_ORDER")
+@Entity
+@Table(name = "BOOK_ORDER")
 public class BookOrder implements Serializable {
 
     @EmbeddedId
