@@ -10,9 +10,11 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
+import jakarta.persistence.Table;
 
 
-@Entity(name = "CART_ITEM")
+@Entity
+@Table(name = "CART_ITEM")
 public class CartItem implements Serializable {
 
     @EmbeddedId

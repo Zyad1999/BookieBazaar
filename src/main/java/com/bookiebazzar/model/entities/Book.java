@@ -44,6 +44,9 @@ public class Book implements Serializable {
     @Column(name = "no_pages", nullable = false)
     private int numberOfPages;
 
+    @Column(name = "category", nullable = false)
+    private String category;
+
     public int getId() {
         return id;
     }
@@ -174,6 +177,14 @@ public class Book implements Serializable {
 
     public void setLanguage(Language language) {
         this.language = language;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
     
     

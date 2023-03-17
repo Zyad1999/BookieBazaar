@@ -18,6 +18,14 @@ public class CartItemId implements Serializable {
         return userId;
     }
 
+    public CartItemId(int userId, int bookId) {
+        this.userId = userId;
+        this.bookId = bookId;
+    }
+
+    public CartItemId() {
+    }
+
     public int getBookId() {
         return bookId;
     }

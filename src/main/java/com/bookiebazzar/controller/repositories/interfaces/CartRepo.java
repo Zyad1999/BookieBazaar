@@ -10,10 +10,14 @@ public interface CartRepo {
     
     public boolean addCartItem(CartItem item, EntityManager entityManager);
 
-    public boolean removeCartItem(CartItem item, EntityManager entityManager);
+    public boolean removeCartItem(int userId, int bookId, EntityManager entityManager);
+
+    public boolean changeItemQuantity(CartItem item, EntityManager entityManager);
 
     public List<CartItem> getUserCart(int userID, EntityManager entityManager);
 
     public boolean emptyUserCart(int userID, EntityManager entityManager);
+
+    public CartItem getCartItem(int userId, int bookId, EntityManager entityManager);
     
 }
