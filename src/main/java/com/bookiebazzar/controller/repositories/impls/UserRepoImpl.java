@@ -41,6 +41,7 @@ public class UserRepoImpl implements UserRepo {
         entityTransaction.begin();
         entityManager.merge(user);
         entityTransaction.commit();
+        entityManager.refresh(user);
         return true;
     }
 
