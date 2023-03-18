@@ -133,7 +133,7 @@
                 <form class="cart" method="post" action="">
                   <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
                     Edit Book</a>
-                    <a href="" class="btn sqaure_bt" data-toggle="modal">
+                    <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
                       Delete Book</a>
                 </form>
               
@@ -240,7 +240,29 @@
       </div>
     </div>
   </div>
-
+  <div id="deleteBook" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+						<h4 class="modal-title">Delete Book</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to delete these Book?</p>
+					</div>
+					<div class="modal-footer">
+						<!-- <input type="button" class="btn btn-default" data-dismiss="modal"
+							value="Cancel"> <input type="submit"
+							class="btn btn-danger" value="Delete"> -->
+              <button type="submit" value="Add" class="btn sqaure_bt">cancel</button>
+              <button type="submit" value="Add" class="btn sqaure_bt">Delete</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
   <!-- footer -->
   <footer class="footer_style_2">
     <div class="container-fuild">
