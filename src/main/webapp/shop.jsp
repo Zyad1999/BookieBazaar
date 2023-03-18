@@ -322,7 +322,7 @@
             </div>
             <div class="side_bar_blog">
 
-              <a href="#addEmployeeModal" class="btn sqaure_bt" data-toggle="modal">
+              <a href="#addBook" class="btn sqaure_bt" data-toggle="modal">
                 Add Book</a>
 
             </div>
@@ -348,7 +348,7 @@
 
 
   <!-- Edit Modal HTML -->
-  <div id="addEmployeeModal" class="modal fade">
+  <div id="addBook" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <form>
@@ -361,6 +361,12 @@
               <label>Name</label> <input type="text" class="field_custom" required>
             </div>
             <div class="form-group">
+              <label>Author</label> <input type="text" class="field_custom" required>
+            </div>
+            <div class="form-group">
+              <label>Category</label> <input type="text" class="field_custom" required>
+            </div>
+            <div class="form-group">
               <label>Quantity</label> <input type="number" class="field_custom" required>
             </div>
             <div class="form-group">
@@ -368,9 +374,16 @@
               <input type="number" class="field_custom" required>
             </div>
             <div class="form-group">
+              <label>Number Of Pages</label> <input type="number" class="field_custom" required>
+            </div>
+            <div class="form-group">
+              <label>Language</label> <input type="text" class="field_custom" required>
+            </div>
+            <div class="form-group">
               <label>Description</label>
               <textarea class="field_custom" required></textarea>
             </div>
+          
             <div class="form-group">
               <label>Image</label>
               <input type="file" class="" required>

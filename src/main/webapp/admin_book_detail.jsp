@@ -215,6 +215,12 @@
               <label>Name</label> <input type="text" class="field_custom" required>
             </div>
             <div class="form-group">
+              <label>Author</label> <input type="text" class="field_custom" required>
+            </div>
+            <div class="form-group">
+              <label>Category</label> <input type="text" class="field_custom" required>
+            </div>
+            <div class="form-group">
               <label>Quantity</label> <input type="number" class="field_custom" required>
             </div>
             <div class="form-group">
@@ -222,9 +228,16 @@
               <input type="number" class="field_custom" required>
             </div>
             <div class="form-group">
+              <label>Number Of Pages</label> <input type="number" class="field_custom" required>
+            </div>
+            <div class="form-group">
+              <label>Language</label> <input type="text" class="field_custom" required>
+            </div>
+            <div class="form-group">
               <label>Description</label>
               <textarea class="field_custom" required></textarea>
             </div>
+          
             <div class="form-group">
               <label>Image</label>
               <input type="file" class="" required>
