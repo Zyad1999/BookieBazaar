@@ -389,10 +389,12 @@
               <input type="file" class="" required>
             </div>
           </div>
+          
           <div class="modal-footer">
-            <!-- <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"> -->
-            <button type="submit" value="Add" class="btn sqaure_bt">cancel</button>
-            <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
+
+          <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
+            
+          <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
 
           </div>
         </form>
