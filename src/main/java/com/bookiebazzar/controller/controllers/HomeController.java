@@ -7,6 +7,7 @@ import com.bookiebazzar.controller.repositories.impls.UserRepoImpl;
 import com.bookiebazzar.controller.repositories.interfaces.CartRepo;
 import com.bookiebazzar.model.entities.Address;
 import com.bookiebazzar.model.entities.User;
+import com.bookiebazzar.utils.enums.Pages;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -99,8 +100,9 @@ public class HomeController extends HttpServlet {
         System.out.println("---------------find user  address--------------------");
         System.out.println(userRepo.findUserById(1, entityManager).getAdress().toString());
 
-        req.getRequestDispatcher("index.jsp").include(req, resp);
-
+        //req.getRequestDispatcher("index.jsp").include(req, resp);
+        
+        Pages.HOME.include(req, resp);
     }
 
 }
