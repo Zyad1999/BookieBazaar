@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class UserDto {
     private int id;
-    private Address adress;
+    private AddressDto adressDto;
     private String userName;
     private String email;
     private String password;
@@ -19,10 +19,10 @@ public class UserDto {
 
     }
 
-    public UserDto(int id, Address adress, String userName, String email, String password, String phoneNumber,
+    public UserDto(int id, AddressDto adressDto, String userName, String email, String password, String phoneNumber,
             String job, LocalDate birthDate, int creditLimit, boolean isAdmin) {
         this.id = id;
-        this.adress = adress;
+        this.adressDto = adressDto;
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -37,8 +37,8 @@ public class UserDto {
         this.id = id;
     }
 
-    public void setAdress(Address adress) {
-        this.adress = adress;
+    public void setAdress(AddressDto adressDto) {
+        this.adressDto = adressDto;
     }
 
     public void setUserName(String userName) {
@@ -77,8 +77,8 @@ public class UserDto {
         return id;
     }
 
-    public Address getAdress() {
-        return adress;
+    public AddressDto getAdress() {
+        return adressDto;
     }
 
     public String getUserName() {
