@@ -10,7 +10,6 @@ public class BookOrderMapper {
         bookOrderDto.setBook(BookMapper.toDto(bookOrder.getBook()));
         bookOrderDto.setQuantity(bookOrder.getQuantity());
         bookOrderDto.setOrderId(bookOrder.getId().getOrderId());
-        bookOrderDto.setBookId(bookOrder.getId().getBookId());
         return bookOrderDto;
     }
 
@@ -19,7 +18,6 @@ public class BookOrderMapper {
         bookOrder.setBook(BookMapper.toEntity(bookOrderDto.getBook()));
         bookOrder.setQuantity(bookOrderDto.getQuantity());
         bookOrder.getId().setOrderId(bookOrderDto.getOrderId());
-        bookOrder.getId().setBookId(bookOrderDto.getBookId());
         return bookOrder;
     }
 }
