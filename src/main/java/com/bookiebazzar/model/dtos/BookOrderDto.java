@@ -6,15 +6,12 @@ public class BookOrderDto implements Serializable {
 
     private int orderId;
 
-    private int bookId;
-
     private int quantity;
 
     private BookDto book;
 
-    public BookOrderDto(int orderId, int bookId, int quantity, BookDto book) {
+    public BookOrderDto(int orderId, int quantity, BookDto book) {
         this.orderId = orderId;
-        this.bookId = bookId;
         this.quantity = quantity;
         this.book = book;
     }
@@ -28,14 +25,6 @@ public class BookOrderDto implements Serializable {
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
     }
 
     public int getQuantity() {
