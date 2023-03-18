@@ -1,6 +1,7 @@
 package com.bookiebazzar.controller.repositories.interfaces;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.utils.objects.BookFilter;
@@ -16,5 +17,9 @@ public interface BookRepo {
 
     public boolean removeBook(int bookID, EntityManager entityManager);
 
-    public List<Book> getAllBooks(BookFilter filter, int page, EntityManager entityManager);
+    public List<Book> getAllBooksFiltered(BookFilter filter, int page, EntityManager entityManager);
+
+    public List<Book> getAllBooks(EntityManager entityManager);
+
+    public Map<String, String> getAllCategories(EntityManager entityManager);
 }

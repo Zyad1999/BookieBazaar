@@ -1,13 +1,16 @@
 package com.bookiebazzar.controller.repositories.impls;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.bookiebazzar.controller.repositories.interfaces.BookRepo;
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.utils.objects.BookFilter;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -64,7 +67,7 @@ public class BookRepoImpl implements BookRepo {
     }
 
     @Override
-    public List<Book> getAllBooks(BookFilter filter, int page,EntityManager entityManager) {
+    public List<Book> getAllBooksFiltered(BookFilter filter, int page, EntityManager entityManager) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Book> query = cb.createQuery(Book.class);
@@ -112,4 +115,25 @@ public class BookRepoImpl implements BookRepo {
                 .getResultList();
     }
 
+    public List<Book> getAllBooks(EntityManager entityManager) {
+        return entityManager.createQuery("b FROM Book b", Book.class).getResultList();
+    }
+
+    @Override
+    public Map<String, String> getAllCategories(EntityManager entityManager) {
+        Query query = entityManager.createQuery("SELECT DISTINCT b.category, b.img FROM Book b");
+        List<Object[]> results = query.getResultList();
+
+        Map<String, String> categoriesWithRandomImg = new HashMap<>();
+
+        for (Object[] result : results) {
+            String category = (String) result[0];
+            String img = (String) result[1];
+
+            if (!categoriesWithRandomImg.containsKey(category)) {
+                categoriesWithRandomImg.put(category, img);
+            }
+        }
+        return categoriesWithRandomImg;
+    }
 }

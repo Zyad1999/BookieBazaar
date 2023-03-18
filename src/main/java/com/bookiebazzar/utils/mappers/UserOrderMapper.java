@@ -11,7 +11,7 @@ public class UserOrderMapper {
 
     public static UserOrderDto toDto(UserOrder userOrder) {
         UserOrderDto userOrderDto = new UserOrderDto();
-        userOrderDto.setUser(UserMapper.toDto(userOrder.getUser()));
+        userOrderDto.setUserId((userOrder.getUser() != null) ? userOrder.getUser().getId() : -1);
         userOrderDto.setId(userOrder.getId());
         userOrderDto.setCreatedAt(userOrder.getCreatedAt());
         userOrderDto.setTotalPrice(userOrder.getTotalPrice());
@@ -27,7 +27,6 @@ public class UserOrderMapper {
 
     public static UserOrder toEntity(UserOrderDto userOrderDto) {
         UserOrder userOrder = new UserOrder();
-        userOrder.setUser(UserMapper.toEntity(userOrderDto.getUser()));
         userOrder.setId(userOrderDto.getId());
         userOrder.setCreatedAt(userOrderDto.getCreatedAt());
         userOrder.setTotalPrice(userOrderDto.getTotalPrice());

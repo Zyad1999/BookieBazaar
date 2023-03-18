@@ -1,7 +1,8 @@
 package com.bookiebazzar.model.dtos;
 
-import com.bookiebazzar.model.entities.Address;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 public class UserDto {
     private int id;
@@ -14,9 +15,18 @@ public class UserDto {
     private LocalDate birthDate;
     private int creditLimit;
     private boolean isAdmin;
+    private Set<UserOrderDto> orders;
 
     public UserDto() {
 
+    }
+
+    public Set<UserOrderDto> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<UserOrderDto> orders) {
+        this.orders = orders;
     }
 
     public UserDto(int id, AddressDto adressDto, String userName, String email, String password, String phoneNumber,

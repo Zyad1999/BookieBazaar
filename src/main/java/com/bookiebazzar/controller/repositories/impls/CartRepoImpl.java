@@ -7,6 +7,7 @@ import com.bookiebazzar.model.entities.CartItem;
 import com.bookiebazzar.model.entities.CartItemId;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
@@ -27,15 +28,15 @@ public class CartRepoImpl implements CartRepo {
 
     @Override
     public boolean removeCartItem(int userId, int bookId, EntityManager entityManager) {
-        try{
+        try {
             entityManager.getTransaction().begin();
             Query query = entityManager
-            .createQuery("DELETE FROM CartItem ci WHERE ci.user.id = :userId and ci.book.id = :bookId");
+                    .createQuery("DELETE FROM CartItem ci WHERE ci.user.id = :userId and ci.book.id = :bookId");
             query.setParameter("userId", userId);
             query.setParameter("bookId", bookId);
             query.executeUpdate();
             entityManager.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
             return false;
         }
@@ -44,22 +45,29 @@ public class CartRepoImpl implements CartRepo {
 
     @Override
     public List<CartItem> getUserCart(int userID, EntityManager entityManager) {
-        TypedQuery<CartItem> query = entityManager
-                .createQuery("select ci from CartItem ci where ci.user.id = :id", CartItem.class);
-        query.setParameter("id", userID);
-        return query.getResultList();
+        try {
+            TypedQuery<CartItem> query = entityManager
+                    .createQuery("select ci from CartItem ci where ci.user.id = :id", CartItem.class);
+            query.setParameter("id", userID);
+            return query.getResultList();
+        } catch (NoResultException ne) {
+            return null;
+        }catch(Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 
     @Override
     public boolean emptyUserCart(int userID, EntityManager entityManager) {
-        try{
+        try {
             entityManager.getTransaction().begin();
             Query query = entityManager.createQuery("DELETE FROM CartItem ci WHERE ci.user.id = :id");
             query.setParameter("id", userID);
             int rowsDeleted = query.executeUpdate();
             System.out.println(rowsDeleted);
             entityManager.getTransaction().commit();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
             return false;
         }
@@ -68,12 +76,12 @@ public class CartRepoImpl implements CartRepo {
 
     @Override
     public boolean changeItemQuantity(CartItem item, EntityManager entityManager) {
-        if(item.getQuantity() <= 0){
+        if (item.getQuantity() <= 0) {
             removeCartItem(item.getUser().getId(), item.getBook().getId(), entityManager);
             return true;
         }
         CartItem cartItem = getCartItem(item.getUser().getId(), item.getBook().getId(), entityManager);
-        if(cartItem.getBook().getQuantity() < item.getQuantity()){
+        if (cartItem.getBook().getQuantity() < item.getQuantity()) {
             return false;
         }
         cartItem.setQuantity(item.getQuantity());

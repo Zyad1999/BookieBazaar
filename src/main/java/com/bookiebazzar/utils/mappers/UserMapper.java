@@ -1,7 +1,12 @@
 package com.bookiebazzar.utils.mappers;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.bookiebazzar.model.dtos.UserDto;
+import com.bookiebazzar.model.dtos.UserOrderDto;
 import com.bookiebazzar.model.entities.User;
+import com.bookiebazzar.model.entities.UserOrder;
 
 public class UserMapper {
    
@@ -17,9 +22,17 @@ public class UserMapper {
         userDto.setBirthDate(user.getBirthDate());
         userDto.setCreditLimit(user.getCreditLimit());
         userDto.setAdmin(user.isAdmin());
+
+        Set<UserOrderDto> userOrders = new HashSet<>();
+        for (UserOrder userOrder : user.getOrders()) {
+            UserOrderDto userOrderDto = UserOrderMapper.toDto(userOrder);
+            userOrders.add(userOrderDto);
+        }
+        userDto.setOrders(userOrders);
         return userDto;
 
     }
+
      public static User toEntity(UserDto userDto) {
         User user=new User();
         user.setId(userDto.getId());
@@ -32,8 +45,13 @@ public class UserMapper {
         user.setBirthDate(userDto.getBirthDate());
         user.setCreditLimit(userDto.getCreditLimit());
         user.setAdmin(userDto.isAdmin());
+
+        Set<UserOrder> userOrders = new HashSet<>();
+        for (UserOrderDto userOrderDto : userDto.getOrders()) {
+            UserOrder userOrder = UserOrderMapper.toEntity(userOrderDto);
+            userOrders.add(userOrder);
+        }
+        user.setOrders(userOrders);
         return user;
-
     }
-
 }

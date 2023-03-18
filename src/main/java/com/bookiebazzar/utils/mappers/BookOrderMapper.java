@@ -18,6 +18,7 @@ public class BookOrderMapper {
         bookOrder.setBook(BookMapper.toEntity(bookOrderDto.getBook()));
         bookOrder.setQuantity(bookOrderDto.getQuantity());
         bookOrder.getId().setOrderId(bookOrderDto.getOrderId());
+        bookOrder.getId().setBookId(bookOrderDto.getBook().getId());
         return bookOrder;
     }
 }

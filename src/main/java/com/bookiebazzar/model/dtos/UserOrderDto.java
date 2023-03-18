@@ -12,23 +12,23 @@ public class UserOrderDto implements Serializable {
 
     private int totalPrice;
 
-    private UserDto user;
+    private int userId;
 
     private Set<BookOrderDto> BookOrders = new HashSet<BookOrderDto>();
 
-    public UserOrderDto(int id, LocalDateTime createdAt, int totalPrice, UserDto user, Set<BookOrderDto> bookOrders) {
+    public UserOrderDto(int id, LocalDateTime createdAt, int totalPrice, int userId, Set<BookOrderDto> bookOrders) {
         this.id = id;
         this.createdAt = createdAt;
         this.totalPrice = totalPrice;
-        this.user = user;
+        this.userId = userId;
         BookOrders = bookOrders;
     }
 
-    public UserOrderDto(int id, LocalDateTime createdAt, int totalPrice, UserDto user) {
+    public UserOrderDto(int id, LocalDateTime createdAt, int totalPrice, int userId) {
         this.id = id;
         this.createdAt = createdAt;
         this.totalPrice = totalPrice;
-        this.user = user;
+        this.userId = userId;
     }
 
     public UserOrderDto() {
@@ -58,12 +58,12 @@ public class UserOrderDto implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public UserDto getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(UserDto user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Set<BookOrderDto> getBookOrders() {
