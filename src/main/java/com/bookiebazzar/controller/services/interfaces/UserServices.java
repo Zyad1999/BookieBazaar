@@ -9,4 +9,6 @@ public interface UserServices {
     public UserDto getUserById(int userId, EntityManager em);
 
     UserDto userLogin(String email, String password, EntityManager em);
+
+    UserDto userSignup(UserDto user, EntityManager em);
 }

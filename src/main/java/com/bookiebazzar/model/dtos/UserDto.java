@@ -1,12 +1,12 @@
 package com.bookiebazzar.model.dtos;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class UserDto {
     private int id;
-    private AddressDto adressDto;
+    private AddressDto addressDto;
     private String userName;
     private String email;
     private String password;
@@ -15,7 +15,7 @@ public class UserDto {
     private LocalDate birthDate;
     private int creditLimit;
     private boolean isAdmin;
-    private Set<UserOrderDto> orders;
+    private Set<UserOrderDto> orders = new HashSet<UserOrderDto>();
 
     public UserDto() {
 
@@ -29,10 +29,23 @@ public class UserDto {
         this.orders = orders;
     }
 
-    public UserDto(int id, AddressDto adressDto, String userName, String email, String password, String phoneNumber,
+    public UserDto(int id, AddressDto addressDto, String userName, String email, String password, String phoneNumber,
             String job, LocalDate birthDate, int creditLimit, boolean isAdmin) {
         this.id = id;
-        this.adressDto = adressDto;
+        this.addressDto = addressDto;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.job = job;
+        this.birthDate = birthDate;
+        this.creditLimit = creditLimit;
+        this.isAdmin = isAdmin;
+    }
+
+    public UserDto(AddressDto addressDto, String userName, String email, String password, String phoneNumber,
+                   String job, LocalDate birthDate, int creditLimit, boolean isAdmin) {
+        this.addressDto = addressDto;
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -47,8 +60,8 @@ public class UserDto {
         this.id = id;
     }
 
-    public void setAdress(AddressDto adressDto) {
-        this.adressDto = adressDto;
+    public void setAddress(AddressDto addressDto) {
+        this.addressDto = addressDto;
     }
 
     public void setUserName(String userName) {
@@ -87,8 +100,8 @@ public class UserDto {
         return id;
     }
 
-    public AddressDto getAdress() {
-        return adressDto;
+    public AddressDto getAddress() {
+        return addressDto;
     }
 
     public String getUserName() {

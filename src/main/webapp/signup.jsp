@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,69 +37,54 @@
               </div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 appointment_form">
                 <div class="form_section">
-                  <form class="form_contant" action="index.jsp">
+                  <form class="form_contant" action="signup" method="post">
                     <fieldset class="row">
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="User Name" type="text" required>
+                        <input class="field_custom" placeholder="User Name" type="text" name="username" required>
                       </div>
-
-                  
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Phone Number" type="number" required>
+                        <input class="field_custom" placeholder="Phone Number" type="number" name="phone" required>
                       </div>
-
-
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Password" type="password" required>
+                        <input class="field_custom" placeholder="Password" type="password" name="password" required>
                       </div>
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <input class="field_custom" placeholder="Confirm Password" type="password" required>
                       </div>
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Email" type="email" required>
+                        <input class="field_custom" placeholder="Email" type="email" name="email" required>
                       </div>
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Job" type="text" required>
+                        <input class="field_custom" placeholder="Job" type="text" name="job" required>
                       </div>
-
                       <div class="field col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <input class="field_custom" placeholder="Country" type="text" required>
+                        <input class="field_custom" placeholder="Country" type="text" name="country" required>
                       </div>
-
-
                       <div class="field col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <input class="field_custom" placeholder="City" type="text" required>
+                        <input class="field_custom" placeholder="City" type="text" name="city" required>
                       </div>
-
-
                       <div class="field col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <input class="field_custom" placeholder="Street" type="text" required>
+                        <input class="field_custom" placeholder="Street" type="text" name="street" required>
                       </div>
-
-
                       <div class="field col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                        <input class="field_custom" placeholder="Building Number" type="text" required>
+                        <input class="field_custom" placeholder="Building Number" type="number" name="building" required>
                       </div>
-
-
-                    
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input class="field_custom" placeholder="Credit Limit" type="number" required>
+                        <input class="field_custom" placeholder="Credit Limit" type="number" name="credit" required>
                       </div>
-
                       <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <input placeholder="Birth Date" class="field_custom" type="text" onfocus="(this.type='date')"
+                        <input placeholder="Birth Date" class="field_custom" type="text" name="birthdate" onfocus="(this.type='date')"
                           onblur="(this.type='text')" required />
                       </div>
+                      <c:if test="${not empty requestScope.signupFailed and requestScope.signupFailed eq true}">
+                        <div class="center" style="color: red">Signup Failed. Please try again.</div>
+                      </c:if>
+                      <div class="center" style="margin-top:20px;">
+                        <button class="btn sqaure_bt" type="submit">Signup</button>
+                      </div>
                       <div class="center">
-                        <a class="btn sqaure_bt" id="allProudcts" href="index.jsp">Signup</a>
+                        <p id="account">Already have an account? <a href="login" style="color:#b87906fa">Login</a>
+                        </p>
                       </div>
                     </fieldset>
                   </form>

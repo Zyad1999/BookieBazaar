@@ -13,7 +13,7 @@ public class UserMapper {
     public static UserDto toDto(User user) {
         UserDto userDto=new UserDto();
         userDto.setId(user.getId());
-        userDto.setAdress(AddressMapper.toDto(user.getAdress()));
+        userDto.setAddress(AddressMapper.toDto(user.getAdress()));
         userDto.setUserName(user.getUserName());
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
@@ -36,7 +36,7 @@ public class UserMapper {
      public static User toEntity(UserDto userDto) {
         User user=new User();
         user.setId(userDto.getId());
-        user.setAdress(AddressMapper.toEntity(userDto.getAdress()));
+        user.setAdress(AddressMapper.toEntity(userDto.getAddress()));
         user.setUserName(userDto.getUserName());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());

@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 public enum Pages {
     
     HOME("index.jsp","home"),
-    LOGIN("login.jsp","login");
+    LOGIN("login.jsp","login"),
+    LOGOUT("","logout"),
+    SIGNUP("signup.jsp", "signup");
 
     private final String path;
     private final String mapping;

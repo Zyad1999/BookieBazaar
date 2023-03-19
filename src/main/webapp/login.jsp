@@ -51,7 +51,7 @@
                       <button class="btn sqaure_bt" type="submit">login</button>
                     </div>
                     <div class="center">
-                      <p id="account">Don't have an account? <a href="signup.jsp" style="color:#b87906fa">Signup</a>.
+                      <p id="account">Don't have an account? <a href="signup" style="color:#b87906fa">Signup</a>
                       </p>
                     </div>
                   </fieldset>

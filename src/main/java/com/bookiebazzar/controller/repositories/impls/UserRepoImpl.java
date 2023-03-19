@@ -19,14 +19,18 @@ public class UserRepoImpl implements UserRepo {
 
     @Override
     public int addUser(User user, EntityManager entityManager) {
-
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        entityTransaction.begin();
-        entityManager.persist(user.getAdress());
-        entityManager.persist(user);
-        entityTransaction.commit();
-        entityManager.refresh(user);
-        return user.getId();
+        int userID = -1;
+        try {
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            user.getAdress().setUser(user);
+            entityManager.persist(user);
+            entityTransaction.commit();
+            userID = user.getId();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return userID;
     }
 
     @Override

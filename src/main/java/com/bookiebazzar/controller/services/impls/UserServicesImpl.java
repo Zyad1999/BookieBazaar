@@ -38,4 +38,13 @@ public class UserServicesImpl implements UserServices{
             return null;
         }
     }
+
+    @Override
+    public UserDto userSignup(UserDto user, EntityManager em){
+        User newUser = UserMapper.toEntity(user);
+        int userId = RepositoryFactoryImpl.getInstance().createUserRepo().addUser(newUser, em);
+        if(userId != -1)
+            return UserMapper.toDto(newUser);
+        return null;
+    }
 }
