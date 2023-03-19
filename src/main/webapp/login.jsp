@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,20 +32,23 @@
                 <div class="main_heading text_align_center">
                   <h2>Login</h2>
                 </div>
-                <form class="form_contant" action="index.jsp">
+                <form class="form_contant" action="login" method="post">
                   <fieldset class="row">
                     <div class="center">
                       <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <input class="field_custom" placeholder="Email" type="email" required>
+                        <input class="field_custom" placeholder="Email" type="email" name="email" required>
                       </div>
                     </div>
                     <div class="center">
                       <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <input class="field_custom" placeholder="Password" type="password" required>
+                        <input class="field_custom" placeholder="Password" type="password" name="password" required>
                       </div>
                     </div>
+                    <c:if test="${not empty requestScope.loginFailed and requestScope.loginFailed eq true}">
+                      <div class="center" style="color: red">Invalid Credentials. Please try again.</div>
+                    </c:if>
                     <div class="center" style="margin-top:20px;">
-                      <a class="btn sqaure_bt" id="allProudcts" href="index.jsp">login</a>
+                      <button class="btn sqaure_bt" type="submit">login</button>
                     </div>
                     <div class="center">
                       <p id="account">Don't have an account? <a href="signup.jsp" style="color:#b87906fa">Signup</a>.

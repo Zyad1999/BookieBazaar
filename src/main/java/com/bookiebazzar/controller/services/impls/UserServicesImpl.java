@@ -28,4 +28,14 @@ public class UserServicesImpl implements UserServices{
         }
         return null;
     }
+
+    @Override
+    public UserDto userLogin(String email, String password, EntityManager em){
+        User user = RepositoryFactoryImpl.getInstance().createUserRepo().findUserByEmail(email, em);
+        if(user != null && user.getPassword().equals(password)){
+            return UserMapper.toDto(user);
+        }else{
+            return null;
+        }
+    }
 }
