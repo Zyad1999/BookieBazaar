@@ -51,20 +51,27 @@ public class ShopBooks {
     private List<BookDto> filterBooks(List<BookDto> bookList, BookFilter filter, int pageNumber) {
 
         Stream<BookDto> bookStream = bookList.stream();
-
+        for (BookDto bookDto : bookList) {
+            System.out.println(bookDto.getAuthor());
+        }
+        
         if (filter.getMinPages() != null) {
+            System.out.println(filter.getMinPages());
             bookStream = bookStream.filter(book -> book.getNumberOfPages() >= filter.getMinPages());
         }
 
         if (filter.getMaxPages() != null) {
+            System.out.println(filter.getMaxPages());
             bookStream = bookStream.filter(book -> book.getNumberOfPages() <= filter.getMaxPages());
         }
 
         if (filter.getMinPrice() != null) {
+            System.out.println(filter.getMinPrice());
             bookStream = bookStream.filter(book -> book.getPrice() >= filter.getMinPrice());
         }
 
         if (filter.getMaxPrice() != null) {
+            System.out.println(filter.getMaxPrice());
             bookStream = bookStream.filter(book -> book.getPrice() <= filter.getMaxPrice());
         }
 
@@ -85,7 +92,7 @@ public class ShopBooks {
         }
 
         return bookStream
-                .skip(pageNumber * PAGE_SIZE)
+                .skip((pageNumber-1) * PAGE_SIZE)
                 .limit(PAGE_SIZE)
                 .collect(Collectors.toList());
     }
