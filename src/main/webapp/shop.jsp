@@ -113,13 +113,42 @@
       <div class="row">
         <div class="col-md-9">
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
               <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                    src="images/book_images/1a.jpg" alt=""> </div>
+                <div class="product_img"> <img width="300" height="300" src="images/book_images/harryBook.jpeg" alt="">
+                </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
+                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
+                  </div>
+                  <div class="product_price">
+                    <p><span class="new_price"> $12.49</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+              <div class="product_list">
+                <div class="product_img">
+                  <img width="300" height="300" src="images/book_images/harryBook2.jpg" alt="">
+                </div>
+                <div class="product_detail_btm">
+                  <div class="center">
+                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
+                  </div>
+                  <div class="product_price">
+                    <p><span class="new_price"> $12.49</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+              <div class="product_list">
+                <div class="product_img"> <img width="300" height="300"
+                    src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
+                <div class="product_detail_btm">
+                  <div class="center">
+                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>
@@ -129,35 +158,7 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
               <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                    src="images/book_images/2a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                    src="images/book_images/3a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="350"
+                <div class="product_img"> <img class="img-responsive" width="400" height="300"
                     src="images/book_images/4a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
@@ -311,36 +312,61 @@
           <div class="side_bar">
             <div class="side_bar_blog">
               <h4>SEARCH</h4>
-              <div class="side_bar_search">
+              <!-- <div class="side_bar_search">
                 <div class="input-group stylish-input-group">
                   <input class="form-control" placeholder="Search" type="text">
                   <span class="input-group-addon">
                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                   </span>
                 </div>
+              </div> -->
+              <div class="side_bar_search">
+                <div class="input-group stylish-input-group">
+                  <input class="form-control" placeholder="Book Name" type="text">
+                </div>
+                <br>
+                <div class="input-group stylish-input-group">
+                  <input class="form-control" placeholder="Author" type="text">
+                </div><br>
+                
+                <!-- <div class="col-md-6">
+                  <input class="form-control" style="padding: 0px 5px;" placeholder="Max page" type="number">
+                </div>
+                <div class="col-md-6">
+                  <input class="form-control" style="padding: 0px 5px;" placeholder="Min page" type="number">
+                </div><br><br> -->
+                
+                <div class="col-md-6">
+                  <input class="form-control" style="padding: 0px 5px;" placeholder="Min Price" type="number">
+                </div>
+                <div class="col-md-6">
+                  <input class="form-control" style="padding: 0px 5px;" placeholder="Max Price" type="number">
+                </div>
               </div>
             </div>
-            <div class="side_bar_blog">
-
-              <a href="#addBook" class="btn sqaure_bt" data-toggle="modal">
-                Add Book</a>
-
-            </div>
-
 
             <div class="side_bar_blog">
               <h4>Category</h4>
               <div class="tags">
                 <ul>
-                  <li><a href="#">Adventure stories</a></li>
+                  <li><a href="#" >Adventure stories</a></li>
                   <li><a href="#">Crime</a></li>
                   <li><a href="#">Fantasy</a></li>
                   <li><a href="#">Horror</a></li>
                   <li><a href="#">Humour and satire</a></li>
                 </ul>
               </div>
-            </div>
           </div>
+
+          <div class="center">
+            <a href="#addBook" class="btn sqaure_bt" data-toggle="modal">
+              Search</a>
+          </div>
+          <!-- <div class="side_bar_blog">
+            <a href="#addBook" class="btn sqaure_bt" data-toggle="modal">
+              Add Book</a>
+          </div> -->
+
         </div>
       </div>
     </div>
@@ -383,18 +409,18 @@
               <label>Description</label>
               <textarea class="field_custom" required></textarea>
             </div>
-          
+
             <div class="form-group">
               <label>Image</label>
               <input type="file" class="" required>
             </div>
           </div>
-          
+
           <div class="modal-footer">
 
-          <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
-            
-          <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
+            <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
+
+            <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
 
           </div>
         </form>
