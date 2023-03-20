@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,10 +42,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/employee.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/employee.js"></script>
 </head>
 
 <body id="default_theme" class="it_shop_list">
@@ -58,7 +58,7 @@
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- logo start -->
-            <div class="logo"> <a href="it_home.jsp"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
+            <div class="logo"> <a href="home"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
             <!-- logo end -->
           </div>
           <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -66,20 +66,20 @@
             <div class="menu_side">
               <div id="navbar_menu">
                 <ul class="first-ul">
-                  <li> <a class="active" href="index.jsp">Home</a></li>
+                  <li> <a class="active" href="home">Home</a></li>
                   </li>
-                  <li> <a href="shop.jsp">Shop List</a>
+                  <li> <a href="shop">Shop List</a>
                     <ul>
-                      <li><a href="shop.jsp">All Books</a></li>
-                      <li><a href="shop.jsp">Arts & Photography</a></li>
-                      <li><a href="shop.jsp">Children's Books</a></li>
-                      <li><a href="shop.jsp">Crime & Mystery</a></li>
-                      <li><a href="shop.jsp">Education Studies</a></li>
-                      <li><a href="shop.jsp">History</a></li>
-                      <li><a href="shop.jsp">Humor & Entertainment</a></li>
-                      <li><a href="shop.jsp">Law</a></li>
-                      <li><a href="shop.jsp">Romance</a></li>
-                      <li><a href="shop.jsp">Fantasy</a></li>
+                      <li><a href="shop">All Books</a></li>
+                      <li><a href="shop">Arts & Photography</a></li>
+                      <li><a href="shop">Children's Books</a></li>
+                      <li><a href="shop">Crime & Mystery</a></li>
+                      <li><a href="shop">Education Studies</a></li>
+                      <li><a href="shop">History</a></li>
+                      <li><a href="shop">Humor & Entertainment</a></li>
+                      <li><a href="shop">Law</a></li>
+                      <li><a href="shop">Romance</a></li>
+                      <li><a href="shop">Fantasy</a></li>
                     </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
@@ -113,199 +113,23 @@
       <div class="row">
         <div class="col-md-9">
           <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img width="300" height="300" src="images/book_images/harryBook.jpeg" alt="">
-                </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
+            <c:forEach items="${requestScope.listOfBooks}" var="book">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+                <div class="product_list">
+                  <div class="product_img"> <img width="300" height="300" src="images/book_images/${book.img}" alt="">
                   </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img">
-                  <img width="300" height="300" src="images/book_images/harryBook2.jpg" alt="">
-                </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
+                  <div class="product_detail_btm">
+                    <div class="center">
+                      <h4><a href="book_detail.jsp?id=${book.id}"><c:out value="${book.name}" /></a></h4>
+                    </div>
+                    <div class="product_price">
+                      <p><span class="new_price">$<c:out value="${book.price}" /></span></p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img width="300" height="300"
-                    src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Harry Potter</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="300"
-                    src="images/book_images/4a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                    src="images/book_images/5a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" width="400" height="400"
-                    src="images/book_images/6a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="images/book_images/7a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Mcafee Livesafe Antivirus</a></h4>
-                  </div>
-                  <div class="starratin">
-                    <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="images/book_images/8a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
-                  </div>
-                  <div class="starratin">
-                    <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="images/book_images/9a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
-                  </div>
-                  <div class="starratin">
-                    <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="images/book_images/10a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Kaspersky Internet Security</a></h4>
-                  </div>
-                  <div class="starratin">
-                    <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="images/book_images/11a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Mcafee Livesafe Antivirus</a></h4>
-                  </div>
-                  <div class="starratin">
-                    <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-              <div class="product_list">
-                <div class="product_img"> <img class="img-responsive" src="images/book_images/12a.jpg" alt=""> </div>
-                <div class="product_detail_btm">
-                  <div class="center">
-                    <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
-                  </div>
-                  <div class="starratin">
-                    <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                        aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-                  </div>
-                  <div class="product_price">
-                    <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            </c:forEach>
           </div>
         </div>
         <div class="col-md-3">

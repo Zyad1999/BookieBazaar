@@ -56,7 +56,7 @@
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- logo start -->
-            <div class="logo"> <a href="it_home.jsp"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
+            <div class="logo"> <a href="home"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
             <!-- logo end -->
           </div>
           <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -64,20 +64,20 @@
             <div class="menu_side">
               <div id="navbar_menu">
                 <ul class="first-ul">
-                  <li> <a class="active" href="index.jsp">Home</a></li>
+                  <li> <a class="active" href="home">Home</a></li>
                   </li>
-                  <li> <a href="shop.jsp">Shop List</a>
+                  <li> <a href="shop">Shop List</a>
                     <ul>
-                      <li><a href="shop.jsp">All Books</a></li>
-                      <li><a href="shop.jsp">Arts & Photography</a></li>
-                      <li><a href="shop.jsp">Children's Books</a></li>
-                      <li><a href="shop.jsp">Crime & Mystery</a></li>
-                      <li><a href="shop.jsp">Education Studies</a></li>
-                      <li><a href="shop.jsp">History</a></li>
-                      <li><a href="shop.jsp">Humor & Entertainment</a></li>
-                      <li><a href="shop.jsp">Law</a></li>
-                      <li><a href="shop.jsp">Romance</a></li>
-                      <li><a href="shop.jsp">Fantasy</a></li>
+                      <li><a href="shop">All Books</a></li>
+                      <li><a href="shop">Arts & Photography</a></li>
+                      <li><a href="shop">Children's Books</a></li>
+                      <li><a href="shop">Crime & Mystery</a></li>
+                      <li><a href="shop">Education Studies</a></li>
+                      <li><a href="shop">History</a></li>
+                      <li><a href="shop">Humor & Entertainment</a></li>
+                      <li><a href="shop">Law</a></li>
+                      <li><a href="shop">Romance</a></li>
+                      <li><a href="shop">Fantasy</a></li>
                     </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>

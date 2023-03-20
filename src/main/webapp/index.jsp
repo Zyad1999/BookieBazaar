@@ -205,7 +205,7 @@
                   src="images/book_images/${book.img}" alt=""> </div>
               <div class="product_detail_btm">
                 <div class="center">
-                  <h4><a href="book_detail.jsp"><c:out value="${book.name}" /></a></h4>
+                  <h4><a href="book_detail.jsp?id=${book.id}"><c:out value="${book.name}" /></a></h4>
                 </div>
                 <div class="product_price">
                   <p><span class="new_price">$<c:out value="${book.price}" /></span></p>
@@ -216,7 +216,7 @@
         </c:forEach>
         
         <div class="center">
-          <a class="btn sqaure_bt" id="allProudcts" href="shop.jsp">View More</a>
+          <a class="btn sqaure_bt" id="allProudcts" href="shop">View More</a>
         </div>
       </div>
       
@@ -257,7 +257,7 @@
                         <div class="thumb-content">
                           <h4>Arts & Photography</h4>
                           </p>
-                          <a class="btn sqaure_bt" style="min-width: 130px;" href="shop.jsp">More <i
+                          <a class="btn sqaure_bt" style="min-width: 130px;" href="shop">More <i
                               class="fa fa-angle-right"></i></a>
                         </div>
                       </div>

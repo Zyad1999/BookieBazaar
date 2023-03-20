@@ -8,7 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public enum Pages {
     
-    HOME("index.jsp","home");
+    HOME("index.jsp","home"),
+    SHOP("shop.jsp","shop");
 
     private final String path;
     private final String mapping;
