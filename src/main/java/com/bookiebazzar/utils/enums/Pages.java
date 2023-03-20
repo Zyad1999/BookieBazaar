@@ -11,7 +11,8 @@ public enum Pages {
     HOME("index.jsp","home"),
     LOGIN("login.jsp","login"),
     LOGOUT("","logout"),
-    SIGNUP("signup.jsp", "signup");
+    SIGNUP("signup.jsp", "signup"),
+    PROFILE("profile.jsp", "profile");
 
     private final String path;
     private final String mapping;
