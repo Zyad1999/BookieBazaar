@@ -116,7 +116,7 @@ public class BookRepoImpl implements BookRepo {
     }
 
     public List<Book> getAllBooks(EntityManager entityManager) {
-        return entityManager.createQuery("b FROM Book b", Book.class).getResultList();
+        return entityManager.createQuery("select b FROM Book b", Book.class).getResultList();
     }
 
     @Override

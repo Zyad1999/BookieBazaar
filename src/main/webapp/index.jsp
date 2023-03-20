@@ -198,125 +198,28 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/harryBook.jpeg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Harry Potter</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price">$25.00</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/harryBook2.jpg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Harry Potter</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price"> $12.49</span></p>
+        <c:forEach items="${requestScope.bookSample}" var="book">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" width="300" height="300"
+                  src="images/book_images/${book.img}" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="book_detail.jsp"><c:out value="${book.name}" /></a></h4>
+                </div>
+                <div class="product_price">
+                  <p><span class="new_price">$<c:out value="${book.price}" /></span></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price"> $12.49</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">The Lord of the Rings</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price">$25.00</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/harryBook.jpeg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price">$25.00</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/harryBook2.jpg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Kaspersky Internet Security</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price"> $12.49</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Mcafee Livesafe Antivirus</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price"> $12.49</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" width="300" height="300"
-                src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
-            <div class="product_detail_btm">
-              <div class="center">
-                <h4><a href="book_detail.jsp">Norton Internet Security</a></h4>
-              </div>
-              <div class="product_price">
-                <p><span class="new_price">$25.00</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </c:forEach>
+        
         <div class="center">
           <a class="btn sqaure_bt" id="allProudcts" href="shop.jsp">View More</a>
         </div>
-        <!-- <a class="btn sqaure_bt" id="allProudcts" href="shop.jsp">View More</a> -->
       </div>
+      
     </div>
 
     <!-- <div class="section padding_layout_1"> -->

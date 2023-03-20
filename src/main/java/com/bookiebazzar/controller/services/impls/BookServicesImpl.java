@@ -2,10 +2,13 @@ package com.bookiebazzar.controller.services.impls;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.bookiebazzar.controller.repositories.impls.RepositoryFactoryImpl;
+import com.bookiebazzar.controller.repositories.interfaces.BookRepo;
 import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.dtos.BookDto;
+import com.bookiebazzar.model.dtos.CategoryDto;
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.utils.mappers.BookMapper;
 
@@ -30,5 +33,21 @@ public class BookServicesImpl implements BookServices{
             books.add(BookMapper.toDto(book));
         }
         return books;
+    }
+
+    @Override
+    public List<CategoryDto> getAllCategories(EntityManager em) {
+        
+        BookRepo bookRepo = RepositoryFactoryImpl.getInstance().createBookRepo();
+        Map<String, String> categoriesWithRandomImg = bookRepo.getAllCategories(em);
+        List<CategoryDto> listOCategoryDtos = new ArrayList<>();
+        int cnt = 0;
+        for(Map.Entry<String, String> entry : categoriesWithRandomImg.entrySet()) {
+            CategoryDto category = new CategoryDto(entry.getKey(), entry.getValue(), cnt);
+            listOCategoryDtos.add(category);
+            cnt++;
+        }
+
+        return listOCategoryDtos;
     }
 }
