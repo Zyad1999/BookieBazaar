@@ -31,4 +31,10 @@ public class BookServicesImpl implements BookServices{
         }
         return books;
     }
+
+    @Override
+    public int addBook(Book book, EntityManager em) {
+      
+        return RepositoryFactoryImpl.getInstance().createBookRepo().addBook(book, em);
+    }
 }

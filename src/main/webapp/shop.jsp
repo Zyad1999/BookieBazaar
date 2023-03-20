@@ -351,42 +351,42 @@
   <div id="addBook" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form>
+        <form method="post" action="addBook" enctype="multipart/form-data">
           <div class="modal-header">
             <h4 class="modal-title">Add Book</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label>Name</label> <input type="text" class="field_custom" required>
+              <label>Name</label> <input type="text" name="bookName" class="field_custom" required>
             </div>
             <div class="form-group">
-              <label>Author</label> <input type="text" class="field_custom" required>
+              <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" required>
             </div>
             <div class="form-group">
-              <label>Category</label> <input type="text" class="field_custom" required>
+              <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" required>
             </div>
             <div class="form-group">
-              <label>Quantity</label> <input type="number" class="field_custom" required>
+              <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" required>
             </div>
             <div class="form-group">
               <label>Price</label>
-              <input type="number" class="field_custom" required>
+              <input type="number" class="field_custom" name="bookPrice" required>
             </div>
             <div class="form-group">
-              <label>Number Of Pages</label> <input type="number" class="field_custom" required>
+              <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom" required>
             </div>
             <div class="form-group">
-              <label>Language</label> <input type="text" class="field_custom" required>
+              <label>Language</label> <input type="text" name="bookLanguage" class="field_custom" required>
             </div>
             <div class="form-group">
               <label>Description</label>
-              <textarea class="field_custom" required></textarea>
+              <textarea class="field_custom" name="bookDescription" required></textarea>
             </div>
           
             <div class="form-group">
               <label>Image</label>
-              <input type="file" class="" required>
+              <input type="file" class="" name="bookImage" required>
             </div>
           </div>
           
