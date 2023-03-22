@@ -12,4 +12,6 @@ public interface BookServices {
     public List<BookDto> getAllBooks(EntityManager em);
 
     public int addBook(Book book,EntityManager em);
+    public boolean deleteBook(int id,EntityManager em);
+
 }

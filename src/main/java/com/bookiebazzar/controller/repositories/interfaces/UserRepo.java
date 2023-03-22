@@ -2,6 +2,7 @@ package com.bookiebazzar.controller.repositories.interfaces;
 
 import java.util.List;
 
+import com.bookiebazzar.model.dtos.UserDto;
 import com.bookiebazzar.model.entities.User;
 
 import jakarta.persistence.EntityManager;

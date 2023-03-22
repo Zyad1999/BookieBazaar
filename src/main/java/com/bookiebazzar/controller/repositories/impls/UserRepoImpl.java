@@ -82,7 +82,7 @@ public class UserRepoImpl implements UserRepo {
             EntityTransaction entityTransaction = entityManager.getTransaction();
             User userTemp = findUserById(userId, entityManager);
             entityTransaction.begin();
-            userTemp.setAdmin(true);
+            userTemp.setAdmin(!userTemp.isAdmin());
             entityTransaction.commit();
             return true;
         } catch (Exception ex) {

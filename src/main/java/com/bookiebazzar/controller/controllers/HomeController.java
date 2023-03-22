@@ -33,8 +33,8 @@ public class HomeController extends HttpServlet {
         // User user = new User();
 
         // user.setAdmin(false);
-        // user.setUserName("ahmed yassin");
-        // user.setEmail("yassinahmed670@gmail.com");
+        // user.setUserName("ali yassin");
+        // user.setEmail("ali@gmail.com");
         // user.setPassword("123456789");
         // user.setPhoneNumber("01147775184");
         // user.setJob("java developer");
@@ -49,9 +49,9 @@ public class HomeController extends HttpServlet {
         // user.setAdress(add);
         // add.setUser(user);
 
-        // System.out.println("---------------add user --------------------");
+        //  System.out.println("---------------add user --------------------");
 
-        // System.out.println(userRepo.addUser(user, entityManager));
+        //  System.out.println(userRepo.addUser(user, entityManager));
 
         // System.out.println("---------------find user  date--------------------");
         // System.out.println(userRepo.findUserById(1, entityManager).toString());

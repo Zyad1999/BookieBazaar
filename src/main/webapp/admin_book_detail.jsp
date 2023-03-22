@@ -112,15 +112,18 @@
       <div class="row">
         <div class="col-md-12">
           <div class="row">
+
             <div class="col-xl-6 col-lg-12 col-md-12">
               <div class="product_detail_feature_img hizoom hi2">
                 <div class='hizoom hi2'> <img src="images/book_images/lordOfTheRings.jpg" alt="#" /> </div>
               </div>
             </div>
+
             <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
               <div class="product-heading">
                 <h2>Norton Internet Security</h2>
               </div>
+              
               <div class="product-detail-side"><span class="new-price">$20.00</span></div>
               <div class="detail-contant">
                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -141,6 +144,8 @@
               </div>
             </div>
           </div>
+
+
           <div class="row" style="margin-top: 50px;">
             <div class="col-md-12">
               <div class="full">
@@ -205,58 +210,68 @@
   <div id="edit" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form>
+        <form  method="Post" action="updateBook">
           <div class="modal-header">
             <h4 class="modal-title">Edit Book</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label>Name</label> <input type="text" class="field_custom" required>
+              <label>Name</label> <input type="text" name="bookName" class="field_custom" value="Ahmed Yassin" required>
             </div>
             <div class="form-group">
-              <label>Author</label> <input type="text" class="field_custom" required>
+              <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" value="Ahmed Yassin" required>
             </div>
             <div class="form-group">
-              <label>Category</label> <input type="text" class="field_custom" required>
+              <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" value="Ahmed Yassin" required>
             </div>
+
+
             <div class="form-group">
-              <label>Quantity</label> <input type="number" class="field_custom" required>
+              <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" value="5" required>
             </div>
             <div class="form-group">
               <label>Price</label>
-              <input type="number" class="field_custom" required>
+              <input type="number" class="field_custom" name="bookPrice" value="55" required>
             </div>
             <div class="form-group">
-              <label>Number Of Pages</label> <input type="number" class="field_custom" required>
+              <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom" value="4" required>
             </div>
+           
             <div class="form-group">
-              <label>Language</label> <input type="text" class="field_custom" required>
+              <label>Language</label>
+              <input type="radio"  name="bookLanguage" value="Arabic" checked required>
+              <label>Arabic</label>
+              <input type="radio"  name="bookLanguage" value="English" required>
+              <label>English</label>
             </div>
+
             <div class="form-group">
               <label>Description</label>
-              <textarea class="field_custom" required></textarea>
+              <textarea class="field_custom" name="bookDescription"  required>ahmed yassin</textarea>
             </div>
-          
+
             <div class="form-group">
               <label>Image</label>
-              <input type="file" class="" required>
+              <input type="file" class="" name="bookImage" required>
             </div>
           </div>
+
           <div class="modal-footer">
-            <!-- <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"> -->
-            <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
-            <button type="submit" value="Add" class="btn sqaure_bt">Save</button>
+
+            <button type="submit" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
+            <button type="submit"  class="btn sqaure_bt">Save</button>
 
           </div>
         </form>
       </div>
     </div>
   </div>
+
   <div id="deleteBook" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form method="Post" action="deleteBook">
 					<div class="modal-header">
 						<h4 class="modal-title">Delete Book</h4>
 						<button type="button" class="close" data-dismiss="modal"
@@ -265,12 +280,11 @@
 					<div class="modal-body">
 						<p>Are you sure you want to delete these Book?</p>
 					</div>
+
 					<div class="modal-footer">
-						<!-- <input type="button" class="btn btn-default" data-dismiss="modal"
-							value="Cancel"> <input type="submit"
-							class="btn btn-danger" value="Delete"> -->
-              <button type="submit" value="Add" class="btn sqaure_bt">cancel</button>
-              <button type="submit" value="Add" class="btn sqaure_bt">Delete</button>
+              <button   data-dismiss="modal" class="btn sqaure_bt">cancel</button>
+              <input  value="${param.bookId}" name="bookId"  hidden >
+              <button type="submit"  class="btn sqaure_bt">Delete</button>
 					</div>
 				</form>
 			</div>
@@ -348,6 +362,10 @@
       width: 400,
       position: 'right'
     });
+
+
+
+
   </script>
 </body>
 

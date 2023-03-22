@@ -68,24 +68,6 @@ public class BookRepoImpl implements BookRepo {
 
     @Override
     public List<Book> getAllBooksFiltered(BookFilter filter, int page, EntityManager entityManager) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllBooksFiltered'");
-    }
-
-    @Override
-    public List<Book> getAllBooks(EntityManager entityManager) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllBooks'");
-    }
-
-    @Override
-    public Map<String, String> getAllCategories(EntityManager entityManager) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllCategories'");
-    }
-
-    @Override
-    public List<Book> getAllBooksFiltered(BookFilter filter, int page, EntityManager entityManager) {
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<Book> query = cb.createQuery(Book.class);
@@ -133,6 +115,7 @@ public class BookRepoImpl implements BookRepo {
                 .getResultList();
     }
 
+    @Override
     public List<Book> getAllBooks(EntityManager entityManager) {
         return entityManager.createQuery("b FROM Book b", Book.class).getResultList();
     }

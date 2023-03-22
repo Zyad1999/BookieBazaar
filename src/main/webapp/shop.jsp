@@ -347,7 +347,6 @@
   </div>
 
 
-  <!-- Edit Modal HTML -->
   <div id="addBook" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -366,6 +365,8 @@
             <div class="form-group">
               <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" required>
             </div>
+
+
             <div class="form-group">
               <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" required>
             </div>
@@ -376,25 +377,34 @@
             <div class="form-group">
               <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom" required>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Language</label> <input type="text" name="bookLanguage" class="field_custom" required>
+            </div> -->
+
+            <div class="form-group">
+              <label>Language</label>
+              <input type="radio"  name="bookLanguage" value="Arabic" required>
+              <label>Arabic</label>
+              <input type="radio"  name="bookLanguage" value="English" required>
+              <label>English</label>
             </div>
+
             <div class="form-group">
               <label>Description</label>
               <textarea class="field_custom" name="bookDescription" required></textarea>
             </div>
-          
+
             <div class="form-group">
               <label>Image</label>
               <input type="file" class="" name="bookImage" required>
             </div>
           </div>
-          
+
           <div class="modal-footer">
 
-          <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
-            
-          <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
+            <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
+
+            <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
 
           </div>
         </form>

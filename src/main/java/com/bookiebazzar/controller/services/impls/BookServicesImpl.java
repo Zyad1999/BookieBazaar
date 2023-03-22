@@ -37,4 +37,12 @@ public class BookServicesImpl implements BookServices{
       
         return RepositoryFactoryImpl.getInstance().createBookRepo().addBook(book, em);
     }
+    
+    @Override
+    public boolean deleteBook(int id,EntityManager em){
+        return RepositoryFactoryImpl.getInstance().createBookRepo().removeBook(id, em);
+
+
+    }
+
 }

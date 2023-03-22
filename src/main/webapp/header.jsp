@@ -74,12 +74,15 @@
                       <li><a href="shop.jsp">Law</a></li>
                       <li><a href="shop.jsp">Romance</a></li>
                       <li><a href="shop.jsp">Fantasy</a></li>
+
                     </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
                     <ul>
                       <li><a href="profile.jsp">Profile</a></li>
                       <li><a href="signout.jsp">Signout</a></li>
+                      <li><a href="usersController">users</a></li>
+
                     </ul>
                   </li>
                   <li><a href="cart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>

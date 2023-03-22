@@ -25,7 +25,8 @@ import java.io.File;
 @MultipartConfig
 public class AddBookController extends HttpServlet {
 
-    private static int imageIndex=0;
+    private static int imageIndex = 0;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
@@ -66,15 +67,17 @@ public class AddBookController extends HttpServlet {
         book.setCategory(bookCategoty);
         book.setPrice(Integer.parseInt(bookPrice));
         book.setNumberOfPages(Integer.parseInt(numberOfPages));
-        book.setLanguage(Language.ARAB);
+        if (bookLanguage.equals("Arabic")) {
+            book.setLanguage(Language.ARAB);
+        } else if (bookLanguage.equals("English")) {
+            book.setLanguage(Language.ENG);
+        }
         book.setQuantity(Integer.parseInt(bookQuantity));
         book.setDescription(bookDescription);
-        book.setImg( imageIndex + fileName.substring(index));
-
+        book.setImg(imageIndex + fileName.substring(index));
         System.out.println(BookServicesImpl.getBookServices().addBook(book, entityManager));
         System.out.println(book.toString());
         System.out.println(getServletContext().getRealPath("//images//book_images"));
-
         response.sendRedirect("shop.jsp");
 
     }
