@@ -42,7 +42,11 @@ public class BookServicesImpl implements BookServices{
     public boolean deleteBook(int id,EntityManager em){
         return RepositoryFactoryImpl.getInstance().createBookRepo().removeBook(id, em);
 
+    }
 
+    @Override
+    public BookDto findBook(int id, EntityManager em) {
+        return BookMapper.toDto(RepositoryFactoryImpl.getInstance().createBookRepo().findBook(id, em));
     }
 
 }

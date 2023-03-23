@@ -60,15 +60,30 @@
                           <p class="price_table">${user.birthDate}</p>
                         </td>
 
+                        <c:if test="${user.isAdmin eq true}">
                           <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">Yes</p>
-                        </td>
+                            <p class="price_table">Yes</p>
+                          </td>
+                          <td class="col-sm-1 col-md-1">
+                            <button type="button" onclick="location.href='makeAdminController?userId=${user.id}'"
+                              class="bt_main"> Remove Admin </button>
+                            <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
+                          </td>
+                        </c:if>
+
+                        <c:if test="${user.isAdmin eq false}">
+                          <td class="col-sm-1 col-md-1 text-center">
+                            <p class="price_table">No</p>
+                          </td>
+                          <td class="col-sm-1 col-md-1">
+                            <button type="button" onclick="location.href='makeAdminController?userId=${user.id}'"
+                              class="bt_main"> Make Admin </button>
+                            <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
+                          </td>
+                        </c:if>
 
                         <!-- <td class="col-sm-1 col-md-1"><button type="button" class="bt_main">Profile</button></td> -->
-                        <td class="col-sm-1 col-md-1">
-                           <button type="button"  onclick="location.href='makeAdminController?userId=${user.id}'" class="bt_main"> Make Admin </button>
-                           <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
-                        </td>
+
                       </tr>
                     </c:forEach>
 

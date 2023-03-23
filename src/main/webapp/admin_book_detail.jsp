@@ -223,7 +223,7 @@
               <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" value="Ahmed Yassin" required>
             </div>
             <div class="form-group">
-              <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" value="Ahmed Yassin" required>
+              <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" value="${currentBook.category}" required>
             </div>
 
 
@@ -256,17 +256,15 @@
               <input type="file" class="" name="bookImage" required>
             </div>
           </div>
-
           <div class="modal-footer">
-
             <button type="submit" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
             <button type="submit"  class="btn sqaure_bt">Save</button>
-
           </div>
         </form>
       </div>
     </div>
   </div>
+
 
   <div id="deleteBook" class="modal fade">
 		<div class="modal-dialog">

@@ -14,4 +14,6 @@ public interface BookServices {
     public int addBook(Book book,EntityManager em);
     public boolean deleteBook(int id,EntityManager em);
 
+    public BookDto findBook(int bookID, EntityManager entityManager);
+
 }

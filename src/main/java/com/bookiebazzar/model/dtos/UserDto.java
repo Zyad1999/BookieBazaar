@@ -121,5 +121,8 @@ public class UserDto {
     public boolean isAdmin() {
         return isAdmin;
     }
-
+    
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
 }
