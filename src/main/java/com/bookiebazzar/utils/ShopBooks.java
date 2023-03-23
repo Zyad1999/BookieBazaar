@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.model.dtos.BookDto;
+import com.bookiebazzar.model.dtos.CategoryDto;
 import com.bookiebazzar.utils.objects.BookFilter;
 
 import jakarta.persistence.EntityManager;
@@ -18,6 +19,8 @@ public class ShopBooks {
 
     private static List<BookDto> books;
 
+    private static List<CategoryDto> categoriesWithRandomImg;
+
     private ShopBooks() {
     }
 
@@ -28,8 +31,8 @@ public class ShopBooks {
     }
 
     public List<BookDto> getFilteredBooks(BookFilter filter, int pageNumber) {
-        
-        if (books == null){
+
+        if (books == null) {
             EntityManager em = EntityManagerFactorySingleton.getEntityManagerFactory().createEntityManager();
             books = BookServicesImpl.getBookServices().getAllBooks(em);
             em.close();
@@ -39,9 +42,18 @@ public class ShopBooks {
 
     public List<BookDto> getBooks(int pageNumber) {
         EntityManager em = EntityManagerFactorySingleton.getEntityManagerFactory().createEntityManager();
-        if (books == null)
+        if (books == null) {
             books = BookServicesImpl.getBookServices().getAllBooks(em);
+            categoriesWithRandomImg = BookServicesImpl.getBookServices().getAllCategories(em);
+        }
         return books;
+    }
+
+    public List<CategoryDto> getCategories(int pageNumber) {
+
+        if (categoriesWithRandomImg == null)
+            getBooks(pageNumber);
+        return categoriesWithRandomImg;
     }
 
     public void removeBooks() {
@@ -51,10 +63,7 @@ public class ShopBooks {
     private List<BookDto> filterBooks(List<BookDto> bookList, BookFilter filter, int pageNumber) {
 
         Stream<BookDto> bookStream = bookList.stream();
-        for (BookDto bookDto : bookList) {
-            System.out.println(bookDto.getAuthor());
-        }
-        
+
         if (filter.getMinPages() != null) {
             System.out.println(filter.getMinPages());
             bookStream = bookStream.filter(book -> book.getNumberOfPages() >= filter.getMinPages());
@@ -92,7 +101,7 @@ public class ShopBooks {
         }
 
         return bookStream
-                .skip((pageNumber-1) * PAGE_SIZE)
+                .skip((pageNumber - 1) * PAGE_SIZE)
                 .limit(PAGE_SIZE)
                 .collect(Collectors.toList());
     }
