@@ -69,23 +69,30 @@
                   <li> <a href="shop">Shop List</a>
                     <ul>
                       <li><a href="shop">All Books</a></li>
-                      <li><a href="shop">Arts & Photography</a></li>
-                      <li><a href="shop">Children's Books</a></li>
-                      <li><a href="shop">Crime & Mystery</a></li>
-                      <li><a href="shop">Education Studies</a></li>
-                      <li><a href="shop">History</a></li>
-                      <li><a href="shop">Humor & Entertainment</a></li>
-                      <li><a href="shop">Law</a></li>
-                      <li><a href="shop">Romance</a></li>
-                      <li><a href="shop">Fantasy</a></li>
+                      <c:forEach var="category" items="${applicationScope.shopBooks.getCategories(1)}">
+                        <li><a href="shop?name=${category.category}">${category.category}</a></li>
+                      </c:forEach>
                     </ul>
                   </li>
-                  <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-                    <ul>
-                      <li><a href="profile.jsp">Profile</a></li>
-                      <li><a href="signout.jsp">Signout</a></li>
-                    </ul>
-                  </li>
+                  <c:choose>
+                    <c:when test="${true}">
+                      <li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        <ul>
+                          <li><a href="profile.jsp">Profile</a></li>
+                          <c:if test="true">
+                            <li><a href="users.jsp">Users profile</a></li>
+                          </c:if>
+                          <li><a href="signout.jsp">Signout</a></li>
+                        </ul>
+                      </li>
+                    </c:when>
+                    <c:otherwise>
+                      <li>
+                        <a href="login.jsp">Login</a>
+                      </li>
+                      </li>
+                    </c:otherwise>
+                  </c:choose>
                   <li><a href="cart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                 </ul>
               </div>
@@ -133,11 +140,11 @@
                 <form class="cart" method="post" action="">
                   <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
                     Edit Book</a>
-                    <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
-                      Delete Book</a>
+                  <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
+                    Delete Book</a>
                 </form>
-              
-              </form>
+
+                </form>
               </div>
             </div>
           </div>
@@ -237,7 +244,7 @@
               <label>Description</label>
               <textarea class="field_custom" required></textarea>
             </div>
-          
+
             <div class="form-group">
               <label>Image</label>
               <input type="file" class="" required>
@@ -254,28 +261,27 @@
     </div>
   </div>
   <div id="deleteBook" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form>
-					<div class="modal-header">
-						<h4 class="modal-title">Delete Book</h4>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<p>Are you sure you want to delete these Book?</p>
-					</div>
-					<div class="modal-footer">
-						<!-- <input type="button" class="btn btn-default" data-dismiss="modal"
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h4 class="modal-title">Delete Book</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete these Book?</p>
+          </div>
+          <div class="modal-footer">
+            <!-- <input type="button" class="btn btn-default" data-dismiss="modal"
 							value="Cancel"> <input type="submit"
 							class="btn btn-danger" value="Delete"> -->
-              <button type="submit" value="Add" class="btn sqaure_bt">cancel</button>
-              <button type="submit" value="Add" class="btn sqaure_bt">Delete</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+            <button type="submit" value="Add" class="btn sqaure_bt">cancel</button>
+            <button type="submit" value="Add" class="btn sqaure_bt">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <!-- footer -->
   <footer class="footer_style_2">
     <div class="container-fuild">
