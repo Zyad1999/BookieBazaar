@@ -44,6 +44,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   </head>
 
   <body id="default_theme" class="it_shop_list">
@@ -71,23 +73,30 @@
                     <li> <a href="shop">Shop List</a>
                       <ul>
                         <li><a href="shop">All Books</a></li>
-                        <li><a href="shop">Arts & Photography</a></li>
-                        <li><a href="shop">Children's Books</a></li>
-                        <li><a href="shop">Crime & Mystery</a></li>
-                        <li><a href="shop">Education Studies</a></li>
-                        <li><a href="shop">History</a></li>
-                        <li><a href="shop">Humor & Entertainment</a></li>
-                        <li><a href="shop">Law</a></li>
-                        <li><a href="shop">Romance</a></li>
-                        <li><a href="shop">Fantasy</a></li>
+                        <c:forEach var="category" items="${applicationScope.shopBooks.getCategories(1)}">
+                          <li><a href="shop?name=${category.category}">${category.category}</a></li>
+                        </c:forEach>
                       </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
-                      <ul>
-                        <li><a href="profile.jsp">Profile</a></li>
-                        <li><a href="signout.jsp">Signout</a></li>
-                      </ul>
-                    </li>
+                    <c:choose>
+                      <c:when test="${true}">
+                        <li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a>
+                          <ul>
+                            <li><a href="profile.jsp">Profile</a></li>
+                            <c:if test="true">
+                              <li><a href="users.jsp">Users profile</a></li>
+                            </c:if>
+                            <li><a href="signout.jsp">Signout</a></li>
+                          </ul>
+                        </li>
+                      </c:when>
+                      <c:otherwise>
+                        <li>
+                          <a href="login.jsp">Login</a>
+                        </li>
+                        </li>
+                      </c:otherwise>
+                    </c:choose>
                     <li><a href="cart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                   </ul>
                 </div>
@@ -112,7 +121,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-9">
-            <div class="row">
+            <div class="row" id="booksContent">
               <c:forEach items="${requestScope.listOfBooks}" var="book">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
                   <div class="product_list">
@@ -137,19 +146,28 @@
             </div>
           </div>
           <div class="col-md-3">
-            <form method="post" action="shop">
+            <form method="post" action="shop" id="book-search-form">
               <div class="side_bar">
                 <div class="side_bar_blog">
                   <h4>SEARCH</h4>
 
                   <div class="side_bar_search">
+                    <!-- <h6>Book Name</h6>
                     <div class="input-group stylish-input-group">
-                      <input class="form-control" name="nameSearch" placeholder="Book Name" type="text">
+                      <input class="form-control" name="nameSearch" type="text">
                     </div>
                     <br>
+                    <h6>Author</h6>
                     <div class="input-group stylish-input-group">
+                      <input class="form-control" name="authorSearch" type="text">
+                    </div><br> -->
+                    <div class="col-md-12">
+                      <input class="form-control" name="nameSearch" placeholder="Book Name" type="text">
+                    </div>
+                    <br><br><br>
+                    <div class="col-md-12">
                       <input class="form-control" name="authorSearch" placeholder="Author" type="text">
-                    </div><br>
+                    </div><br><br><br><br>
 
                     <div class="col-md-6">
                       <input class="form-control" name="minPages" style="padding: 0px 5px;" placeholder="Min page"
@@ -171,14 +189,14 @@
                   </div>
 
                   <div class="side_bar_search">
-                    <br><br>
+                    <br><br><br>
                     <div class="col-md-6">
                       <label>Arabic</label>
-                      <input type="radio" checked="checked" name="language">
+                      <input type="radio" name="language" value="ARAB">
                     </div>
                     <div class="col-md-6">
                       <label>English</label>
-                      <input type="radio" checked="checked" name="language">
+                      <input type="radio" name="language" value="ENG">
                     </div>
 
                   </div>
@@ -189,10 +207,10 @@
                   <h4>Category</h4>
                   <div class="tags">
                     <ul>
-                      <c:forEach items="${requestScope.categories}" var="category">
+                      <c:forEach items="${applicationScope.shopBooks.getCategories(1)}" var="category">
                         <li>
                           <label>${category.category}</label>
-                          <input type="checkbox" id="" name="" value="">
+                          <input type="checkbox" id="" name="category1" value="${category.category}">
                           <br>
                         </li>
                       </c:forEach>
@@ -201,9 +219,12 @@
                 </div>
 
                 <div class="center">
-                  <input type="submit" class="btn sqaure_bt" value="Search">
-
+                  <!-- <input type="submit" class="btn sqaure_bt" value="Search"> -->
+                  <button type="button" id="search-btn" class="btn sqaure_bt">Search</button>
                 </div>
+
+
+
                 <br><br>
                 <!-- 
                 <div class="center">
@@ -324,6 +345,8 @@
         </div>
       </footer>
       <!-- end footer -->
+
+      <script src="js/categories_form.js"></script>
 
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>

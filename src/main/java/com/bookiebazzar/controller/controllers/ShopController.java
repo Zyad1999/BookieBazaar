@@ -1,13 +1,16 @@
 package com.bookiebazzar.controller.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.model.dtos.BookDto;
 import com.bookiebazzar.model.dtos.CategoryDto;
+import com.bookiebazzar.model.enums.Language;
 import com.bookiebazzar.utils.ShopBooks;
 import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.objects.BookFilter;
+import com.google.gson.Gson;
 
 import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletContext;
@@ -16,6 +19,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -27,11 +33,19 @@ public class ShopController extends HttpServlet {
 
         ServletContext context = getServletContext();
         ShopBooks shopBooks = (ShopBooks) context.getAttribute("shopBooks");
-        List<CategoryDto> categoriesWithRandomImg = BookServicesImpl.getBookServices()
-                .getAllCategories((EntityManager) req.getAttribute("entityManager"));
-        List<BookDto> listOfBooksDto = shopBooks.getBooks(1);
+        String categoryfilter = req.getParameter("name");
+        List<String> listOfCategories = new ArrayList<>();
+        List<BookDto> listOfBooksDto;
+        if(categoryfilter!=null && !categoryfilter.isEmpty()){
+            System.out.println(categoryfilter);
+            BookFilter bookFilter = new BookFilter();
+            listOfCategories.add(categoryfilter);
+            bookFilter.setCategories(listOfCategories);
+            listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, 1);
+        } else {
+            listOfBooksDto = shopBooks.getBooks(1);
+        }
         req.setAttribute("listOfBooks", listOfBooksDto);
-        req.setAttribute("categories", categoriesWithRandomImg);
 
         Pages.SHOP.include(req, resp);
     }
@@ -39,18 +53,48 @@ public class ShopController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        BookFilter filterBooks = new BookFilter();
+        BookFilter bookFilter = new BookFilter();
         try {
-            BeanUtils.populate(filterBooks, req.getParameterMap());
-            ServletContext context = getServletContext();
-            ShopBooks shopBooks = (ShopBooks) context.getAttribute("shopBooks");
-            List<BookDto> listOfBooksDto = shopBooks.getFilteredBooks(filterBooks, 1);
-            req.setAttribute("listOfBooks", listOfBooksDto);
-            System.out.println(listOfBooksDto.size());
-            for (BookDto bookDto : listOfBooksDto) {
-                System.out.println(bookDto.getAuthor()+bookDto.getName());
+            String nameSearch = req.getParameter("nameSearch");
+            String authorSearch = req.getParameter("authorSearch");
+            Integer minPages = (req.getParameter("minPages") == "") ? null
+                    : Integer.parseInt(req.getParameter("minPages"));
+            Integer maxPages = (req.getParameter("maxPages") == "") ? null
+                    : Integer.parseInt(req.getParameter("maxPages"));
+            Integer minPrice = (req.getParameter("minPrice") == "") ? null
+                    : Integer.parseInt(req.getParameter("minPrice"));
+            Integer maxPrice = (req.getParameter("maxPrice") == "") ? null
+                    : Integer.parseInt(req.getParameter("maxPrice"));
+            Language language = (req.getParameter("language") == null) ? null
+                    : Language.valueOf(req.getParameter("language"));
+            if (req.getParameterValues("category1") != null) {
+
+                String[] selectedCategories = req.getParameterValues("category1");
+                for (String string : selectedCategories) {
+                    System.out.println(string);
+                }
+                List<String> categories = Arrays.asList(selectedCategories);
+                bookFilter.setCategories(categories);
+
             }
-            Pages.SHOP.include(req, resp);
+
+            bookFilter.setNameSearch(nameSearch);
+            bookFilter.setAuthorSearch(authorSearch);
+            bookFilter.setMinPages(minPages);
+            bookFilter.setLanguage(language);
+            bookFilter.setMaxPages(maxPages);
+            bookFilter.setMinPrice(minPrice);
+            bookFilter.setMaxPrice(maxPrice);
+            ServletContext context = getServletContext();
+
+            ShopBooks shopBooks = (ShopBooks) context.getAttribute("shopBooks");
+            List<BookDto> listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, 1);
+            Gson gson = new Gson();
+            String json = gson.toJson(listOfBooksDto);
+            resp.setContentType("application/json");
+            resp.getWriter().write(json);
+
+            // Pages.SHOP.include(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
