@@ -26,10 +26,9 @@ public class HomeController extends HttpServlet {
         ServletContext context = getServletContext();
         ShopBooks shopBooks = (ShopBooks)context.getAttribute("shopBooks");
         List<BookDto> listOfBooksDto =  shopBooks.getBooks(1);
-        List<BookDto> bookSample = listOfBooksDto.stream().limit(8).toList();
-        List<CategoryDto> categoriesWithRandomImg = BookServicesImpl.getBookServices().getAllCategories((EntityManager)req.getAttribute("entityManager"));
+        List<BookDto> bookSample = listOfBooksDto.subList(0, 8);
+        
         req.setAttribute("bookSample", bookSample);
-        req.setAttribute("categories",categoriesWithRandomImg);
 
         Pages.HOME.include(req, resp);
     }
