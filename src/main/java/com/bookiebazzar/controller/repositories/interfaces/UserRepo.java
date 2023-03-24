@@ -26,4 +26,6 @@ public interface UserRepo {
     public boolean checkEmailAvailability(String email, EntityManager entityManager);
 
     public boolean checkUserNameAvailability(String userName, EntityManager entityManager) ;
+
+    boolean updatePassword(int userId, String password, EntityManager entityManager);
 }

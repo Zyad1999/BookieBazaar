@@ -8,7 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public enum Pages {
     
-    HOME("index.jsp","home");
+    HOME("index.jsp","home"),
+    LOGIN("login.jsp","login"),
+    SIGNUP("signup.jsp", "signup"),
+    PROFILE("profile.jsp", "profile"),
+    EDIT_PROFILE("edit_profile.jsp","editeProfile");
 
 
     private final String path;
@@ -33,5 +37,9 @@ public enum Pages {
 
     public void include(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(this.path).include(req, resp);
+    }
+
+    public void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect(this.mapping);
     }
 }

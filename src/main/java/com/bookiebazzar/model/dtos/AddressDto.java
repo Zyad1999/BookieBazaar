@@ -19,6 +19,13 @@ public class AddressDto {
         this.buildingNumber = buildingNumber;
     }
 
+    public AddressDto(String country, String city, String street, int buildingNumber) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.buildingNumber = buildingNumber;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
