@@ -35,12 +35,11 @@ public class makeAdminController extends HttpServlet {
             throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("main");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+      
         String userId = request.getParameter("userId");
-        UserServicesImpl.getUserServicesInstance().makeUserAdmin(Integer.parseInt(userId), entityManager);
+        UserServicesImpl.getUserServicesInstance().makeUserAdmin(Integer.parseInt(userId), (EntityManager)request.getAttribute("entityManager"));
 
-       response.sendRedirect("usersController");
+        response.sendRedirect("usersController");
     }
 
     @Override

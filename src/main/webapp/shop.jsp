@@ -119,7 +119,7 @@
                     src="images/book_images/1a.jpg" alt=""> </div>
                 <div class="product_detail_btm">
                   <div class="center">
-                    <h4><a href="book_detail.jsp">Pride And Prejudice</a></h4>
+                    <h4><a href="book?bookId=7">Pride And Prejudice</a></h4>
                   </div>
                   <div class="product_price">
                     <p><span class="new_price"> $12.49</span></p>

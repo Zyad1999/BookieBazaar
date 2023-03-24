@@ -8,6 +8,8 @@ import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.model.enums.Language;
+import com.bookiebazzar.utils.enums.Pages;
+import com.bookiebazzar.utils.enums.Shop;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -24,13 +26,12 @@ import java.io.File;
 @WebServlet("/deleteBook")
 public class DeleteBookController extends HttpServlet {
 
-
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-       
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+
         response.setContentType("text/html");
-        response.sendRedirect("index.jsp");
-     
+        Pages.HOME.include(request, response);
 
     }
 
@@ -39,14 +40,13 @@ public class DeleteBookController extends HttpServlet {
             throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("main");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         String id = request.getParameter("bookId");
-       System.out.println("-----------------------------------------");
+        System.out.println("-----------------------------------------");
         System.out.println(id);
-        System.out.println(BookServicesImpl.getBookServices().deleteBook(Integer.parseInt(id), entityManager));
-       
-        response.sendRedirect("shop.jsp");
+        System.out.println(BookServicesImpl.getBookServices().deleteBook(Integer.parseInt(id),
+                (EntityManager) request.getAttribute("entityManager")));
+
+                Shop.Shop.include(request, response);
 
     }
 

@@ -49,4 +49,9 @@ public class BookServicesImpl implements BookServices{
         return BookMapper.toDto(RepositoryFactoryImpl.getInstance().createBookRepo().findBook(id, em));
     }
 
+    @Override
+    public boolean updateBook(Book book,EntityManager em){
+        return RepositoryFactoryImpl.getInstance().createBookRepo().updateBook(book, em);
+
+    }
 }

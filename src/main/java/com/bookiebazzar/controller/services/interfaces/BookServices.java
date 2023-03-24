@@ -15,5 +15,7 @@ public interface BookServices {
     public boolean deleteBook(int id,EntityManager em);
 
     public BookDto findBook(int bookID, EntityManager entityManager);
+   
+    public boolean updateBook(Book book,EntityManager em);
 
 }

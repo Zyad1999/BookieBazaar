@@ -40,11 +40,12 @@ public class BookRepoImpl implements BookRepo {
             entityManager.getTransaction().begin();
             entityManager.merge(book);
             entityManager.getTransaction().commit();
+            return true;
+
         } catch (Exception e) {
             System.out.println(e);
             return false;
         }
-        return true;
     }
 
     @Override

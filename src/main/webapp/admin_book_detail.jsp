@@ -210,17 +210,19 @@
   <div id="edit" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form  method="Post" action="updateBook">
+        <form  method="post" action="editBook" enctype="multipart/form-data">
           <div class="modal-header">
             <h4 class="modal-title">Edit Book</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label>Name</label> <input type="text" name="bookName" class="field_custom" value="Ahmed Yassin" required>
+              <label>Name</label> <input type="text" name="bookName" class="field_custom" value="${currentBook.name}" required>
+              <input type="number" name="bookId" class="field_custom" value="${currentBook.id}" hidden>
+
             </div>
             <div class="form-group">
-              <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" value="Ahmed Yassin" required>
+              <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" value="${currentBook.author}" required>
             </div>
             <div class="form-group">
               <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" value="${currentBook.category}" required>
@@ -228,32 +230,39 @@
 
 
             <div class="form-group">
-              <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" value="5" required>
+              <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" value="${currentBook.quantity}" required>
             </div>
             <div class="form-group">
               <label>Price</label>
-              <input type="number" class="field_custom" name="bookPrice" value="55" required>
+              <input type="number" class="field_custom" name="bookPrice" value="${currentBook.numberOfPages}" required>
             </div>
             <div class="form-group">
-              <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom" value="4" required>
+              <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom" value="${currentBook.price}" required>
             </div>
            
             <div class="form-group">
               <label>Language</label>
-              <input type="radio"  name="bookLanguage" value="Arabic" checked required>
-              <label>Arabic</label>
-              <input type="radio"  name="bookLanguage" value="English" required>
-              <label>English</label>
+              <c:if test="${currentBook.language=='ARAB'}">
+                <input type="radio"  name="bookLanguage" value="Arabic" checked required>
+                 <label>Arabic</label>
+              </c:if>
+
+              <c:if test="${currentBook.language=='ENG'}">
+                 <input type="radio"  name="bookLanguage" value="English" checed required>
+                 <label>English</label>
+              </c:if>
+
             </div>
 
             <div class="form-group">
               <label>Description</label>
-              <textarea class="field_custom" name="bookDescription"  required>ahmed yassin</textarea>
+              <textarea class="field_custom" name="bookDescription"  required>${currentBook.description}</textarea>
             </div>
 
             <div class="form-group">
               <label>Image</label>
-              <input type="file" class="" name="bookImage" required>
+              <input type="file" class="" name="bookImage" value="${currentBook.img}" >
+              <input type="text" class="" name="bookImageName" value="${currentBook.img}" hidden>
             </div>
           </div>
           <div class="modal-footer">

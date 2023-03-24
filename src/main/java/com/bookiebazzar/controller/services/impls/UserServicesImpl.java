@@ -33,6 +33,10 @@ public class UserServicesImpl implements UserServices {
         return null;
     }
 
+
+
+    //service take userdto convert it to entity get result as entity 
+    //then convert it to userdto then return it
     @Override
     public List<UserDto> getAllUsers(EntityManager em) {
         List<UserDto> usersDto = new ArrayList<>();

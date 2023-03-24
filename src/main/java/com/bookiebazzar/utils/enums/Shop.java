@@ -6,9 +6,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public enum Pages {
+public enum Shop {
     
-    HOME("index.jsp","home");
+    Shop("shop.jsp","shop");
 
 
     private final String path;
@@ -22,7 +22,7 @@ public enum Pages {
         return mapping;
     }
 
-    Pages( String path, String mapping) {
+    Shop( String path, String mapping) {
         this.path = path;
         this.mapping = mapping;
     }
