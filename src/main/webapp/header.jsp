@@ -79,6 +79,7 @@
                             <c:if test="true">
                               <li><a href="users.jsp">Users profile</a></li>
                             </c:if>
+                            <li><a href="order_history">Orders History</a></li>
                             <li><a href="signout.jsp">Signout</a></li>
                           </ul>
                         </li>

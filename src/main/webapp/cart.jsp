@@ -51,10 +51,10 @@
                         <input class="price_table form-control" value="${cart.quantity}" type="number">
                       </td>
                       <td class="col-sm-1 col-md-1 text-center">
-                        <p class="price_table">${cart.book.price}</p>
+                        <p class="price_table">$ ${cart.book.price}</p>
                       </td>
                       <td class="col-sm-1 col-md-1 text-center">
-                        <p class="price_table">${cart.book.price*cart.quantity}</p>
+                        <p class="price_table">$ ${cart.book.price*cart.quantity}</p>
                       </td>
                       <td class="col-sm-1 col-md-1"><button type="button" class="bt_main"><i class="fa fa-trash"></i>
                           Remove</button>

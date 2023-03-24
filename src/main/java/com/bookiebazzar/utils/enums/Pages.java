@@ -10,7 +10,9 @@ public enum Pages {
     
     HOME("index.jsp","home"),
     SHOP("shop.jsp","shop"),
-    CART("cart.jsp","cart");
+    CART("cart.jsp","cart"),
+    ORDERS_HISTORY("orders_history.jsp","orders_history"),
+    ORDER_DETAILS("order_details.jsp","order_details");
 
     private final String path;
     private final String mapping;

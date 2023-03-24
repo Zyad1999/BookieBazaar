@@ -24,9 +24,6 @@ public class CartController extends HttpServlet {
         UserRepoImpl userRepoImpl = new UserRepoImpl();
         User user = userRepoImpl.findUserById(1, (EntityManager)req.getAttribute("entityManager"));
         Set<CartItem> setOfCartItem = user.getCartItems();
-        for (CartItem cartItem : setOfCartItem) {
-            System.out.println(cartItem.getQuantity());
-        }
         req.setAttribute("setOfCartItem", setOfCartItem);
         Pages.CART.include(req, resp);
     }

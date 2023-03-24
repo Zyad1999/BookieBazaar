@@ -1,29 +1,21 @@
 package com.bookiebazzar.controller.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.model.dtos.BookDto;
-import com.bookiebazzar.model.dtos.CategoryDto;
 import com.bookiebazzar.model.enums.Language;
 import com.bookiebazzar.utils.ShopBooks;
 import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.objects.BookFilter;
 import com.google.gson.Gson;
-
-import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.beanutils.BeanUtils;
 
 @WebServlet("/shop")
 public class ShopController extends HttpServlet {

@@ -2,13 +2,9 @@ package com.bookiebazzar.controller.controllers;
 
 import java.io.IOException;
 
-import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.model.dtos.BookDto;
-import com.bookiebazzar.model.dtos.CategoryDto;
 import com.bookiebazzar.utils.ShopBooks;
 import com.bookiebazzar.utils.enums.Pages;
-
-import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
