@@ -1,5 +1,7 @@
 package com.bookiebazzar.configs.listeners;
 
+import com.bookiebazzar.utils.ShopBooks;
+
 //import com.bookiebazzar.utils.ShopBooks;
 
 import jakarta.servlet.ServletContext;
@@ -12,6 +14,6 @@ public class ContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         ServletContext context = event.getServletContext();
         //access in jsp using ${applicationScope.shopBooks.getBooks(1)}
-       // context.setAttribute("shopBooks", ShopBooks.getShopBooksInstance());
+       context.setAttribute("shopBooks", ShopBooks.getShopBooksInstance());
     }
 }
