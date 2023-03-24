@@ -251,14 +251,14 @@
 
 
               <c:if test="${currentBook.language eq 'ENG'}">
-                <input type="radio" name="bookLanguage"  required>
+                <input type="radio" name="bookLanguage" value="Arabic" required>
                 <label>Arabic</label>
                 <input type="radio" name="bookLanguage" value="English" checked required>
                 <label>English</label>
               </c:if>
 
               <c:if test="${currentBook.language eq 'ARAB'}">
-                <input type="radio" name="bookLanguage"  checked required>
+                <input type="radio" name="bookLanguage"  value="Arabic" checked required>
                 <label>Arabic</label>
                 <input type="radio" name="bookLanguage" value="English" required>
                 <label>English</label>

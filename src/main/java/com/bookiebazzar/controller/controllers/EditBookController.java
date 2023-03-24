@@ -53,6 +53,7 @@ public class EditBookController extends HttpServlet {
         String numberOfPages = request.getParameter("numberOfPages");
         String bookLanguage = request.getParameter("bookLanguage");
         String bookDescription = request.getParameter("bookDescription");
+
         BookDto bookDto = new BookDto();
         bookDto.setId(Integer.parseInt(bookId));
         bookDto.setAuthor(bookAuthor);
@@ -83,12 +84,13 @@ public class EditBookController extends HttpServlet {
             part.write(finlaLocation);
             bookDto.setImg(imageIndex + fileName.substring(index));
 
-        }
+       }
 
-        System.out.println(BookServicesImpl.getBookServices().updateBook(BookMapper.toEntity(bookDto), (EntityManager)request.getAttribute("entityManager")));
-        System.out.println(bookDto.toString());
-        System.out.println(getServletContext().getRealPath("//images//book_images"));
-        Shop.Shop.include(request, response);
+         System.out.println(BookServicesImpl.getBookServices().updateBook(BookMapper.toEntity(bookDto), (EntityManager)request.getAttribute("entityManager")));
+  
+
+         System.out.println(getServletContext().getRealPath("//images//book_images"));
+         Shop.Shop.include(request, response);
 
     }
 
