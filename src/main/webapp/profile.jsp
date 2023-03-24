@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 
@@ -41,48 +42,54 @@
                                         <p class="m-b-10 f-w-600">Username</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">Esraa</h6>
+                                        <h6 class="text-muted f-w-400">${requestScope.user.userName}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Birthdate</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">14-2-2022</h6>
+                                        <h6 class="text-muted f-w-400">${requestScope.user.birthDate}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Job</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">Software Engineer</h6>
+                                        <h6 class="text-muted f-w-400">${requestScope.user.job}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">E-mail</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">esraaabdalnaser@gmail.com</h6>
+                                        <h6 class="text-muted f-w-400">${requestScope.user.email}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Phone Number</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6 class="text-muted f-w-400">${requestScope.user.phoneNumber}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Credit Limit</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">1000</h6>
+                                        <h6 class="text-muted f-w-400">${requestScope.user.creditLimit}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Address</p>
                                     </div>
                                     <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">elsheikh zayed</h6>
+                                        <h6 class="text-muted f-w-400">${requestScope.address.country}, ${requestScope.address.city}, ${requestScope.address.street}, Building Number ${requestScope.address.buildingNumber}</h6>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Interests</p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h6 class="text-muted f-w-400">Anime</h6>
-                                    </div>
-                                    <div class="col-sm-9"></div>
+                                    <div class="col-sm-6"></div>
                                     <div class="col-sm-3">
-                                        <a class="btn sqaure_bt" id="allProudcts" href="edit_profile.jsp">Edit
-                                            Profile</a>
+                                        <c:if test="${not requestScope.admin or requestScope.admin eq false}">
+                                            <a class="btn sqaure_bt" id="allProudcts" href="editeProfile">Edit
+                                                Profile</a>
+                                        </c:if>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a class="btn sqaure_bt" id="jjjjj" href="edit_profile.jsp">
+                                            Orders</a>
                                     </div>
                                 </div>
                             </div>

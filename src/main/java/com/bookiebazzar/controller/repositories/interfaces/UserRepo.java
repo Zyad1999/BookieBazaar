@@ -2,6 +2,7 @@ package com.bookiebazzar.controller.repositories.interfaces;
 
 import java.util.List;
 
+import com.bookiebazzar.model.dtos.UserDto;
 import com.bookiebazzar.model.entities.User;
 
 import jakarta.persistence.EntityManager;
@@ -25,4 +26,6 @@ public interface UserRepo {
     public boolean checkEmailAvailability(String email, EntityManager entityManager);
 
     public boolean checkUserNameAvailability(String userName, EntityManager entityManager) ;
+
+    boolean updatePassword(int userId, String password, EntityManager entityManager);
 }

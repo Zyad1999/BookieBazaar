@@ -6,17 +6,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public enum Pages {
+public enum Users {
     
-    HOME("index.jsp","home"),
-    SHOP("shop.jsp","shop"),
-    CART("cart.jsp","cart"),
-    ORDERS_HISTORY("orders_history.jsp","orders_history"),
-    ORDER_DETAILS("order_details.jsp","order_details"),
-    LOGIN("login.jsp","login"),
-    SIGNUP("signup.jsp", "signup"),
-    PROFILE("profile.jsp", "profile"),
-    EDIT_PROFILE("edit_profile.jsp","editeProfile");
+    Users("users.jsp","usersController");
 
 
     private final String path;
@@ -30,7 +22,7 @@ public enum Pages {
         return mapping;
     }
 
-    Pages( String path, String mapping) {
+    Users( String path, String mapping) {
         this.path = path;
         this.mapping = mapping;
     }
@@ -41,9 +33,5 @@ public enum Pages {
 
     public void include(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(this.path).include(req, resp);
-    }
-
-    public void redirect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(this.mapping);
     }
 }

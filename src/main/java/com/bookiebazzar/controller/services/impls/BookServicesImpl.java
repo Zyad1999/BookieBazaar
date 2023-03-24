@@ -14,14 +14,15 @@ import com.bookiebazzar.utils.mappers.BookMapper;
 
 import jakarta.persistence.EntityManager;
 
-public class BookServicesImpl implements BookServices{
-    
+public class BookServicesImpl implements BookServices {
+
     private static BookServices bookServices;
 
-    private BookServicesImpl(){}
+    private BookServicesImpl() {
+    }
 
-    public static BookServices getBookServices(){
-        if(bookServices == null)
+    public static BookServices getBookServices() {
+        if (bookServices == null)
             bookServices = new BookServicesImpl();
         return bookServices;
     }
@@ -37,17 +38,39 @@ public class BookServicesImpl implements BookServices{
 
     @Override
     public List<CategoryDto> getAllCategories(EntityManager em) {
-        
+
         BookRepo bookRepo = RepositoryFactoryImpl.getInstance().createBookRepo();
         Map<String, String> categoriesWithRandomImg = bookRepo.getAllCategories(em);
         List<CategoryDto> listOCategoryDtos = new ArrayList<>();
         int cnt = 0;
-        for(Map.Entry<String, String> entry : categoriesWithRandomImg.entrySet()) {
+        for (Map.Entry<String, String> entry : categoriesWithRandomImg.entrySet()) {
             CategoryDto category = new CategoryDto(entry.getKey(), entry.getValue(), cnt);
             listOCategoryDtos.add(category);
             cnt++;
         }
 
         return listOCategoryDtos;
+    }
+
+    public int addBook(Book book, EntityManager em) {
+
+        return RepositoryFactoryImpl.getInstance().createBookRepo().addBook(book, em);
+    }
+
+    @Override
+    public boolean deleteBook(int id, EntityManager em) {
+        return RepositoryFactoryImpl.getInstance().createBookRepo().removeBook(id, em);
+
+    }
+
+    @Override
+    public BookDto findBook(int id, EntityManager em) {
+        return BookMapper.toDto(RepositoryFactoryImpl.getInstance().createBookRepo().findBook(id, em));
+    }
+
+    @Override
+    public boolean updateBook(Book book, EntityManager em) {
+        return RepositoryFactoryImpl.getInstance().createBookRepo().updateBook(book, em);
+
     }
 }

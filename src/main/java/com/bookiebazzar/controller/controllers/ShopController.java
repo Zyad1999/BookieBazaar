@@ -8,6 +8,18 @@ import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.objects.BookFilter;
 import com.google.gson.Gson;
 import jakarta.servlet.ServletContext;
+
+import com.bookiebazzar.controller.repositories.impls.CartRepoImpl;
+import com.bookiebazzar.controller.repositories.impls.UserRepoImpl;
+import com.bookiebazzar.controller.repositories.interfaces.CartRepo;
+import com.bookiebazzar.model.entities.Address;
+import com.bookiebazzar.model.entities.User;
+import com.bookiebazzar.utils.enums.Pages;
+import com.bookiebazzar.utils.enums.Shop;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,6 +28,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.time.LocalDate;
 
 @WebServlet("/shop")
 public class ShopController extends HttpServlet {
