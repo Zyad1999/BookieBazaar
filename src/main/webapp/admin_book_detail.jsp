@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,7 +124,7 @@
               <div class="product-heading">
                 <h2>Norton Internet Security</h2>
               </div>
-              
+
               <div class="product-detail-side"><span class="new-price">$20.00</span></div>
               <div class="detail-contant">
                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -136,11 +137,11 @@
                 <form class="cart" method="post" action="">
                   <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
                     Edit Book</a>
-                    <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
-                      Delete Book</a>
+                  <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
+                    Delete Book</a>
                 </form>
-              
-              </form>
+
+                </form>
               </div>
             </div>
           </div>
@@ -210,64 +211,79 @@
   <div id="edit" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form  method="post" action="editBook" enctype="multipart/form-data">
+        <form method="post" action="editBook" enctype="multipart/form-data">
           <div class="modal-header">
             <h4 class="modal-title">Edit Book</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label>Name</label> <input type="text" name="bookName" class="field_custom" value="${currentBook.name}" required>
+              <label>Name</label> <input type="text" name="bookName" class="field_custom" value="${currentBook.name}"
+                required>
               <input type="number" name="bookId" class="field_custom" value="${currentBook.id}" hidden>
 
             </div>
             <div class="form-group">
-              <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" value="${currentBook.author}" required>
+              <label>Author</label> <input type="text" name="bookAuthor" class="field_custom"
+                value="${currentBook.author}" required>
             </div>
             <div class="form-group">
-              <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" value="${currentBook.category}" required>
+              <label>Category</label> <input type="text" name="bookCategoty" class="field_custom"
+                value="${currentBook.category}" required>
             </div>
 
 
             <div class="form-group">
-              <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" value="${currentBook.quantity}" required>
+              <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom"
+                value="${currentBook.quantity}" required>
             </div>
             <div class="form-group">
               <label>Price</label>
               <input type="number" class="field_custom" name="bookPrice" value="${currentBook.numberOfPages}" required>
             </div>
             <div class="form-group">
-              <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom" value="${currentBook.price}" required>
+              <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom"
+                value="${currentBook.price}" required>
             </div>
-           
+
             <div class="form-group">
               <label>Language</label>
-              <c:if test="${currentBook.language=='ARAB'}">
-                <input type="radio"  name="bookLanguage" value="Arabic" checked required>
-                 <label>Arabic</label>
+
+
+              <c:if test="${currentBook.language eq 'ENG'}">
+                <input type="radio" name="bookLanguage"  required>
+                <label>Arabic</label>
+                <input type="radio" name="bookLanguage" value="English" checked required>
+                <label>English</label>
               </c:if>
 
-              <c:if test="${currentBook.language=='ENG'}">
-                 <input type="radio"  name="bookLanguage" value="English" checed required>
-                 <label>English</label>
+              <c:if test="${currentBook.language eq 'ARAB'}">
+                <input type="radio" name="bookLanguage"  checked required>
+                <label>Arabic</label>
+                <input type="radio" name="bookLanguage" value="English" required>
+                <label>English</label>
               </c:if>
+
+
+
+
 
             </div>
 
             <div class="form-group">
               <label>Description</label>
-              <textarea class="field_custom" name="bookDescription"  required>${currentBook.description}</textarea>
+              <textarea class="field_custom" name="bookDescription" required>${currentBook.description}</textarea>
             </div>
 
             <div class="form-group">
               <label>Image</label>
-              <input type="file" class="" name="bookImage" value="${currentBook.img}" >
+              <input type="file" class="" name="bookImage" value="${currentBook.img}">
               <input type="text" class="" name="bookImageName" value="${currentBook.img}" hidden>
             </div>
           </div>
           <div class="modal-footer">
             <button type="submit" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
-            <button type="submit"  class="btn sqaure_bt">Save</button>
+            <button type="submit" class="btn sqaure_bt">Save</button>
           </div>
         </form>
       </div>
@@ -276,27 +292,26 @@
 
 
   <div id="deleteBook" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form method="Post" action="deleteBook">
-					<div class="modal-header">
-						<h4 class="modal-title">Delete Book</h4>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<p>Are you sure you want to delete these Book?</p>
-					</div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form method="Post" action="deleteBook">
+          <div class="modal-header">
+            <h4 class="modal-title">Delete Book</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete these Book?</p>
+          </div>
 
-					<div class="modal-footer">
-              <button   data-dismiss="modal" class="btn sqaure_bt">cancel</button>
-              <input  value="${param.bookId}" name="bookId"  hidden >
-              <button type="submit"  class="btn sqaure_bt">Delete</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn sqaure_bt">cancel</button>
+            <input value="${param.bookId}" name="bookId" hidden>
+            <button type="submit" class="btn sqaure_bt">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <!-- footer -->
   <footer class="footer_style_2">
     <div class="container-fuild">

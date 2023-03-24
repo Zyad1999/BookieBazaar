@@ -3,6 +3,8 @@ package com.bookiebazzar.model.dtos;
 import java.time.LocalDate;
 import java.util.Set;
 
+import com.bookiebazzar.model.enums.Language;
+
 public class UserDto {
     private int id;
     private AddressDto adressDto;
@@ -125,4 +127,7 @@ public class UserDto {
     public boolean isIsAdmin() {
         return isAdmin;
     }
+
+ 
+
 }
