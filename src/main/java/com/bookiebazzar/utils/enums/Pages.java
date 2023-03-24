@@ -9,7 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public enum Pages {
     
     HOME("index.jsp","home"),
-    SHOP("shop.jsp","shop");
+    SHOP("shop.jsp","shop"),
+    CART("cart.jsp","cart");
 
     private final String path;
     private final String mapping;

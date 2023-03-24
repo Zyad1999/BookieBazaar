@@ -97,7 +97,7 @@
                         </li>
                       </c:otherwise>
                     </c:choose>
-                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                   </ul>
                 </div>
                 <div class="search_icon">
