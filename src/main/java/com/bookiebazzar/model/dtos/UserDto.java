@@ -9,7 +9,6 @@ public class UserDto {
     private AddressDto addressDto;
     private String userName;
     private String email;
-    private String password;
     private String phoneNumber;
     private String job;
     private LocalDate birthDate;
@@ -35,7 +34,6 @@ public class UserDto {
         this.addressDto = addressDto;
         this.userName = userName;
         this.email = email;
-        this.password = password;
         this.phoneNumber = phoneNumber;
         this.job = job;
         this.birthDate = birthDate;
@@ -43,12 +41,11 @@ public class UserDto {
         this.isAdmin = isAdmin;
     }
 
-    public UserDto(AddressDto addressDto, String userName, String email, String password, String phoneNumber,
+    public UserDto(AddressDto addressDto, String userName, String email, String phoneNumber,
                    String job, LocalDate birthDate, int creditLimit, boolean isAdmin) {
         this.addressDto = addressDto;
         this.userName = userName;
         this.email = email;
-        this.password = password;
         this.phoneNumber = phoneNumber;
         this.job = job;
         this.birthDate = birthDate;
@@ -70,10 +67,6 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -108,12 +101,16 @@ public class UserDto {
         return userName;
     }
 
-    public String getEmail() {
-        return email;
+    public AddressDto getAddressDto() {
+        return addressDto;
     }
 
-    public String getPassword() {
-        return password;
+    public void setAddressDto(AddressDto addressDto) {
+        this.addressDto = addressDto;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getPhoneNumber() {
@@ -136,4 +133,7 @@ public class UserDto {
         return isAdmin;
     }
 
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
 }

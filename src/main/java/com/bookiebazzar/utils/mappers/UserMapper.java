@@ -16,7 +16,6 @@ public class UserMapper {
         userDto.setAddress(AddressMapper.toDto(user.getAdress()));
         userDto.setUserName(user.getUserName());
         userDto.setEmail(user.getEmail());
-        userDto.setPassword(user.getPassword());
         userDto.setPhoneNumber(user.getPhoneNumber());
         userDto.setJob(user.getJob());
         userDto.setBirthDate(user.getBirthDate());
@@ -39,7 +38,6 @@ public class UserMapper {
         user.setAdress(AddressMapper.toEntity(userDto.getAddress()));
         user.setUserName(userDto.getUserName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setJob(userDto.getJob());
         user.setBirthDate(userDto.getBirthDate());

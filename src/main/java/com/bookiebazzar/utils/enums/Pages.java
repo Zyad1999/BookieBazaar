@@ -10,9 +10,9 @@ public enum Pages {
     
     HOME("index.jsp","home"),
     LOGIN("login.jsp","login"),
-    LOGOUT("","logout"),
     SIGNUP("signup.jsp", "signup"),
-    PROFILE("profile.jsp", "profile");
+    PROFILE("profile.jsp", "profile"),
+    EDIT_PROFILE("edit_profile.jsp","editeProfile");
 
     private final String path;
     private final String mapping;

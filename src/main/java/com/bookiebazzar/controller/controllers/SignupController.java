@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -42,9 +43,11 @@ public class SignupController  extends HttpServlet{
 
         AddressDto address = new AddressDto(country, city, street, Integer.parseInt(building));
 
-        UserDto user = new UserDto(address, username, email, password, phone, job, birthdate, credit, false);
+        UserDto user = new UserDto(address, username, email, phone, job, birthdate, credit, false);
 
-        UserDto createdUser = UserServicesImpl.getUserServicesInstance().userSignup(user,
+        String salt = BCrypt.gensalt();
+        String hashedPassword = BCrypt.hashpw(password, salt);
+        UserDto createdUser = UserServicesImpl.getUserServicesInstance().userSignup(user, hashedPassword, salt,
                 (EntityManager)req.getAttribute("entityManager"));
 
         if(createdUser != null){

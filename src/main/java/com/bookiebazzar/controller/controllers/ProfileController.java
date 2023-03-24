@@ -17,18 +17,15 @@ import java.io.IOException;
 public class ProfileController  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        if(session == null)
-            Pages.HOME.redirect(req, resp);
-        UserDto currentUser = (UserDto) session.getAttribute("currentUser");
-        if (currentUser == null)
-            Pages.HOME.redirect(req, resp);
-        if(req.getParameter("id") != null && currentUser.isAdmin()){
-            UserDto user = UserServicesImpl.getUserServicesInstance().getUserById(Integer.parseInt(req.getParameter("id")), (EntityManager)req.getAttribute("entityManager"));
+        UserDto currentUser = (UserDto) req.getSession(false).getAttribute("currentUser");
+        if(req.getAttribute("id") != null && currentUser.isAdmin()){
+            UserDto user = UserServicesImpl.getUserServicesInstance().getUserById((Integer) req.getAttribute("id"), (EntityManager)req.getAttribute("entityManager"));
             req.setAttribute("user", user);
+            req.setAttribute("address", user.getAddress());
             req.setAttribute("admin", true);
         }else {
             req.setAttribute("user", currentUser);
+            req.setAttribute("address", currentUser.getAddress());
         }
         Pages.PROFILE.include(req, resp);
     }

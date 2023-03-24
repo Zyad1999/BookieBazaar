@@ -61,7 +61,7 @@ public class User implements Serializable {
     private LocalDate birthDate;
 
     @Column(name = "credit_limit", nullable = false)
-    private int creditLimit;
+    private Integer creditLimit;
 
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
@@ -122,11 +122,11 @@ public class User implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public int getCreditLimit() {
+    public Integer getCreditLimit() {
         return creditLimit;
     }
 
-    public void setCreditLimit(int creditLimit) {
+    public void setCreditLimit(Integer creditLimit) {
         this.creditLimit = creditLimit;
     }
 
