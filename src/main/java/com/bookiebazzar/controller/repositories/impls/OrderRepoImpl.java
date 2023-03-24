@@ -25,13 +25,13 @@ public class OrderRepoImpl implements OrderRepo {
         int sum = 0;
         LocalDateTime now = LocalDateTime.now();
         User user = entityManager.find(User.class, userID);
-        if(user==null){
-            validationMsg = new ValidationMsg(1,"User does not exist");
+        if (user == null) {
+            validationMsg = new ValidationMsg(1, "User does not exist");
             return validationMsg;
         }
         Set<CartItem> setOfCartItem = user.getCartItems();
-        if(setOfCartItem.size()==0){
-            validationMsg = new ValidationMsg(1,"Cart is empty");
+        if (setOfCartItem.size() == 0) {
+            validationMsg = new ValidationMsg(1, "Cart is empty");
             return validationMsg;
         }
         UserOrder userOrder = new UserOrder();
@@ -93,6 +93,14 @@ public class OrderRepoImpl implements OrderRepo {
         UserOrder order = entityManager.find(UserOrder.class, orderID);
 
         return order;
+    }
+
+    @Override
+    public List<UserOrder> getAllOrders(EntityManager entityManager) {
+        TypedQuery<UserOrder> query = entityManager
+                .createQuery("select uo from UserOrder uo", UserOrder.class);
+        return query.getResultList();
+
     }
 
 }

@@ -3,10 +3,12 @@ package com.bookiebazzar.controller.controllers;
 import java.io.IOException;
 
 import com.bookiebazzar.controller.repositories.impls.CartRepoImpl;
+import com.bookiebazzar.controller.repositories.impls.OrderRepoImpl;
 import com.bookiebazzar.controller.repositories.impls.UserRepoImpl;
 import com.bookiebazzar.controller.repositories.interfaces.CartRepo;
 import com.bookiebazzar.model.entities.Address;
 import com.bookiebazzar.model.entities.User;
+import com.bookiebazzar.model.entities.UserOrder;
 import com.bookiebazzar.utils.enums.Pages;
 
 import jakarta.persistence.EntityManager;
@@ -18,6 +20,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import org.hibernate.mapping.List;
 
 @WebServlet("/home")
 public class HomeController extends HttpServlet {
@@ -25,8 +30,8 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("main");
-        // EntityManager entityManager = entityManagerFactory.createEntityManager();
+         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("main");
+         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         // UserRepoImpl userRepo = new UserRepoImpl();
         // Address add = new Address();
@@ -102,7 +107,7 @@ public class HomeController extends HttpServlet {
 
         //req.getRequestDispatcher("index.jsp").include(req, resp);
         
-        
+      
         Pages.HOME.include(req, resp);
     }
 

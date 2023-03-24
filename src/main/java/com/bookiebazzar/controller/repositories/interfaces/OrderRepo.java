@@ -17,4 +17,7 @@ public interface OrderRepo {
     public List<BookOrder> getOrderItems(int orderID, EntityManager entityManager);
 
     public UserOrder getOrder(int orderID, EntityManager entityManager);
+
+    public List<UserOrder> getAllOrders(EntityManager entityManager);
+
 }
