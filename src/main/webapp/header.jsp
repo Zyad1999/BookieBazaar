@@ -72,21 +72,20 @@
                       </ul>
                     </li>
                     <c:choose>
-                      <c:when test="${true}">
-                        <li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a>
+                      <c:when test="${sessionScope.currentUser != null}">
+                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
                           <ul>
-                            <li><a href="profile.jsp">Profile</a></li>
-                            <c:if test="true">
-                              <li><a href="users.jsp">Users profile</a></li>
+                            <li><a href="profile">Profile</a></li>
+                            <c:if test="${requestScope.admin or requestScope.admin eq true}">
+                              <li><a href="usersController">Users profile</a></li>
                             </c:if>
-                            <li><a href="order_history">Orders History</a></li>
-                            <li><a href="signout.jsp">Signout</a></li>
+                            <li><a href="logout">Signout</a></li>
                           </ul>
                         </li>
                       </c:when>
                       <c:otherwise>
                         <li>
-                          <a href="login.jsp">Login</a>
+                          <a href="login">Login</a>
                         </li>
                         </li>
                       </c:otherwise>

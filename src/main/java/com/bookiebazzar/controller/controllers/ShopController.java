@@ -99,7 +99,6 @@ public class ShopController extends HttpServlet {
             resp.setContentType("application/json");
             resp.getWriter().write(json);
 
-            // Pages.SHOP.include(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
         }

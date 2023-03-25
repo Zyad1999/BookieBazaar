@@ -87,7 +87,7 @@
                                         </c:if>
                                     </div>
                                     <div class="col-sm-3">
-                                        <a class="btn sqaure_bt" id="jjjjj" href="edit_profile.jsp">
+                                        <a class="btn sqaure_bt" id="jjjjj" href="order_history">
                                             Orders</a>
                                     </div>
                                 </div>
