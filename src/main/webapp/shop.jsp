@@ -79,20 +79,20 @@
                       </ul>
                     </li>
                     <c:choose>
-                      <c:when test="${true}">
-                        <li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a>
+                      <c:when test="${sessionScope.currentUser != null}">
+                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
                           <ul>
-                            <li><a href="profile.jsp">Profile</a></li>
-                            <c:if test="true">
-                              <li><a href="users.jsp">Users profile</a></li>
+                            <li><a href="profile">Profile</a></li>
+                            <c:if test="${requestScope.admin or requestScope.admin eq true}">
+                              <li><a href="usersController">Users profile</a></li>
                             </c:if>
-                            <li><a href="signout.jsp">Signout</a></li>
+                            <li><a href="logout">Signout</a></li>
                           </ul>
                         </li>
                       </c:when>
                       <c:otherwise>
                         <li>
-                          <a href="login.jsp">Login</a>
+                          <a href="login">Login</a>
                         </li>
                         </li>
                       </c:otherwise>
@@ -152,15 +152,6 @@
                   <h4>SEARCH</h4>
 
                   <div class="side_bar_search">
-                    <!-- <h6>Book Name</h6>
-                    <div class="input-group stylish-input-group">
-                      <input class="form-control" name="nameSearch" type="text">
-                    </div>
-                    <br>
-                    <h6>Author</h6>
-                    <div class="input-group stylish-input-group">
-                      <input class="form-control" name="authorSearch" type="text">
-                    </div><br> -->
                     <div class="col-md-12">
                       <input class="form-control" name="nameSearch" placeholder="Book Name" type="text">
                     </div>
@@ -190,13 +181,14 @@
 
                   <div class="side_bar_search">
                     <br><br><br>
-                    <div class="col-md-6">
-                      <label>Arabic</label>
-                      <input type="radio" name="language" value="ARAB">
-                    </div>
-                    <div class="col-md-6">
-                      <label>English</label>
-                      <input type="radio" name="language" value="ENG">
+
+                    <div class="col-md-10">
+                      <select title="Countries" class="field_custom" name="language"
+                        style="border: solid #e1e1e1 1px; width: 100%;background: #ffffff;min-height: 50px;padding: 5px 2px;line-height: normal;border-radius: 5px;margin-bottom: 10px;font-size: 14px;color: #737373;">
+                        <option value="">Select Language</option>
+                        <option value="ARAB">Arabic</option>
+                        <option value="ENG">English</option>
+                      </select>
                     </div>
 
                   </div>
@@ -219,7 +211,6 @@
                 </div>
 
                 <div class="center">
-                  <!-- <input type="submit" class="btn sqaure_bt" value="Search"> -->
                   <button type="button" id="search-btn" class="btn sqaure_bt">Search</button>
                 </div>
 
@@ -293,69 +284,69 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- footer -->
+    <footer class="footer_style_2">
+      <div class="container-fuild">
+        <div class="row">
 
-      <!-- footer -->
-      <footer class="footer_style_2">
-        <div class="container-fuild">
-          <div class="row">
-
-            <div class="footer_blog">
-              <div class="row">
-                <!-- <div class="col-md-4"></div> -->
-                <div class="col-md-6">
-                  <div class="main-heading left_text">
-                    <h2>It Next Theme</h2>
-                  </div>
-                  <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores
-                    sit
-                    ipsum velit purus aliquet, massa fringilla leo orci.</p>
-                  <ul class="social_icons">
-                    <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                  </ul>
+          <div class="footer_blog">
+            <div class="row">
+              <!-- <div class="col-md-4"></div> -->
+              <div class="col-md-6">
+                <div class="main-heading left_text">
+                  <h2>It Next Theme</h2>
                 </div>
+                <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores
+                  sit
+                  ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                <ul class="social_icons">
+                  <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
 
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
-                  <div class="main-heading left_text">
-                    <h2>Contact us</h2>
-                  </div>
-                  <p>123 Second Street Fifth Avenue,<br>
-                    Manhattan, New York<br>
-                    <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span>
-                  </p>
-                  <div class="footer_mail-section">
-                    <form>
-                      <fieldset>
-                        <div class="field">
-                          <input placeholder="Email" type="text">
-                          <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                        </div>
-                      </fieldset>
-                    </form>
-                  </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-4">
+                <div class="main-heading left_text">
+                  <h2>Contact us</h2>
+                </div>
+                <p>123 Second Street Fifth Avenue,<br>
+                  Manhattan, New York<br>
+                  <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span>
+                </p>
+                <div class="footer_mail-section">
+                  <form>
+                    <fieldset>
+                      <div class="field">
+                        <input placeholder="Email" type="text">
+                        <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                      </div>
+                    </fieldset>
+                  </form>
                 </div>
               </div>
             </div>
-            <div class="cprt">
-              <p>BOOKIEBAZAAR © Copyrights 2023 Design by EYZ</p>
-            </div>
+          </div>
+          <div class="cprt">
+            <p>BOOKIEBAZAAR © Copyrights 2023 Design by EYZ</p>
           </div>
         </div>
-      </footer>
-      <!-- end footer -->
+      </div>
+    </footer>
+    <!-- end footer -->
 
-      <script src="js/categories_form.js"></script>
+    <script src="js/categories_form.js"></script>
 
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <!-- menu js -->
-      <script src="js/menumaker.js"></script>
-      <!-- wow animation -->
-      <script src="js/wow.js"></script>
-      <!-- custom js -->
-      <script src="js/custom.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- menu js -->
+    <script src="js/menumaker.js"></script>
+    <!-- wow animation -->
+    <script src="js/wow.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
 
   </body>
 
