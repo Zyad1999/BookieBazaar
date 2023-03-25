@@ -63,6 +63,7 @@
                   </c:forEach>
                 </tbody>
               </table>
+              <span id="checkoutMsg"  style="color: red"></span>
             </div>
             <div class="shopping-cart-cart">
               <table>
@@ -75,22 +76,6 @@
                   </tr>
                   <tr>
                     <td>
-                      <h4>Subtotal</h4>
-                    </td>
-                    <td class="text-right">
-                      <h4>$50.00</h4>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5>Estimated shipping</h5>
-                    </td>
-                    <td class="text-right">
-                      <h4>$5.00</h4>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
                       <h3>Total</h3>
                     </td>
                     <td class="text-right">
@@ -99,7 +84,7 @@
                   </tr>
                   <tr>
                     <td><button type="button" class="button">Continue Shopping</button></td>
-                    <td><button class="button">Checkout</button></td>
+                    <td><button class="button" id="checkoutBtn">Checkout</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -109,6 +94,7 @@
       </div>
     </div>
     <!-- js section -->
+    <script src="js/order_checkout.js"></script>
     <%@include file="footer.jsp" %>
 </body>
 
