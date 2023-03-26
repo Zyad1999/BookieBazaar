@@ -35,7 +35,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="${requestScope.setOfBookOrder}" var="bookOrder">
+                  <c:forEach items="${requestScope.listOfBookOrder}" var="bookOrder">
                     <tr>
                       <td class="col-sm-8 col-md-6">
                         <div class="media"> <a class="thumbnail pull-left" href="#">

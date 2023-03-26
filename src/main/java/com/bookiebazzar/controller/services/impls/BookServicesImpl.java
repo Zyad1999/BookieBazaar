@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.bookiebazzar.controller.repositories.impls.OrderRepoImpl;
 import com.bookiebazzar.controller.repositories.impls.RepositoryFactoryImpl;
 import com.bookiebazzar.controller.repositories.interfaces.BookRepo;
 import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.dtos.BookDto;
+import com.bookiebazzar.model.dtos.BookOrderDto;
 import com.bookiebazzar.model.dtos.CategoryDto;
 import com.bookiebazzar.model.entities.Book;
+import com.bookiebazzar.model.entities.BookOrder;
 import com.bookiebazzar.utils.mappers.BookMapper;
+import com.bookiebazzar.utils.mappers.BookOrderMapper;
 
 import jakarta.persistence.EntityManager;
 
@@ -73,4 +77,17 @@ public class BookServicesImpl implements BookServices {
         return RepositoryFactoryImpl.getInstance().createBookRepo().updateBook(book, em);
 
     }
+
+    @Override
+    public List<BookOrderDto> getListOfOrderDto(int orderId, EntityManager em) {
+        OrderRepoImpl orderRepo = new OrderRepoImpl();
+        List<BookOrder> listOfBookOrder = orderRepo.getOrderItems(orderId, em);
+        List<BookOrderDto> listOfBookOrderDto = new ArrayList<>();
+        for (BookOrder bookOrder : listOfBookOrder) {
+            BookOrderDto bookOrderDto = BookOrderMapper.toDto(bookOrder);
+            listOfBookOrderDto.add(bookOrderDto);
+        }
+        return listOfBookOrderDto;
+    }
+
 }

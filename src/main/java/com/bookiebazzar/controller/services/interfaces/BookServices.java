@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bookiebazzar.model.dtos.BookDto;
+import com.bookiebazzar.model.dtos.BookOrderDto;
 import com.bookiebazzar.model.dtos.CategoryDto;
 import com.bookiebazzar.model.entities.Book;
 
@@ -20,5 +21,7 @@ public interface BookServices {
     public BookDto findBook(int bookID, EntityManager entityManager);
    
     public boolean updateBook(Book book,EntityManager em);
+
+    List<BookOrderDto> getListOfOrderDto(int id, EntityManager em);
 
 }

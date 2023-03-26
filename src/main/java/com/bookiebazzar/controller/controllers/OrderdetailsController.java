@@ -3,6 +3,8 @@ package com.bookiebazzar.controller.controllers;
 import java.io.IOException;
 import java.util.List;
 import com.bookiebazzar.controller.repositories.impls.OrderRepoImpl;
+import com.bookiebazzar.controller.services.impls.BookServicesImpl;
+import com.bookiebazzar.model.dtos.BookOrderDto;
 import com.bookiebazzar.model.entities.BookOrder;
 import com.bookiebazzar.utils.enums.Pages;
 import jakarta.persistence.EntityManager;
@@ -20,9 +22,8 @@ public class OrderdetailsController extends HttpServlet {
         
         if(!req.getParameter("order").isEmpty()){
             int orderId = Integer.parseInt(req.getParameter("order"));
-            OrderRepoImpl orderRepo = new OrderRepoImpl();
-            List<BookOrder> setOfBookOrder = orderRepo.getOrderItems(orderId,(EntityManager)req.getAttribute("entityManager") );
-            req.setAttribute("setOfBookOrder", setOfBookOrder);
+            List<BookOrderDto> listOfBookOrderDto = BookServicesImpl.getBookServices().getListOfOrderDto(orderId,(EntityManager)req.getAttribute("entityManager") );
+            req.setAttribute("listOfBookOrder", listOfBookOrderDto);
             Pages.ORDER_DETAILS.include(req, resp);
         }
     }
