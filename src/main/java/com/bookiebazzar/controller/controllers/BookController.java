@@ -32,10 +32,11 @@ public class BookController extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String id = request.getParameter("bookId");
-        BookDto bookDto=BookServicesImpl.getBookServices().findBook(Integer.parseInt(id),(EntityManager)request.getAttribute("entityManager"));
-        request.setAttribute("currentBook", bookDto);
-        request.setAttribute("bookId",id);
-        request.getRequestDispatcher("editBook").include(request, response);
+         BookDto bookDto=BookServicesImpl.getBookServices().findBook(Integer.parseInt(id),(EntityManager)request.getAttribute("entityManager"));
+         request.setAttribute("currentBook", bookDto);
+         request.setAttribute("bookId",id);
+         request.getRequestDispatcher("editBook").include(request, response);
+
 
     }
 

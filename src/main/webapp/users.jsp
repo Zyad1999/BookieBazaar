@@ -41,42 +41,42 @@
                   </thead>
 
                   <tbody>
-                    <c:forEach items="${UserDto}" var="user">
+                    <c:forEach items="${UserDto}" var="usersData">
 
                       <tr>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${user.userName}</p>
+                          <p class="price_table">${usersData.userName}</p>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${user.email}</p>
+                          <p class="price_table">${usersData.email}</p>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${user.job}</p>
+                          <p class="price_table">${usersData.job}</p>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${user.phoneNumber}</p>
+                          <p class="price_table">${usersData.phoneNumber}</p>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${user.birthDate}</p>
+                          <p class="price_table">${usersData.birthDate}</p>
                         </td>
 
-                        <c:if test="${user.isAdmin eq true}">
+                        <c:if test="${usersData.isAdmin eq true}">
                           <td class="col-sm-1 col-md-1 text-center">
                             <p class="price_table">Yes</p>
                           </td>
                           <td class="col-sm-1 col-md-1">
-                            <button type="button" onclick="location.href='makeAdminController?userId=${user.id}'"
+                            <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
                               class="bt_main"> Remove Admin </button>
                             <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
                           </td>
                         </c:if>
 
-                        <c:if test="${user.isAdmin eq false}">
+                        <c:if test="${usersData.isAdmin eq false}">
                           <td class="col-sm-1 col-md-1 text-center">
                             <p class="price_table">No</p>
                           </td>
                           <td class="col-sm-1 col-md-1">
-                            <button type="button" onclick="location.href='makeAdminController?userId=${user.id}'"
+                            <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
                               class="bt_main"> Make Admin </button>
                             <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
                           </td>

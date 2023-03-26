@@ -76,9 +76,11 @@
                         <li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a>
                           <ul>
                             <li><a href="profile.jsp">Profile</a></li>
-                            <c:if test="true">
-                              <li><a href="users.jsp">Users profile</a></li>
+                            
+                            <c:if test="${sessionScope.currentUser.isAdmin eq true}">
+                            <li><a href="usersController">Users profile</a></li>              
                             </c:if>
+                  
                             <li><a href="order_history">Orders History</a></li>
                             <li><a href="signout.jsp">Signout</a></li>
                           </ul>

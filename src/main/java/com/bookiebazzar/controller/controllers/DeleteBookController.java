@@ -46,7 +46,8 @@ public class DeleteBookController extends HttpServlet {
         System.out.println(BookServicesImpl.getBookServices().deleteBook(Integer.parseInt(id),
                 (EntityManager) request.getAttribute("entityManager")));
 
-                Shop.Shop.include(request, response);
+        // Shop.Shop.include(request, response);
+          response.sendRedirect("shop");
 
     }
 

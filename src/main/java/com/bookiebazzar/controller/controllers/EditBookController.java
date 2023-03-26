@@ -34,7 +34,7 @@ public class EditBookController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         response.setContentType("text/html");
-        request.getRequestDispatcher("admin_book_detail.jsp").forward(request, response);
+        request.getRequestDispatcher("book_detail.jsp").forward(request, response);
 
     }
 
@@ -76,13 +76,17 @@ public class EditBookController extends HttpServlet {
 
         } else {
 
-            int index = fileName.lastIndexOf(".");
-            imageIndex++;
-            String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator
-                    + imageIndex
-                    + fileName.substring(index);
+            // int index = fileName.lastIndexOf(".");
+            // imageIndex++;
+            // String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator
+            //         + imageIndex
+            //         + fileName.substring(index);
+            // part.write(finlaLocation);
+           //  bookDto.setImg(imageIndex + fileName.substring(index));
+            String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator + fileName;
             part.write(finlaLocation);
-            bookDto.setImg(imageIndex + fileName.substring(index));
+            bookDto.setImg(fileName);
+
 
        }
 
@@ -90,7 +94,9 @@ public class EditBookController extends HttpServlet {
   
 
          System.out.println(getServletContext().getRealPath("//images//book_images"));
-         Shop.Shop.include(request, response);
+        // Shop.Shop.include(request, response);
+         response.sendRedirect("book?bookId="+bookId);
+
 
     }
 
