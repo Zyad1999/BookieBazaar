@@ -142,29 +142,30 @@
                   <p>Language ${currentBook.language}<br></p>
 
                   <c:if test="${currentBook.quantity ne 0}">
-                        <form class="cart" method="post" action="cart.jsp">
-                          <div class="quantity">
-                            <input step="1" min="1" max="${currentBook.quantity}" name="quantity" value="1" title="Qty"
-                              class="input-text qty text" size="4" type="number">
-                          </div>
-                          <button type="submit" class="btn sqaure_bt">Add to cart</button>
-                        </form>
+                    <form class="cart" method="post" action="cart.jsp">
+                      <div class="quantity">
+                        <input step="1" min="1" max="${currentBook.quantity}" name="quantity" value="1" title="Qty"
+                          class="input-text qty text" size="4" type="number">
+                      </div>
+                      <button type="submit" class="btn sqaure_bt">Add to cart</button>
+                    </form>
                   </c:if>
                   <c:if test="${currentBook.quantity eq 0}">
                     <p>Product not Available<br>
+                  </c:if>
+                  <c:if test="${sessionScope.currentUser.isAdmin eq true}">
+                    <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
+                      Edit Book</a>
+                
+                    <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
+                      Delete Book</a>
                   </c:if>
                 </div>
               </div>
             </div>
 
-            <c:if test="${sessionScope.currentUser.isAdmin eq true}">
-              <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
-                Edit Book</a>
-                <br>
-              <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
-                Delete Book</a>
-            </c:if>
-        
+
+
             <div class="row" style="margin-top: 50px;">
               <div class="col-md-12">
                 <div class="full">
@@ -242,26 +243,25 @@
               </div>
               <div class="form-group">
                 <label>Author</label> <input type="text" name="bookAuthor" class="field_custom"
-                  value="${currentBook.author}" >
+                  value="${currentBook.author}">
               </div>
               <div class="form-group">
                 <label>Category</label> <input type="text" name="bookCategoty" class="field_custom"
-                  value="${currentBook.category}" >
+                  value="${currentBook.category}">
               </div>
 
 
               <div class="form-group">
                 <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom"
-                  value="${currentBook.quantity}" >
+                  value="${currentBook.quantity}">
               </div>
               <div class="form-group">
                 <label>Price</label>
-                <input type="number" class="field_custom" name="bookPrice" value="${currentBook.numberOfPages}"
-                  >
+                <input type="number" class="field_custom" name="bookPrice" value="${currentBook.numberOfPages}">
               </div>
               <div class="form-group">
                 <label>Number Of Pages</label> <input type="number" name="numberOfPages" class="field_custom"
-                  value="${currentBook.numberOfPages}" >
+                  value="${currentBook.numberOfPages}">
               </div>
 
               <div class="form-group">
@@ -269,16 +269,16 @@
 
 
                 <c:if test="${currentBook.language eq 'ENG'}">
-                  <input type="radio" name="bookLanguage" value="Arabic" >
+                  <input type="radio" name="bookLanguage" value="Arabic">
                   <label>Arabic</label>
-                  <input type="radio" name="bookLanguage" value="English" checked >
+                  <input type="radio" name="bookLanguage" value="English" checked>
                   <label>English</label>
                 </c:if>
 
                 <c:if test="${currentBook.language eq 'ARAB'}">
-                  <input type="radio" name="bookLanguage" value="Arabic" checked >
+                  <input type="radio" name="bookLanguage" value="Arabic" checked>
                   <label>Arabic</label>
-                  <input type="radio" name="bookLanguage" value="English" >
+                  <input type="radio" name="bookLanguage" value="English">
                   <label>English</label>
                 </c:if>
 
@@ -290,7 +290,8 @@
 
               <div class="form-group">
                 <label>Description</label>
-                <textarea class="field_custom" id="bookDescription" name="bookDescription" >${currentBook.description}</textarea>
+                <textarea class="field_custom" id="bookDescription"
+                  name="bookDescription">${currentBook.description}</textarea>
               </div>
 
               <div class="form-group">
@@ -407,7 +408,7 @@
 
 
     </script>
-          <script src="js/editBook_form.js"></script>
+    <script src="js/editBook_form.js"></script>
 
   </body>
 

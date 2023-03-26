@@ -34,6 +34,7 @@
                       <th class="text-center">Job</th>
                       <th class="text-center">Phone Number</th>
                       <th class="text-center">Birth Date</th>
+                      <th class="text-center">Show Profile</th>
                       <th class="text-center">Admin</th>
                       <th class="text-center">Admin</th>
 
@@ -59,7 +60,10 @@
                         <td class="col-sm-1 col-md-1 text-center">
                           <p class="price_table">${usersData.birthDate}</p>
                         </td>
-
+                        <td class="col-sm-1 col-md-1">
+                          <button type="button" onclick="location.href='profile?id=${usersData.id}'"
+                            class="bt_main"> Show Profile </button>
+                        </td>
                         <c:if test="${usersData.isAdmin eq true}">
                           <td class="col-sm-1 col-md-1 text-center">
                             <p class="price_table">Yes</p>
