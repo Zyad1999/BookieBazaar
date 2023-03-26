@@ -106,4 +106,9 @@ public class ShopBooks {
                 .collect(Collectors.toList());
     }
 
+    public int getNoOfPages() {
+
+        return books.size() % PAGE_SIZE == 0 ? books.size() / PAGE_SIZE : (books.size() / PAGE_SIZE) + 1;
+    }
+
 }

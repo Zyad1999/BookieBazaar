@@ -27,18 +27,29 @@ public class ShopController extends HttpServlet {
         ServletContext context = getServletContext();
         ShopBooks shopBooks = (ShopBooks) context.getAttribute("shopBooks");
         String categoryfilter = req.getParameter("name");
+        String reqPageNo = req.getParameter("page");
+        
         List<String> listOfCategories = new ArrayList<>();
         List<BookDto> listOfBooksDto;
+        int pageNo = 1;
+        if(reqPageNo != null){
+            try {
+                pageNo = Integer.parseInt(reqPageNo);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         if(categoryfilter!=null && !categoryfilter.isEmpty()){
             System.out.println(categoryfilter);
             BookFilter bookFilter = new BookFilter();
             listOfCategories.add(categoryfilter);
             bookFilter.setCategories(listOfCategories);
-            listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, 1);
+            listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, pageNo);
         } else {
-            listOfBooksDto = shopBooks.getBooks(1);
+            listOfBooksDto = shopBooks.getBooks(pageNo);
         }
         req.setAttribute("listOfBooks", listOfBooksDto);
+        req.setAttribute("noOfPages", shopBooks.getNoOfPages());
 
         Pages.SHOP.include(req, resp);
     }
