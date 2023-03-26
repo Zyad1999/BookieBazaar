@@ -2,30 +2,19 @@ package com.bookiebazzar.controller.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.bookiebazzar.controller.repositories.impls.BookRepoImpl;
-import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.controller.services.impls.UserServicesImpl;
-import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.dtos.UserDto;
-import com.bookiebazzar.model.entities.Book;
-import com.bookiebazzar.model.entities.User;
-import com.bookiebazzar.model.enums.Language;
 import com.bookiebazzar.utils.enums.Pages;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
-import java.io.File;
 
 @WebServlet("/usersController")
 @MultipartConfig

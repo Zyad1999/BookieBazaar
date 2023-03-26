@@ -3,18 +3,13 @@ package com.bookiebazzar.controller.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import com.bookiebazzar.controller.repositories.impls.BookRepoImpl;
 import com.bookiebazzar.controller.services.impls.BookServicesImpl;
-import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.dtos.BookDto;
-import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.model.enums.Language;
 import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.mappers.BookMapper;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;

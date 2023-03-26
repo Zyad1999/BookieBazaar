@@ -1,7 +1,6 @@
 package com.bookiebazzar.controller.controllers;
 
 import com.bookiebazzar.controller.services.impls.UserServicesImpl;
-import com.bookiebazzar.controller.services.interfaces.UserServices;
 import com.bookiebazzar.model.dtos.AddressDto;
 import com.bookiebazzar.model.dtos.UserDto;
 import com.bookiebazzar.utils.enums.Pages;
@@ -12,8 +11,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.mindrot.jbcrypt.BCrypt;
-
 import java.io.IOException;
 import java.time.LocalDate;
 

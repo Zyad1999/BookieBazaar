@@ -3,7 +3,6 @@ package com.bookiebazzar.controller.controllers;
 import java.io.IOException;
 
 import com.bookiebazzar.controller.services.impls.UserServicesImpl;
-import com.bookiebazzar.model.dtos.AddressDto;
 import com.bookiebazzar.model.dtos.UserDto;
 import com.bookiebazzar.utils.enums.Pages;
 
