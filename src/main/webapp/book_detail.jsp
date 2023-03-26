@@ -129,17 +129,32 @@
 
               <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
                 <div class="product-heading">
-                  <h2>Book Name ${currentBook.name}</h2>
+                  <!-- <h4 style="display:inline;">Book Name  </h4><span style="color:#b87906fa;">${currentBook.name}</span><br><br> -->
+                  <p  style="font-weight:bold">Book Name <span style="color:#b87906fa">${currentBook.name}</span></p>
+
                 </div>
 
-                <div class="product-detail-side"><span class="new-price">Price ${currentBook.price}</span></div>
                 <div class="detail-contant">
-                  <p>Description ${currentBook.description}<br>
-                    <span class="stock">${currentBook.quantity} in stock</span><br>
-                  <p>Author ${currentBook.author}<br>
-                  <p>Category ${currentBook.category}<br>
-                  <p>Number Of Pages ${currentBook.numberOfPages}<br>
-                  <p>Language ${currentBook.language}<br></p>
+                  <!-- <h4 style="display:inline;">Price  </h4><span style="color:#b87906fa;">${currentBook.price}</span><br><br>
+                  <h4 style="display:inline;">Description  </h4> <span style="color:#b87906fa;">${currentBook.description}</span> <br><br>
+                  <h4 style="display:inline;">Stock  </h4><span style="color:#b87906fa;">${currentBook.quantity}</span><br><br>
+                  <h4 style="display:inline;">Author  </h4><span style="color:#b87906fa;">${currentBook.author}</span><br><br>
+                  <h4 style="display:inline;">Category  </h4><span style="color:#b87906fa;">${currentBook.category}</span><br><br>
+                  <h4 style="display:inline;">Number Of Pages  </h4><span style="color:#b87906fa;">${currentBook.numberOfPages}</span><br><br>
+                  <h4 style="display:inline;">Language  </h4> <span style="color:#b87906fa;">${currentBook.language}</span><br><br> -->
+
+                  <p style="font-weight:bold">Price <span style="color:#b87906fa">${currentBook.price}</span></p>
+                  <p  style="font-weight:bold">Description <span style="color:#b87906fa">${currentBook.description}</span></p>
+                  <c:if test="${currentBook.quantity eq 0}">
+                    <p  style="font-weight:bold">Stock <span style="color:red">out of stock</span></p>
+                  </c:if>
+                  <c:if test="${currentBook.quantity ne 0}">
+                    <p  style="font-weight:bold">Stock <span style="color:green">in stock</span></p>
+                  </c:if>
+                  <p  style="font-weight:bold">Author <span style="color:#b87906fa">${currentBook.author}</span></p>
+                  <p  style="font-weight:bold">Category <span style="color:#b87906fa">${currentBook.category}</span></p>
+                  <p  style="font-weight:bold">Number Of Pages <span style="color:#b87906fa">${currentBook.numberOfPages}</span></p>
+                  <p  style="font-weight:bold">Language <span style="color:#b87906fa">${currentBook.language}</span></p>
 
                   <c:if test="${currentBook.quantity ne 0}">
                     <form class="cart" method="post" action="cart.jsp">
@@ -151,12 +166,13 @@
                     </form>
                   </c:if>
                   <c:if test="${currentBook.quantity eq 0}">
-                    <p>Product not Available<br>
+                    <!-- <p>Product not Available<br> -->
+                    <p style="font-weight:bold;color:red">Product not Available</p>
                   </c:if>
                   <c:if test="${sessionScope.currentUser.isAdmin eq true}">
                     <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
                       Edit Book</a>
-                
+
                     <a href="#deleteBook" class="btn sqaure_bt" data-toggle="modal">
                       Delete Book</a>
                   </c:if>
@@ -176,48 +192,27 @@
               </div>
             </div>
             <div class="row">
+
+              <c:forEach items="${listOfBooks}" var="bookData" begin = "1" end = "4">
+
               <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
                 <div class="product_list">
                   <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                      src="images/book_images/harryBook.jpeg" alt=""> </div>
+                      src="images/book_images/${bookData.img}" alt=""> </div>
                   <div class="product_detail_btm">
                     <div class="center">
-                      <h4><a href="book?bookId=7">Harry Potter</a></h4>
+                      <h4><a href="book?bookId=${bookData.id}">${bookData.name}</a></h4>
                     </div>
                     <div class="product_price">
-                      <p><span class="new_price">$25.00</span></p>
+                      <p><span class="new_price">${bookData.price}</span></p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                  <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                      src="images/book_images/prideAndPrejudiceBook.jpg" alt=""> </div>
-                  <div class="product_detail_btm">
-                    <div class="center">
-                      <h4><a href="book?bookId=8">Pride And Prejudice</a></h4>
-                    </div>
-                    <div class="product_price">
-                      <p><span class="new_price"> $12.49</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                  <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                      src="images/book_images/lordOfTheRings.jpg" alt=""> </div>
-                  <div class="product_detail_btm">
-                    <div class="center">
-                      <h4><a href="book?bookId=7">The Lord of the Rings</a></h4>
-                    </div>
-                    <div class="product_price">
-                      <p><span class="new_price">$25.00</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </c:forEach>
+
+            
+            
             </div>
           </div>
         </div>

@@ -36,7 +36,6 @@
                       <th class="text-center">Birth Date</th>
                       <th class="text-center">Show Profile</th>
                       <th class="text-center">Admin</th>
-                      <th class="text-center">Admin</th>
 
                     </tr>
                   </thead>
@@ -65,9 +64,7 @@
                             class="bt_main"> Show Profile </button>
                         </td>
                         <c:if test="${usersData.isAdmin eq true}">
-                          <td class="col-sm-1 col-md-1 text-center">
-                            <p class="price_table">Yes</p>
-                          </td>
+
                           <td class="col-sm-1 col-md-1">
                             <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
                               class="bt_main"> Remove Admin </button>
@@ -76,9 +73,7 @@
                         </c:if>
 
                         <c:if test="${usersData.isAdmin eq false}">
-                          <td class="col-sm-1 col-md-1 text-center">
-                            <p class="price_table">No</p>
-                          </td>
+                        
                           <td class="col-sm-1 col-md-1">
                             <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
                               class="bt_main"> Make Admin </button>
