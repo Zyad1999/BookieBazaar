@@ -5,8 +5,11 @@ import java.util.List;
 
 import com.bookiebazzar.controller.repositories.impls.RepositoryFactoryImpl;
 import com.bookiebazzar.controller.services.interfaces.UserServices;
+import com.bookiebazzar.model.dtos.CartItemDto;
 import com.bookiebazzar.model.dtos.UserDto;
+import com.bookiebazzar.model.entities.CartItem;
 import com.bookiebazzar.model.entities.User;
+import com.bookiebazzar.utils.mappers.CartItemMapper;
 import com.bookiebazzar.utils.mappers.UserMapper;
 
 import jakarta.persistence.EntityManager;
@@ -102,5 +105,34 @@ public class UserServicesImpl implements UserServices {
     public boolean validateUsername(String userName, EntityManager entityManager){
         return RepositoryFactoryImpl.getInstance().createUserRepo()
                 .checkUserNameAvailability(userName,entityManager);
+    }
+
+    @Override
+    public List<CartItemDto> getUserCart(int userId, EntityManager entityManager){
+        List<CartItemDto> cartItemDtos = new ArrayList<>();
+        List<CartItem> cartItems = RepositoryFactoryImpl.getInstance().createCartRepo()
+                .getUserCart(userId,entityManager);
+        for (CartItem item: cartItems){
+            cartItemDtos.add(CartItemMapper.toDto(item));
+        }
+        return cartItemDtos;
+    }
+
+    @Override
+    public boolean changeCartItemQuantity(int userId, int bookId, int quantity, EntityManager entityManager){
+        return RepositoryFactoryImpl.getInstance().createCartRepo()
+                .changeItemQuantity(userId, bookId, quantity, entityManager);
+    }
+
+    @Override
+    public boolean removeCartItem(int userId, int bookId, EntityManager entityManager){
+        return RepositoryFactoryImpl.getInstance().createCartRepo()
+                .removeCartItem(userId, bookId, entityManager);
+    }
+
+    @Override
+    public CartItemDto addCartItem(int userId, int bookId, int quantity, EntityManager entityManager){
+        return CartItemMapper.toDto(RepositoryFactoryImpl.getInstance().createCartRepo()
+                .addCartItem(userId, bookId, quantity, entityManager));
     }
 }

@@ -115,5 +115,23 @@ public class BookDto implements Serializable {
         this.category = category;
     }
     
-  
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        sb.append("\"id\":").append(id).append(",");
+        sb.append("\"name\":\"").append(name).append("\",");
+        sb.append("\"price\":").append(price).append(",");
+        sb.append("\"author\":\"").append(author).append("\",");
+        sb.append("\"language\":\"").append(language).append("\",");
+        sb.append("\"quantity\":").append(quantity).append(",");
+        sb.append("\"description\":\"").append(description).append("\",");
+        sb.append("\"img\":\"").append(img).append("\",");
+        sb.append("\"numberOfPages\":").append(numberOfPages).append(",");
+        sb.append("\"category\":\"").append(category).append("\"");
+        sb.append("}");
+        return sb.toString();
+    }
+
 }

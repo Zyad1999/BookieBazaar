@@ -9,14 +9,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.net.http.HttpRequest;
 
-@WebFilter(urlPatterns = {"/profile","/editeProfile","/logout"})
+@WebFilter(urlPatterns = {"/profile","/editeProfile","/logout","/update-cart","/add-to-cart"})
 public class UserFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpSession session = ((HttpServletRequest)request).getSession(false);
+        HttpServletRequest req = (HttpServletRequest)request;
+        HttpSession session = req.getSession(false);
         if(session == null) {
+            if(req.getRequestURI().contains("/logout") || req.getRequestURI().contains("/update-cart")
+                        || req.getRequestURI().contains("/add-to-cart")){
+                return;
+            }
             Pages.HOME.redirect((HttpServletRequest) request, (HttpServletResponse) response);
             return;
         }

@@ -2,6 +2,7 @@ package com.bookiebazzar.controller.services.interfaces;
 
 import java.util.List;
 
+import com.bookiebazzar.model.dtos.CartItemDto;
 import com.bookiebazzar.model.dtos.UserDto;
 
 import jakarta.persistence.EntityManager;
@@ -25,4 +26,12 @@ public interface UserServices {
     boolean validateEmail(String email, EntityManager entityManager);
 
     boolean validateUsername(String userName, EntityManager entityManager);
+
+    List<CartItemDto> getUserCart(int userId, EntityManager entityManager);
+
+    boolean changeCartItemQuantity(int userId, int bookId, int quantity, EntityManager entityManager);
+
+    boolean removeCartItem(int userId, int bookId, EntityManager entityManager);
+
+    CartItemDto addCartItem(int userId, int bookId, int quantity, EntityManager entityManager);
 }

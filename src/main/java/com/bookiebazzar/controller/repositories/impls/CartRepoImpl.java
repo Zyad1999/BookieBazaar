@@ -3,9 +3,11 @@ package com.bookiebazzar.controller.repositories.impls;
 import java.util.List;
 
 import com.bookiebazzar.controller.repositories.interfaces.CartRepo;
+import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.model.entities.CartItem;
 import com.bookiebazzar.model.entities.CartItemId;
 
+import com.bookiebazzar.model.entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
@@ -14,16 +16,29 @@ import jakarta.persistence.TypedQuery;
 public class CartRepoImpl implements CartRepo {
 
     @Override
-    public boolean addCartItem(CartItem item, EntityManager entityManager) {
+    public CartItem addCartItem(int userId, int bookId, int quantity, EntityManager entityManager) {
+        CartItem item = getCartItem(userId, bookId, entityManager);
+        Book book = entityManager.find(Book.class,bookId);
+        if(item == null){
+            User user = entityManager.find(User.class,userId);
+            item = new CartItem(user,book,quantity);
+            item.setQuantity(quantity);
+        }else{
+            if(item.getQuantity()+quantity <= book.getQuantity()) {
+                item.setQuantity(item.getQuantity() + quantity);
+            }else {
+                item.setQuantity(book.getQuantity());
+            }
+        }
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(item);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e);
-            return false;
+            return null;
         }
-        return true;
+        return item;
     }
 
     @Override
@@ -75,16 +90,16 @@ public class CartRepoImpl implements CartRepo {
     }
 
     @Override
-    public boolean changeItemQuantity(CartItem item, EntityManager entityManager) {
-        if (item.getQuantity() <= 0) {
-            removeCartItem(item.getUser().getId(), item.getBook().getId(), entityManager);
+    public boolean changeItemQuantity(int userId, int bookId, int quantity, EntityManager entityManager) {
+        if (quantity <= 0) {
+            removeCartItem(userId, bookId, entityManager);
             return true;
         }
-        CartItem cartItem = getCartItem(item.getUser().getId(), item.getBook().getId(), entityManager);
-        if (cartItem.getBook().getQuantity() < item.getQuantity()) {
+        CartItem cartItem = getCartItem(userId, bookId, entityManager);
+        if (cartItem.getBook().getQuantity() < quantity) {
             return false;
         }
-        cartItem.setQuantity(item.getQuantity());
+        cartItem.setQuantity(quantity);
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(cartItem);

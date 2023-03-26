@@ -36,31 +36,33 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="${requestScope.setOfCartItem}" var="cart">
-                    <tr>
-                      <td class="col-sm-8 col-md-6">
-                        <div class="media"> <a class="thumbnail pull-left" href="#">
-                            <img class="media-object" src="images/book_images/${cart.book.img}" alt="#"></a>
-                          <div class="media-body">
-                            <h4 class="media-heading"><a href="#">${cart.book.name}</a></h4>
-                            <span>Status: </span><span class="text-success">In Stock</span>
+                  <c:if test="${not empty sessionScope.currentUser}">
+                    <c:forEach items="${requestScope.setOfCartItem}" var="cart">
+                      <tr data-item-id="${cart.book.id}">
+                        <td class="col-sm-8 col-md-6">
+                          <div class="media"> <a class="thumbnail pull-left" href="#">
+                              <img class="media-object" src="images/book_images/${cart.book.img}" alt="#"></a>
+                            <div class="media-body">
+                              <h4 class="media-heading"><a href="#">${cart.book.name}</a></h4>
+                              <span>Status: </span><span class="text-success">In Stock</span>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input class="price_table form-control" value="${cart.quantity}" type="number">
-                      </td>
-                      <td class="col-sm-1 col-md-1 text-center">
-                        <p class="price_table">$ ${cart.book.price}</p>
-                      </td>
-                      <td class="col-sm-1 col-md-1 text-center">
-                        <p class="price_table">$ ${cart.book.price*cart.quantity}</p>
-                      </td>
-                      <td class="col-sm-1 col-md-1"><button type="button" class="bt_main"><i class="fa fa-trash"></i>
-                          Remove</button>
-                      </td>
-                    </tr>
-                  </c:forEach>
+                        </td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                          <input max="${cart.book.quantity}" min="0" class="price_table form-control quantity-input" value="${cart.quantity}" type="number">
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                          <p class="price_table book-price">$ ${cart.book.price}</p>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                          <p class="price_table total_price">$ ${cart.book.price*cart.quantity}</p>
+                        </td>
+                        <td class="col-sm-1 col-md-1 btnmain"><button type="button" class="bt_main"><i class="fa fa-trash"></i>
+                            Remove</button>
+                        </td>
+                      </tr>
+                    </c:forEach>
+                  </c:if>
                 </tbody>
               </table>
               <span id="checkoutMsg" class="center" style="color: red"></span>
@@ -94,6 +96,12 @@
       </div>
     </div>
     <!-- js section -->
+    <script>
+      var loggedin = (/true/i).test("${not empty sessionScope.currentUser}");
+      //var usercartItems = JSON.stringify(${requestScope.setOfCartItem});
+      //localStorage.setItem('cartItems',usercartItems);
+    </script>
+    <script src="js/cart.js"></script>
     <script src="js/order_checkout.js"></script>
     <%@include file="footer.jsp" %>
 </body>

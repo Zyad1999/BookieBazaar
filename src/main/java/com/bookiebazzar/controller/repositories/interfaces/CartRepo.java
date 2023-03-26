@@ -8,11 +8,11 @@ import jakarta.persistence.EntityManager;
 
 public interface CartRepo {
     
-    public boolean addCartItem(CartItem item, EntityManager entityManager);
+    public CartItem addCartItem(int userId, int bookId, int quantity, EntityManager entityManager);
 
     public boolean removeCartItem(int userId, int bookId, EntityManager entityManager);
 
-    public boolean changeItemQuantity(CartItem item, EntityManager entityManager);
+    public boolean changeItemQuantity(int userId, int bookId, int quantity, EntityManager entityManager);
 
     public List<CartItem> getUserCart(int userID, EntityManager entityManager);
 

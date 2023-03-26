@@ -40,4 +40,13 @@ public class CartItemDto {
     public void setBook(BookDto book) {
         this.book = book;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"userId\":" + userId +
+                ",\"quantity\":" + quantity +
+                ",\"book\":" + book.toString() +
+                "}";
+    }
 }

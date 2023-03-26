@@ -6,6 +6,13 @@
 
     <head>
       <title>Home</title>
+      <style>
+        @media (max-width: 767px) {
+          ol.carousel-indicators li:nth-child(n+1) {
+            display: none;
+          }
+        }
+      </style>
     </head>
 
     <body id="default_theme" class="book_images">
@@ -280,15 +287,14 @@
                         </c:if>
 
                         <div class="col-sm-4">
-                          <div class="thumb-wrapper">
+                          <div class="thumb-wrapper text-center">
                             <div class="img-box">
-                              <img src="images/book_images/${category.img}" img class="img-responsive" width="200"
-                                height="200" class="img-fluid" alt="">
+                              <img src="images/book_images/${category.img}" img class="img-responsive" width="70%"
+                                height="300" class="img-fluid" alt="">
                             </div>
                             <div class="thumb-content">
-                              <h4>${category.category}</h4>
-                              <a class="btn sqaure_bt" style="min-width: 130px;" href="shop?name=${category.category}">More <i
-                                  class="fa fa-angle-right"></i></a>
+                              <h5 style="text-transform: uppercase; margin-bottom: 5px; margin-top: 3px">${category.category}</h5>
+                              <a class="btn sqaure_bt" style="display: inline-block; width: calc(30% - 10px);"  href="shop?name=${category.category}">View More</a>
                             </div>
                           </div>
                         </div>
@@ -315,6 +321,10 @@
 
         </div>
         <!-- end section -->
+      <script>
+        var loggedin = (/true/i).test("${not empty sessionScope.currentUser}");
+      </script>
+      <script src="js/home.js"></script>
         <%@include file="footer.jsp" %>
     </body>
 
