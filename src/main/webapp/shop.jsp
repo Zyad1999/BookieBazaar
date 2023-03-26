@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/pagination.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -83,7 +84,7 @@
                         <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
                           <ul>
                             <li><a href="profile">Profile</a></li>
-                            <c:if test="${requestScope.admin or requestScope.admin eq true}">
+                            <c:if test="${sessionScope.currentUser.isAdmin eq true}">
                               <li><a href="usersController">Users profile</a></li>
                             </c:if>
                             <li><a href="logout">Signout</a></li>
@@ -229,6 +230,14 @@
         </div>
       </div>
 
+        <div class="paginator" id="paginator">
+          <ul>
+            <c:forEach var="i" begin="1" end="${noOfPages}" varStatus="loop">
+              <li><a href="shop?page=${i}">${i}</a></li>
+            </c:forEach>
+          </ul>
+        </div>
+
 
       <!-- Edit Modal HTML -->
       <div id="addBook" class="modal fade">
@@ -285,6 +294,7 @@
         </div>
       </div>
     </div>
+
     <!-- footer -->
     <footer class="footer_style_2">
       <div class="container-fuild">

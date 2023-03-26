@@ -84,7 +84,7 @@
                         <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
                           <ul>
                             <li><a href="profile">Profile</a></li>
-                            <c:if test="${requestScope.admin or requestScope.admin eq true}">
+                            <c:if test="${sessionScope.currentUser.isAdmin eq true}">
                               <li><a href="usersController">Users profile</a></li>
                             </c:if>
                             <li><a href="logout">Signout</a></li>
