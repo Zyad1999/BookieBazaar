@@ -118,6 +118,7 @@
     <!-- end header -->
 
 
+
     <div class="section padding_layout_1 product_list_main">
       <div class="container">
         <div class="row">
@@ -130,7 +131,8 @@
                     </div>
                     <div class="product_detail_btm">
                       <div class="center">
-                        <h4><a href="book_detail.jsp?id=${book.id}">
+                        <h4>
+                          <a href="book?bookId=${book.id}">
                             <c:out value="${book.name}" />
                           </a></h4>
                       </div>
@@ -146,12 +148,21 @@
               </c:forEach>
             </div>
           </div>
+
           <div class="col-md-3">
             <form method="post" action="shop" id="book-search-form">
+
               <div class="side_bar">
                 <div class="side_bar_blog">
-                  <h4>SEARCH</h4>
+                   <div class="side_bar" style="margin-bottom:20px">
+                    <c:if test="${sessionScope.currentUser.isAdmin eq true}">
+                      <a href="#addBook" class="btn sqaure_bt" data-toggle="modal">Add Book</a>
+                    </c:if>
+                   </div>
+         
 
+
+                  <h4>SEARCH</h4>
                   <div class="side_bar_search">
                     <div class="col-md-12">
                       <input class="form-control" name="nameSearch" placeholder="Book Name" type="text">
@@ -216,7 +227,6 @@
                 </div>
 
 
-
                 <br><br>
                 <!-- 
                 <div class="center">
@@ -243,51 +253,63 @@
       <div id="addBook" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
-            <form>
+            <form class="form_contant" method="post" action="addBook" enctype="multipart/form-data">
               <div class="modal-header">
                 <h4 class="modal-title">Add Book</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Name</label> <input type="text" class="field_custom" required>
+                  <label>Name</label> <input type="text" name="bookName" class="field_custom" >
                 </div>
                 <div class="form-group">
-                  <label>Author</label> <input type="text" class="field_custom" required>
+                  <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" >
                 </div>
                 <div class="form-group">
-                  <label>Category</label> <input type="text" class="field_custom" required>
+                  <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" >
                 </div>
+    
+    
                 <div class="form-group">
-                  <label>Quantity</label> <input type="number" class="field_custom" required>
+                  <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" >
                 </div>
+
                 <div class="form-group">
-                  <label>Price</label>
-                  <input type="number" class="field_custom" required>
+                  <label>Price</label><input type="number" class="field_custom" name="bookPrice" >
                 </div>
+
                 <div class="form-group">
-                  <label>Number Of Pages</label> <input type="number" class="field_custom" required>
+                  <label>Number Of Pages</label> <input type="number" class="field_custom" name="bookPages" >
                 </div>
+                <!-- <div class="form-group">
+                  <label>Language</label> <input type="text" name="bookLanguage" class="field_custom" required>
+                </div> -->
+    
                 <div class="form-group">
-                  <label>Language</label> <input type="text" class="field_custom" required>
+                  <label>Language</label>
+                  <input type="radio"  name="bookLanguage" value="Arabic" >
+                  <label>Arabic</label>
+                  <input type="radio"  name="bookLanguage" value="English" >
+                  <label>English</label>
                 </div>
+    
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea class="field_custom" required></textarea>
+                  <textarea class="field_custom" id="bookDescription" name="bookDescription" ></textarea>
                 </div>
-
+    
                 <div class="form-group">
                   <label>Image</label>
-                  <input type="file" class="" required>
+                  <input type="file" class="field_custom" name="bookImage" >
                 </div>
               </div>
-
+    
               <div class="modal-footer">
-
-                <button type="submit" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
-
+    
+                <button type="button" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
+    
                 <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
-
+    
               </div>
             </form>
           </div>
@@ -349,14 +371,15 @@
 
     <script src="js/categories_form.js"></script>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- menu js -->
-    <script src="js/menumaker.js"></script>
-    <!-- wow animation -->
-    <script src="js/wow.js"></script>
-    <!-- custom js -->
-    <script src="js/custom.js"></script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- menu js -->
+      <script src="js/menumaker.js"></script>
+      <!-- wow animation -->
+      <script src="js/wow.js"></script>
+      <!-- custom js -->
+      <script src="js/custom.js"></script>
+      <script src="js/addBook_form.js"></script>
 
   </body>
 

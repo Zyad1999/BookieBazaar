@@ -23,12 +23,9 @@ import java.io.File;
 @MultipartConfig
 public class AddBookController extends HttpServlet {
 
-    private static int imageIndex = 0;
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-      
 
     }
 
@@ -38,23 +35,20 @@ public class AddBookController extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-
         // get image to save it
         Part part = request.getPart("bookImage");
         String fileName = part.getSubmittedFileName();
-        int index = fileName.lastIndexOf(".");
-        imageIndex++;
-        String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator + imageIndex
-                + fileName.substring(index);
-        part.write(finlaLocation);
 
+        String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator + fileName;
+        part.write(finlaLocation);
+        System.out.println("-----------------------" + fileName + "-----------------");
         // get book parameters from request
         String bookName = request.getParameter("bookName");
         String bookAuthor = request.getParameter("bookAuthor");
         String bookCategoty = request.getParameter("bookCategoty");
         String bookQuantity = request.getParameter("bookQuantity");
         String bookPrice = request.getParameter("bookPrice");
-        String numberOfPages = request.getParameter("numberOfPages");
+        String numberOfPages = request.getParameter("bookPages");
         String bookLanguage = request.getParameter("bookLanguage");
         String bookDescription = request.getParameter("bookDescription");
 
@@ -71,8 +65,9 @@ public class AddBookController extends HttpServlet {
         }
         bookDto.setQuantity(Integer.parseInt(bookQuantity));
         bookDto.setDescription(bookDescription);
-        bookDto.setImg(imageIndex + fileName.substring(index));
-        System.out.println(BookServicesImpl.getBookServices().addBook(BookMapper.toEntity(bookDto),  (EntityManager)request.getAttribute("entityManager")));
+        bookDto.setImg(fileName);
+        System.out.println(BookServicesImpl.getBookServices().addBook(BookMapper.toEntity(bookDto),
+                (EntityManager) request.getAttribute("entityManager")));
         System.out.println(bookDto.toString());
         System.out.println(getServletContext().getRealPath("//images//book_images"));
         Pages.SHOP.include(request, response);
