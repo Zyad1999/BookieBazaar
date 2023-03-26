@@ -9,7 +9,6 @@ import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.model.enums.Language;
 import com.bookiebazzar.utils.enums.Pages;
-import com.bookiebazzar.utils.enums.Shop;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -46,7 +45,7 @@ public class DeleteBookController extends HttpServlet {
         System.out.println(BookServicesImpl.getBookServices().deleteBook(Integer.parseInt(id),
                 (EntityManager) request.getAttribute("entityManager")));
 
-                Shop.Shop.include(request, response);
+                Pages.SHOP.include(request, response);
 
     }
 

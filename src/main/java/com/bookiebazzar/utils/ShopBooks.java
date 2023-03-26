@@ -46,7 +46,7 @@ public class ShopBooks {
             books = BookServicesImpl.getBookServices().getAllBooks(em);
             categoriesWithRandomImg = BookServicesImpl.getBookServices().getAllCategories(em);
         }
-        return books;
+        return filterBooks(books, new BookFilter(), pageNumber);
     }
 
     public List<CategoryDto> getCategories(int pageNumber) {

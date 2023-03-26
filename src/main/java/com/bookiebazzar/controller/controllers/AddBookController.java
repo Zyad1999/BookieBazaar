@@ -9,7 +9,7 @@ import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.dtos.BookDto;
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.model.enums.Language;
-import com.bookiebazzar.utils.enums.Shop;
+import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.mappers.BookMapper;
 
 import jakarta.persistence.EntityManager;
@@ -80,7 +80,7 @@ public class AddBookController extends HttpServlet {
         System.out.println(BookServicesImpl.getBookServices().addBook(BookMapper.toEntity(bookDto),  (EntityManager)request.getAttribute("entityManager")));
         System.out.println(bookDto.toString());
         System.out.println(getServletContext().getRealPath("//images//book_images"));
-        Shop.Shop.include(request, response);
+        Pages.SHOP.include(request, response);
     }
 
 }

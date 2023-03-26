@@ -135,4 +135,8 @@ public class UserDto {
         return isAdmin;
     }
 
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
 }

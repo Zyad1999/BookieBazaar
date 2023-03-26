@@ -13,7 +13,7 @@ import com.bookiebazzar.model.dtos.UserDto;
 import com.bookiebazzar.model.entities.Book;
 import com.bookiebazzar.model.entities.User;
 import com.bookiebazzar.model.enums.Language;
-import com.bookiebazzar.utils.enums.Users;
+import com.bookiebazzar.utils.enums.Pages;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -37,7 +37,7 @@ public class usersController extends HttpServlet {
         response.setContentType("text/html");
         List<UserDto>UserDto= UserServicesImpl.getUserServicesInstance().getAllUsers( (EntityManager)request.getAttribute("entityManager"));
         request.setAttribute("UserDto", UserDto);
-        Users.Users.include(request, response);
+        Pages.USERS.include(request, response);
 
     }
 

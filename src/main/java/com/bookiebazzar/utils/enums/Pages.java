@@ -16,7 +16,8 @@ public enum Pages {
     LOGIN("login.jsp","login"),
     SIGNUP("signup.jsp", "signup"),
     PROFILE("profile.jsp", "profile"),
-    EDIT_PROFILE("edit_profile.jsp","editeProfile");
+    EDIT_PROFILE("edit_profile.jsp","editeProfile"),
+    USERS("users.jsp","usersController");
 
 
     private final String path;

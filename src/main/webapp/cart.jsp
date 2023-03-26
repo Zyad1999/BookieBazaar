@@ -63,7 +63,7 @@
                   </c:forEach>
                 </tbody>
               </table>
-              <span id="checkoutMsg"  style="color: red"></span>
+              <span id="checkoutMsg" class="center" style="color: red"></span>
             </div>
             <div class="shopping-cart-cart">
               <table>
