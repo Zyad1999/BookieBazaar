@@ -130,7 +130,7 @@
               <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
                 <div class="product-heading">
                   <!-- <h4 style="display:inline;">Book Name  </h4><span style="color:#b87906fa;">${currentBook.name}</span><br><br> -->
-                  <p  style="font-weight:bold">Book Name <span style="color:#b87906fa">${currentBook.name}</span></p>
+                  <p  style="font-weight:bold;color:black;font-size: 30px;"><span style="color:black">${currentBook.name}</span></p>
 
                 </div>
 
@@ -143,18 +143,18 @@
                   <h4 style="display:inline;">Number Of Pages  </h4><span style="color:#b87906fa;">${currentBook.numberOfPages}</span><br><br>
                   <h4 style="display:inline;">Language  </h4> <span style="color:#b87906fa;">${currentBook.language}</span><br><br> -->
 
-                  <p style="font-weight:bold">Price <span style="color:#b87906fa">${currentBook.price}</span></p>
-                  <p  style="font-weight:bold">Description <span style="color:#b87906fa">${currentBook.description}</span></p>
+                  <p style="font-weight:bold;color:black">Price            <span style="color:#0f1111;font-size:13px;">${currentBook.price} &pound;</span></p>
+                  <p  style="font-weight:bold;color:black">Description &ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.description}</span></p>
                   <c:if test="${currentBook.quantity eq 0}">
-                    <p  style="font-weight:bold">Stock <span style="color:red">out of stock</span></p>
+                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;<span style="color:red;font-size:13px;">out of stock</span></p>
                   </c:if>
                   <c:if test="${currentBook.quantity ne 0}">
-                    <p  style="font-weight:bold">Stock <span style="color:green">in stock</span></p>
+                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;<span style="color:green;font-size:13px;">in stock</span></p>
                   </c:if>
-                  <p  style="font-weight:bold">Author <span style="color:#b87906fa">${currentBook.author}</span></p>
-                  <p  style="font-weight:bold">Category <span style="color:#b87906fa">${currentBook.category}</span></p>
-                  <p  style="font-weight:bold">Number Of Pages <span style="color:#b87906fa">${currentBook.numberOfPages}</span></p>
-                  <p  style="font-weight:bold">Language <span style="color:#b87906fa">${currentBook.language}</span></p>
+                  <p  style="font-weight:bold;color:black">Author&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.author}</span></p>
+                  <p  style="font-weight:bold;color:black">Category&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.category}</span></p>
+                  <p  style="font-weight:bold;color:black">Number Of Pages&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.numberOfPages}</span></p>
+                  <p  style="font-weight:bold;color:black">Language&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.language}</span></p>
 
                   <c:if test="${currentBook.quantity ne 0}">
                     <form class="cart" method="post" action="cart.jsp">

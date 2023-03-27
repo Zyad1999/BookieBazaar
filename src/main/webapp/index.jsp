@@ -230,7 +230,7 @@
                         src="images/book_images/${book.img}" alt=""> </div>
                     <div class="product_detail_btm">
                       <div class="center">
-                        <h4><a href="book_detail.jsp?id=${book.id}">
+                        <h4><a href="book?bookId=${book.id}">
                             <c:out value="${book.name}" />
                           </a></h4>
                       </div>
