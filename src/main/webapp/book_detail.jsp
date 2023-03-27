@@ -143,18 +143,18 @@
                   <h4 style="display:inline;">Number Of Pages  </h4><span style="color:#b87906fa;">${currentBook.numberOfPages}</span><br><br>
                   <h4 style="display:inline;">Language  </h4> <span style="color:#b87906fa;">${currentBook.language}</span><br><br> -->
 
-                  <p style="font-weight:bold;color:black">Price            <span style="color:#0f1111;font-size:13px;">${currentBook.price} &pound;</span></p>
-                  <p  style="font-weight:bold;color:black">Description &ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.description}</span></p>
+                  <p style="font-weight:bold;color:black">Price&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.price} &pound;</span></p>
+                  <p  style="font-weight:bold;color:black">Description &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.description}</span></p>
                   <c:if test="${currentBook.quantity eq 0}">
-                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;<span style="color:red;font-size:13px;">out of stock</span></p>
+                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:red;font-size:13px;">out of stock</span></p>
                   </c:if>
                   <c:if test="${currentBook.quantity ne 0}">
-                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;<span style="color:green;font-size:13px;">in stock</span></p>
+                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:green;font-size:13px;">in stock</span></p>
                   </c:if>
-                  <p  style="font-weight:bold;color:black">Author&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.author}</span></p>
-                  <p  style="font-weight:bold;color:black">Category&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.category}</span></p>
-                  <p  style="font-weight:bold;color:black">Number Of Pages&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.numberOfPages}</span></p>
-                  <p  style="font-weight:bold;color:black">Language&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.language}</span></p>
+                  <p  style="font-weight:bold;color:black">Author&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.author}</span></p>
+                  <p  style="font-weight:bold;color:black">Category&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.category}</span></p>
+                  <p  style="font-weight:bold;color:black">Number Of Pages&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.numberOfPages}</span></p>
+                  <p  style="font-weight:bold;color:black">Language&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.language}</span></p>
 
                   <c:if test="${currentBook.quantity ne 0}">
                     <form class="cart" method="post" action="cart.jsp">
