@@ -17,7 +17,7 @@ public class ProfileController  extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDto currentUser = (UserDto) req.getSession(false).getAttribute("currentUser");
         if(req.getParameter("id") != null && currentUser.isAdmin()){
-            UserDto user = UserServicesImpl.getUserServicesInstance().getUserById((Integer) req.getAttribute("id"), (EntityManager)req.getAttribute("entityManager"));
+            UserDto user = UserServicesImpl.getUserServicesInstance().getUserById(Integer.parseInt(req.getParameter("id")), (EntityManager)req.getAttribute("entityManager"));
             req.setAttribute("user", user);
             req.setAttribute("address", user.getAddress());
             req.setAttribute("admin", true);

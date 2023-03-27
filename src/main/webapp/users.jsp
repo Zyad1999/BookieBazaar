@@ -41,49 +41,54 @@
                   </thead>
 
                   <tbody>
+                    
+
                     <c:forEach items="${UserDto}" var="usersData">
-
-                      <tr>
-                        <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${usersData.userName}</p>
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${usersData.email}</p>
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${usersData.job}</p>
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${usersData.phoneNumber}</p>
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table">${usersData.birthDate}</p>
-                        </td>
-                        <td class="col-sm-1 col-md-1">
-                          <button type="button" onclick="location.href='profile?id=${usersData.id}'"
-                            class="bt_main"> Show Profile </button>
-                        </td>
-                        <c:if test="${usersData.isAdmin eq true}">
-
-                          <td class="col-sm-1 col-md-1">
-                            <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
-                              class="bt_main"> Remove Admin </button>
-                            <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
-                          </td>
+                        <c:if test="${usersData.id ne sessionScope.currentUser.id}">
+                          <tr>
+                            <td class="col-sm-1 col-md-1 text-center">
+                              <p class="price_table">${usersData.userName}</p>
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center">
+                              <p class="price_table">${usersData.email}</p>
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center">
+                              <p class="price_table">${usersData.job}</p>
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center">
+                              <p class="price_table">${usersData.phoneNumber}</p>
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center">
+                              <p class="price_table">${usersData.birthDate}</p>
+                            </td>
+                            <td class="col-sm-1 col-md-1">
+                              <button type="button" onclick="location.href='profile?id=${usersData.id}'"
+                                class="bt_main"> Show Profile </button>
+                            </td>
+                            <c:if test="${usersData.isAdmin eq true}">
+    
+                              <td class="col-sm-1 col-md-1">
+                                <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
+                                  class="bt_main"> Remove Admin </button>
+                                <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
+                              </td>
+                            </c:if>
+    
+                            <c:if test="${usersData.isAdmin eq false}">
+                            
+                              <td class="col-sm-1 col-md-1">
+                                <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
+                                  class="bt_main"> Make Admin </button>
+                                <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
+                              </td>
+                            </c:if>
+    
+                            <!-- <td class="col-sm-1 col-md-1"><button type="button" class="bt_main">Profile</button></td> -->
+    
+                          </tr>
                         </c:if>
 
-                        <c:if test="${usersData.isAdmin eq false}">
-                        
-                          <td class="col-sm-1 col-md-1">
-                            <button type="button" onclick="location.href='makeAdminController?userId=${usersData.id}'"
-                              class="bt_main"> Make Admin </button>
-                            <!-- <a href="makeAdminController?userId=${user.id}">Make Admin</a> -->
-                          </td>
-                        </c:if>
-
-                        <!-- <td class="col-sm-1 col-md-1"><button type="button" class="bt_main">Profile</button></td> -->
-
-                      </tr>
+                   
                     </c:forEach>
 
                   </tbody>
