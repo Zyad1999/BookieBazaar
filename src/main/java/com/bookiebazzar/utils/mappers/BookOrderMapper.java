@@ -6,6 +6,9 @@ import com.bookiebazzar.model.entities.BookOrder;
 public class BookOrderMapper {
 
     public static BookOrderDto toDto(BookOrder bookOrder) {
+        if(bookOrder == null){
+            return null;
+        }
         BookOrderDto bookOrderDto = new BookOrderDto();
         bookOrderDto.setBook(BookMapper.toDto(bookOrder.getBook()));
         bookOrderDto.setQuantity(bookOrder.getQuantity());
@@ -14,6 +17,9 @@ public class BookOrderMapper {
     }
 
     public static BookOrder toEntity(BookOrderDto bookOrderDto) {
+        if(bookOrderDto == null){
+            return null;
+        }
         BookOrder bookOrder = new BookOrder();
         bookOrder.setBook(BookMapper.toEntity(bookOrderDto.getBook()));
         bookOrder.setQuantity(bookOrderDto.getQuantity());

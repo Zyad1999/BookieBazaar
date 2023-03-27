@@ -9,7 +9,6 @@ $(document).ready(function () {
                 if(result.state==0){
                     window.location.href = "home";
                 } else{
-
                     $("#checkoutMsg").html(result.msg);
                 }
                 

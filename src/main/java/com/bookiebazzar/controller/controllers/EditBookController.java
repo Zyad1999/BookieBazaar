@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.model.dtos.BookDto;
 import com.bookiebazzar.model.enums.Language;
+import com.bookiebazzar.utils.ShopBooks;
 import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.mappers.BookMapper;
 
@@ -17,6 +18,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+
 import java.io.File;
 
 @WebServlet("/editBook")
@@ -29,8 +31,8 @@ public class EditBookController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         response.setContentType("text/html");
-        request.getRequestDispatcher("book_detail.jsp").forward(request, response);
-
+//        request.getRequestDispatcher("book_detail.jsp").forward(request, response);
+        Pages.BOOK_DETAIL.include(request, response);
     }
 
     @Override
@@ -70,27 +72,18 @@ public class EditBookController extends HttpServlet {
             bookDto.setImg(bookImageName);
 
         } else {
-
-            // int index = fileName.lastIndexOf(".");
-            // imageIndex++;
-            // String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator
-            //         + imageIndex
-            //         + fileName.substring(index);
-            // part.write(finlaLocation);
-           //  bookDto.setImg(imageIndex + fileName.substring(index));
             String finlaLocation = getServletContext().getRealPath("//images//book_images") + File.separator + fileName;
             part.write(finlaLocation);
             bookDto.setImg(fileName);
+        }
 
+        boolean res = BookServicesImpl.getBookServices().updateBook(BookMapper.toEntity(bookDto), (EntityManager) request.getAttribute("entityManager"));
+        if (res) {
+            ShopBooks.getShopBooksInstance().removeBooks();
+        }
 
-       }
-
-         System.out.println(BookServicesImpl.getBookServices().updateBook(BookMapper.toEntity(bookDto), (EntityManager)request.getAttribute("entityManager")));
-  
-
-         System.out.println(getServletContext().getRealPath("//images//book_images"));
-        // Shop.Shop.include(request, response);
-         response.sendRedirect("book?bookId="+bookId);
+        System.out.println(getServletContext().getRealPath("//images//book_images"));
+        response.sendRedirect("book?bookId=" + bookId);
 
 
     }

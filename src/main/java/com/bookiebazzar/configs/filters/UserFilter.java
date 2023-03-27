@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.net.http.HttpRequest;
 
-@WebFilter(urlPatterns = {"/profile","/editeProfile","/logout","/update-cart","/add-to-cart"})
+@WebFilter(urlPatterns = {"/profile","/editeProfile","/logout","/update-cart","/add-to-cart","/order_details","/order_history"})
 public class UserFilter implements Filter {
 
     @Override

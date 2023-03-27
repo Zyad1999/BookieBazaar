@@ -7,6 +7,9 @@ import com.bookiebazzar.model.entities.CartItemId;
 public class CartItemMapper {
 
     public static CartItemDto toDto(CartItem item) {
+        if(item == null){
+            return null;
+        }
         CartItemDto itemDto = new CartItemDto();
         itemDto.setBook(BookMapper.toDto(item.getBook()));
         itemDto.setQuantity(item.getQuantity());
@@ -15,6 +18,9 @@ public class CartItemMapper {
     }
 
     public static CartItem toEntity(CartItemDto itemDto) {
+        if(itemDto == null){
+            return null;
+        }
         CartItem item = new CartItem();
         item.setId(new CartItemId(itemDto.getUserId(),itemDto.getBook().getId()));
         item.setBook(BookMapper.toEntity(itemDto.getBook()));

@@ -20,6 +20,9 @@ public class AddToCart extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String quantity = req.getParameter("quantity");
         String bookId = req.getParameter("bookId");
+        System.out.println(quantity);
+        System.out.println(req.getAttribute("quantity"));
+        System.out.println(bookId);
         if(bookId == null || quantity == null){
             resp.getWriter().write("{ \"error\": \"Invalid Arguments\"}");
             return;
@@ -33,6 +36,5 @@ public class AddToCart extends HttpServlet {
         }catch (NumberFormatException e){
             resp.getWriter().write("{ \"error\": \"Invalid Arguments\"}");
         }
-
     }
 }

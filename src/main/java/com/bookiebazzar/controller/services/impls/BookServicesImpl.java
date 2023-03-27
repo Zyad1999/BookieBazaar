@@ -7,6 +7,7 @@ import java.util.Map;
 import com.bookiebazzar.controller.repositories.impls.OrderRepoImpl;
 import com.bookiebazzar.controller.repositories.impls.RepositoryFactoryImpl;
 import com.bookiebazzar.controller.repositories.interfaces.BookRepo;
+import com.bookiebazzar.controller.repositories.interfaces.OrderRepo;
 import com.bookiebazzar.controller.services.interfaces.BookServices;
 import com.bookiebazzar.model.dtos.BookDto;
 import com.bookiebazzar.model.dtos.BookOrderDto;
@@ -80,7 +81,7 @@ public class BookServicesImpl implements BookServices {
 
     @Override
     public List<BookOrderDto> getListOfOrderDto(int orderId, EntityManager em) {
-        OrderRepoImpl orderRepo = new OrderRepoImpl();
+        OrderRepo orderRepo = RepositoryFactoryImpl.getInstance().createOrderRepo();
         List<BookOrder> listOfBookOrder = orderRepo.getOrderItems(orderId, em);
         List<BookOrderDto> listOfBookOrderDto = new ArrayList<>();
         for (BookOrder bookOrder : listOfBookOrder) {

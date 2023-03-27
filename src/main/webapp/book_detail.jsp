@@ -129,45 +129,37 @@
 
               <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
                 <div class="product-heading">
-                  <!-- <h4 style="display:inline;">Book Name  </h4><span style="color:#b87906fa;">${currentBook.name}</span><br><br> -->
-                  <p  style="font-weight:bold;color:black;font-size: 30px;"><span style="color:black">${currentBook.name}</span></p>
-
+                  <h2>${currentBook.name}</h2>
                 </div>
-
+                <div class="product-detail-side"><span class="new-price">&pound; ${currentBook.price}</span></div>
                 <div class="detail-contant">
-                  <!-- <h4 style="display:inline;">Price  </h4><span style="color:#b87906fa;">${currentBook.price}</span><br><br>
-                  <h4 style="display:inline;">Description  </h4> <span style="color:#b87906fa;">${currentBook.description}</span> <br><br>
-                  <h4 style="display:inline;">Stock  </h4><span style="color:#b87906fa;">${currentBook.quantity}</span><br><br>
-                  <h4 style="display:inline;">Author  </h4><span style="color:#b87906fa;">${currentBook.author}</span><br><br>
-                  <h4 style="display:inline;">Category  </h4><span style="color:#b87906fa;">${currentBook.category}</span><br><br>
-                  <h4 style="display:inline;">Number Of Pages  </h4><span style="color:#b87906fa;">${currentBook.numberOfPages}</span><br><br>
-                  <h4 style="display:inline;">Language  </h4> <span style="color:#b87906fa;">${currentBook.language}</span><br><br> -->
-
-                  <p style="font-weight:bold;color:black">Price&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.price} &pound;</span></p>
-                  <p  style="font-weight:bold;color:black">Description &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.description}</span></p>
-                  <c:if test="${currentBook.quantity eq 0}">
-                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:red;font-size:13px;">out of stock</span></p>
-                  </c:if>
-                  <c:if test="${currentBook.quantity ne 0}">
-                    <p  style="font-weight:bold;color:black">Stock&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:green;font-size:13px;">in stock</span></p>
-                  </c:if>
-                  <p  style="font-weight:bold;color:black">Author&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.author}</span></p>
-                  <p  style="font-weight:bold;color:black">Category&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.category}</span></p>
-                  <p  style="font-weight:bold;color:black">Number Of Pages&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.numberOfPages}</span></p>
-                  <p  style="font-weight:bold;color:black">Language&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<span style="color:#0f1111;font-size:13px;">${currentBook.language}</span></p>
-
+                  <div>
+                    <c:if test="${currentBook.quantity eq 0}">
+                      <span style="font-weight:bold; font-size: 15px;">Status: </span><span class="text-danger">Out Of Stock</span>
+                    </c:if>
+                    <c:if test="${currentBook.quantity ne 0}">
+                      <span style="font-weight:bold; font-size: 15px;">Status: </span><span class="text-success">In Stock</span>
+                    </c:if>
+                  </div>
+                  <br>
+                  <p><span style="font-weight:bold; color: black;">Description: </span>${currentBook.description}.<br></p>
+                  <p><span style="font-weight:bold; color: black;">Author: </span>${currentBook.author}<br></p>
+                  <p><span style="font-weight:bold; color: black;">Category: </span>${currentBook.category}<br></p>
+                  <p><span style="font-weight:bold; color: black;">No.Pages: </span>${currentBook.numberOfPages}<br></p>
+                  <p><span style="font-weight:bold; color: black;">Language: </span>${currentBook.language}<br></p>
+                  <br>
                   <c:if test="${currentBook.quantity ne 0}">
                     <form class="cart" method="post" action="cart.jsp">
                       <div class="quantity">
                         <input step="1" min="1" max="${currentBook.quantity}" name="quantity" value="1" title="Qty"
-                          class="input-text qty text" size="4" type="number">
+                          class="input-text qty text" id="quantity" size="4" type="number">
                       </div>
                       <button type="submit" class="btn sqaure_bt">Add to cart</button>
                     </form>
                   </c:if>
                   <c:if test="${currentBook.quantity eq 0}">
                     <!-- <p>Product not Available<br> -->
-                    <p style="font-weight:bold;color:red">Product not Available</p>
+                    <p class="text-danger">Product not Available</p>
                   </c:if>
                   <c:if test="${sessionScope.currentUser.isAdmin eq true}">
                     <a href="#edit" class="btn sqaure_bt" data-toggle="modal">
@@ -380,6 +372,11 @@
 
 
     <!-- js section -->
+    <script>
+      const book = ${currentBook};
+      var loggedin = (/true/i).test("${not empty sessionScope.currentUser}");
+    </script>
+    <script src="js/addToCart.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- menu js -->

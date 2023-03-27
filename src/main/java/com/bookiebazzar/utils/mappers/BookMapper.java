@@ -5,6 +5,9 @@ import com.bookiebazzar.model.entities.Book;
 
 public class BookMapper {
     public static BookDto toDto(Book book) {
+        if(book == null){
+            return null;
+        }
         BookDto bookDto = new BookDto();
         bookDto.setId(book.getId());
         bookDto.setName(book.getName());
@@ -20,6 +23,9 @@ public class BookMapper {
     }
 
     public static Book toEntity(BookDto bookDto) {
+        if(bookDto == null){
+            return null;
+        }
         Book book = new Book();
         book.setId(bookDto.getId());
         book.setName(bookDto.getName());

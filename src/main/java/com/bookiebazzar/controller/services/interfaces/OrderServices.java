@@ -10,4 +10,6 @@ import jakarta.persistence.EntityManager;
 public interface OrderServices {
     
     List<UserOrderDto> getListOfOrderDto(int id,EntityManager em);
+
+    UserOrderDto getOrder(int orderId, EntityManager em);
 }

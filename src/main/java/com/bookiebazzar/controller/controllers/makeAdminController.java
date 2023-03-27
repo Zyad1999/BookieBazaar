@@ -3,6 +3,7 @@ package com.bookiebazzar.controller.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import com.bookiebazzar.controller.services.impls.UserServicesImpl;
+import com.bookiebazzar.utils.enums.Pages;
 import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -18,21 +19,12 @@ public class makeAdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-      
-        String userId = request.getParameter("userId");
-        UserServicesImpl.getUserServicesInstance().makeUserAdmin(Integer.parseInt(userId), (EntityManager)request.getAttribute("entityManager"));
-
-        response.sendRedirect("usersController");
+        try {
+            String userId = request.getParameter("userId");
+            UserServicesImpl.getUserServicesInstance().makeUserAdmin(Integer.parseInt(userId), (EntityManager)request.getAttribute("entityManager"));
+            Pages.USERS.redirect(request, response);
+        }catch(NumberFormatException e){
+            Pages.ERROR.include(request, response);
+        }
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-    }
-
 }

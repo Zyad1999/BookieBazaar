@@ -3,7 +3,8 @@ package com.bookiebazzar.controller.services.impls;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bookiebazzar.controller.repositories.impls.OrderRepoImpl;
+import com.bookiebazzar.controller.repositories.impls.RepositoryFactoryImpl;
+import com.bookiebazzar.controller.repositories.interfaces.OrderRepo;
 import com.bookiebazzar.controller.services.interfaces.OrderServices;
 import com.bookiebazzar.model.dtos.UserOrderDto;
 import com.bookiebazzar.model.entities.UserOrder;
@@ -27,7 +28,7 @@ public class OrderServicesImpl implements OrderServices {
     @Override
     public List<UserOrderDto> getListOfOrderDto(int id, EntityManager em) {
 
-        OrderRepoImpl orderRepo = new OrderRepoImpl();
+        OrderRepo orderRepo = RepositoryFactoryImpl.getInstance().createOrderRepo();
         List<UserOrder> listOfOrder = orderRepo.getUserOrders(id, em);
         List<UserOrderDto> listOfUserOrderDto = new ArrayList<>();
         for (UserOrder userOrder : listOfOrder) {
@@ -37,4 +38,9 @@ public class OrderServicesImpl implements OrderServices {
         return listOfUserOrderDto;
     }
 
+    @Override
+    public UserOrderDto getOrder(int orderId, EntityManager em){
+        return UserOrderMapper.toDto(RepositoryFactoryImpl.getInstance().createOrderRepo()
+                .getOrder(orderId, em));
+    }
 }

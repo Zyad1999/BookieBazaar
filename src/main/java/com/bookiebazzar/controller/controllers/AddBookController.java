@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import com.bookiebazzar.controller.services.impls.BookServicesImpl;
 import com.bookiebazzar.model.dtos.BookDto;
 import com.bookiebazzar.model.enums.Language;
+import com.bookiebazzar.utils.ShopBooks;
 import com.bookiebazzar.utils.enums.Pages;
 import com.bookiebazzar.utils.mappers.BookMapper;
 
@@ -22,12 +23,6 @@ import java.io.File;
 @WebServlet("/addBook")
 @MultipartConfig
 public class AddBookController extends HttpServlet {
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -66,8 +61,11 @@ public class AddBookController extends HttpServlet {
         bookDto.setQuantity(Integer.parseInt(bookQuantity));
         bookDto.setDescription(bookDescription);
         bookDto.setImg(fileName);
-        System.out.println(BookServicesImpl.getBookServices().addBook(BookMapper.toEntity(bookDto),
-                (EntityManager) request.getAttribute("entityManager")));
+        int id = BookServicesImpl.getBookServices().addBook(BookMapper.toEntity(bookDto),
+                (EntityManager) request.getAttribute("entityManager"));
+        if(id != -1){
+            ShopBooks.getShopBooksInstance().removeBooks();
+        }
         System.out.println(bookDto.toString());
         System.out.println(getServletContext().getRealPath("//images//book_images"));
         Pages.SHOP.include(request, response);

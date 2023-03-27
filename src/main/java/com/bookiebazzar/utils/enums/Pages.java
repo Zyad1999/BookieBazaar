@@ -17,8 +17,9 @@ public enum Pages {
     SIGNUP("signup.jsp", "signup"),
     PROFILE("profile.jsp", "profile"),
     EDIT_PROFILE("edit_profile.jsp","editeProfile"),
-    USERS("users.jsp","usersController");
-
+    USERS("users.jsp","usersController"),
+    BOOK_DETAIL("book_detail.jsp","book"),
+    ERROR("error404.jsp","");
 
     private final String path;
     private final String mapping;

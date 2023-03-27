@@ -10,6 +10,9 @@ import com.bookiebazzar.model.entities.UserOrder;
 public class UserOrderMapper {
 
     public static UserOrderDto toDto(UserOrder userOrder) {
+        if(userOrder == null){
+            return null;
+        }
         UserOrderDto userOrderDto = new UserOrderDto();
         userOrderDto.setUserId((userOrder.getUser() != null) ? userOrder.getUser().getId() : -1);
         userOrderDto.setId(userOrder.getId());
@@ -26,6 +29,9 @@ public class UserOrderMapper {
     }
 
     public static UserOrder toEntity(UserOrderDto userOrderDto) {
+        if(userOrderDto == null){
+            return null;
+        }
         UserOrder userOrder = new UserOrder();
         userOrder.setId(userOrderDto.getId());
         userOrder.setCreatedAt(userOrderDto.getCreatedAt());
