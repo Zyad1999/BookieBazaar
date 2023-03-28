@@ -134,15 +134,11 @@
                       <fieldset class="row">
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">PHONE NUMBER</h5>
+                          <input class="field_custom" placeholder="Phone Number" type="number" name="phone"
+                                 value="${user.phoneNumber}">
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">JOB</h5>
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                          <input class="field_custom" placeholder="Phone Number" type="number" name="phone"
-                            value="${user.phoneNumber}">
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <input class="field_custom" placeholder="Job" type="text" name="job" value="${user.job}">
                         </div>
                         <div class="field col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -181,17 +177,13 @@
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">CREDIT LIMIT</h5>
+                          <input class="field_custom" placeholder="Credit Limit" type="number" name="credit"
+                                 value="${user.creditLimit}">
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">BIRTH DATE</h5>
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                          <input class="field_custom" placeholder="Credit Limit" type="number" name="credit"
-                            value="${user.creditLimit}">
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <input placeholder="Birth Date" class="field_custom" type="text" name="birthdate"
-                            onfocus="(this.type='date')" onblur="(this.type='text')" value="${user.birthDate}" />
+                                 onfocus="(this.type='date')" onblur="(this.type='text')" value="${user.birthDate}" />
                         </div>
                         <c:if test="${not empty requestScope.updateFailed}">
                           <div class="center" style="color: red">${requestScope.updateFailed}</div>
