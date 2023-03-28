@@ -273,7 +273,7 @@
                 </div>
             </div>
             <c:forEach items="${requestScope.bookSample}" var="book">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all" style="max-width: 300px">
                     <div class="product_list">
                         <div class="product_img"><img class="img-responsive" width="300" height="400"
                                                       src="images/book_images/${book.img}" alt=""></div>
