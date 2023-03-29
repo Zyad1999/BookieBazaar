@@ -73,7 +73,7 @@
                     </li>
                     <c:choose>
                       <c:when test="${sessionScope.currentUser != null}">
-                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
                           <ul>
                             <li><a href="profile">Profile</a></li>
                             <c:if test="${sessionScope.currentUser.isAdmin eq true}">
@@ -90,7 +90,7 @@
                         </li>
                       </c:otherwise>
                     </c:choose>
-                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>
                   </ul>
                 </div>
                 <div class="search_icon">
@@ -139,8 +139,6 @@
     <!-- js section -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- menu js -->
-    <script src="js/menumaker.js"></script>
     <!-- wow animation -->
     <script src="js/wow.js"></script>
     <!-- custom js -->
