@@ -86,7 +86,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><button type="button" class="button">Continue Shopping</button></td>
+                    <td><button type="button" class="button" onclick="window.location.href='shop' ">Continue Shopping</button></td>
                     <td><button class="button" id="checkoutBtn">Checkout</button></td>
                   </tr>
                 </tbody>

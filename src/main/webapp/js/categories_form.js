@@ -1,5 +1,5 @@
 var cont = "";
-var formData="" ;
+var formData = "";
 $(document).ready(function () {
 
     $("#search-btn").click(function () {
@@ -7,12 +7,12 @@ $(document).ready(function () {
         ajaxCall(formData);
     });
 });
-function searchPage(i){
-    ajaxCall(formData+"&page="+i);
-    
+function searchPage(i) {
+    ajaxCall(formData + "&page=" + i);
+
 }
 
-function ajaxCall(formData){
+function ajaxCall(formData) {
     $.ajax({
         type: "POST",
         url: "shop",

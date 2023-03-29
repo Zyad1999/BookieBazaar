@@ -48,3 +48,7 @@
   background-color: brown;
   color: white;
 }
+
+a {
+  cursor: pointer;
+}

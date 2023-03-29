@@ -36,24 +36,15 @@ public class OrdersHistoryController extends HttpServlet {
                     ((UserDto) session.getAttribute("currentUser")).getId(),
                     (EntityManager) req.getAttribute("entityManager"));
         }
-        // Comparator<UserOrderDto> createdAtComparator = new Comparator<UserOrderDto>()
-        // {
-        // @Override
-        // public int compare(UserOrderDto o1, UserOrderDto o2) {
-        // return o1.getCreatedAt().compareTo(o2.getCreatedAt());
-        // }
-        // };
-        // //sort the list using the createdAtComparator
-        // Collections.sort(listOfOrder, createdAtComparator);
-        Comparator<UserOrderDto> priceComparator = new Comparator<UserOrderDto>() {
+        Comparator<UserOrderDto> createdAtComparator = new Comparator<UserOrderDto>() {
             @Override
             public int compare(UserOrderDto o1, UserOrderDto o2) {
-                return Integer.compare(o1.getTotalPrice(), o2.getTotalPrice());
+                return o1.getCreatedAt().compareTo(o2.getCreatedAt());
             }
         };
-
-        // sort the list using the priceComparator
-        Collections.sort(listOfOrder, priceComparator);
+        // sort the list using the createdAtComparator
+        Collections.sort(listOfOrder, createdAtComparator);
+        
         req.setAttribute("listOfOrderDto", listOfOrder);
         Pages.ORDERS_HISTORY.include(req, resp);
     }
