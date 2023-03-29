@@ -102,7 +102,8 @@
                                  data-splitout="none" data-responsive_offset="on"
                                  style="z-index: 7; white-space: nowrap;">
                                 Available On
-                                It.Next
+                                BOOKIEBAZAAR
+
                             </div>
                         </li>
                         <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"
@@ -247,7 +248,8 @@
                                  data-splitout="none" data-responsive_offset="on"
                                  style="z-index: 7; white-space: nowrap;">
                                 Available On
-                                It.Next
+                                BOOKIEBAZAAR
+
                             </div>
                         </li>
                     </ul>
