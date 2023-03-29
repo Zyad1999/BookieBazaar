@@ -23,11 +23,12 @@ public class ShopController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+       
         ServletContext context = getServletContext();
         ShopBooks shopBooks = (ShopBooks) context.getAttribute("shopBooks");
         String categoryfilter = req.getParameter("name");
         String reqPageNo = req.getParameter("page");
+        String bookNamePara = req.getParameter("bookNamePara");
         
         List<String> listOfCategories = new ArrayList<>();
         List<BookDto> listOfBooksDto;
@@ -39,17 +40,23 @@ public class ShopController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        if(categoryfilter!=null && !categoryfilter.isEmpty()){
-            System.out.println(categoryfilter);
+        if(bookNamePara != null&& !bookNamePara.isEmpty()){
+            BookFilter bookFilter = new BookFilter();
+            bookFilter.setNameSearch(bookNamePara);
+            listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, pageNo);
+            req.setAttribute("noOfPages", shopBooks.getTotalNoOfFilteresPages());
+        }    
+        else if(categoryfilter!=null && !categoryfilter.isEmpty()){
             BookFilter bookFilter = new BookFilter();
             listOfCategories.add(categoryfilter);
             bookFilter.setCategories(listOfCategories);
             listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, pageNo);
+            req.setAttribute("noOfPages", shopBooks.getTotalNoOfFilteresPages());
         } else {
             listOfBooksDto = shopBooks.getBooks(pageNo);
+            req.setAttribute("noOfPages", shopBooks.getNoOfPages());
         }
         req.setAttribute("listOfBooks", listOfBooksDto);
-        req.setAttribute("noOfPages", shopBooks.getNoOfPages());
 
         Pages.SHOP.include(req, resp);
     }
@@ -58,16 +65,26 @@ public class ShopController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         BookFilter bookFilter = new BookFilter();
+        String reqPageNo = req.getParameter("page");
+        int pageNo = 1;
+        if(reqPageNo != null){
+            try {
+                pageNo = Integer.parseInt(reqPageNo);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         try {
+            System.out.println(req.getParameter("minPages"));
             String nameSearch = req.getParameter("nameSearch");
             String authorSearch = req.getParameter("authorSearch");
-            Integer minPages = (req.getParameter("minPages") == "") ? null
+            Integer minPages = (req.getParameter("minPages") == "")|| (req.getParameter("minPages") == null)? null
                     : Integer.parseInt(req.getParameter("minPages"));
-            Integer maxPages = (req.getParameter("maxPages") == "") ? null
+            Integer maxPages = (req.getParameter("maxPages") == "") || (req.getParameter("maxPages") == null)? null
                     : Integer.parseInt(req.getParameter("maxPages"));
-            Integer minPrice = (req.getParameter("minPrice") == "") ? null
+            Integer minPrice = (req.getParameter("minPrice") == "") || (req.getParameter("minPrice") == null)? null
                     : Integer.parseInt(req.getParameter("minPrice"));
-            Integer maxPrice = (req.getParameter("maxPrice") == "") ? null
+            Integer maxPrice = (req.getParameter("maxPrice") == "") || (req.getParameter("maxPrice") == null)? null
                     : Integer.parseInt(req.getParameter("maxPrice"));
             Language language = (req.getParameter("language") == null||req.getParameter("language") =="") ? null
                     : Language.valueOf(req.getParameter("language"));
@@ -92,9 +109,12 @@ public class ShopController extends HttpServlet {
             ServletContext context = getServletContext();
 
             ShopBooks shopBooks = (ShopBooks) context.getAttribute("shopBooks");
-            List<BookDto> listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, 1);
+            List<BookDto> listOfBooksDto = shopBooks.getFilteredBooks(bookFilter, pageNo);
+            req.setAttribute("noOfPages", shopBooks.getTotalNoOfFilteresPages());
+
             Gson gson = new Gson();
             String json = gson.toJson(listOfBooksDto);
+            resp.setHeader("X-Total-Pages", String.valueOf(shopBooks.getTotalNoOfFilteresPages()));
             resp.setContentType("application/json");
             resp.getWriter().write(json);
 

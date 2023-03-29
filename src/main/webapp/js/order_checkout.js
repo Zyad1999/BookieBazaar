@@ -7,7 +7,7 @@ $(document).ready(function () {
             success: function (result) {
                 console.log(result);
                 if(result.state==0){
-                    window.location.href = "home";
+                    window.location.href = "order_history";
                 } else{
                     $("#checkoutMsg").html(result.msg);
                 }

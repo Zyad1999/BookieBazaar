@@ -1,45 +1,50 @@
 .paginator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .paginator ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .paginator li {
-    margin: 0 5px;
-  }
-  
-  .paginator li a {
-    display: block;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .paginator li a:hover {
-    background-color: #f7f7f7;
-  }
-  
-  .paginator li.active a {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .paginator li.disabled a {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  
-  .paginator li.prev a,
-  .paginator li.next a {
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.paginator ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.paginator li {
+  margin: 0 5px;
+}
+
+.paginator li a {
+  display: block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+}
+
+.paginator li a:hover {
+  background-color: #f7f7f7;
+}
+
+.paginator li.active a {
+  background-color: #333;
+  color: #fff;
+}
+
+.paginator li.disabled a {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.paginator li.prev a,
+.paginator li.next a {
+  font-weight: bold;
+}
+
+.paginator li a:active,
+.paginator li a.active {
+  background-color: brown;
+  color: white;
+}
