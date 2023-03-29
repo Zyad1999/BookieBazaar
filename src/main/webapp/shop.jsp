@@ -349,17 +349,77 @@
     </div>
     <!-- End Model search bar -->
 
-    <%@include file="footer.jsp" %>
+    <!-- footer -->
+    <footer class="footer_style_2">
+      <div class="container-fuild">
+        <div class="row">
 
-      <script src="js/categories_form.js"></script>
+          <div class="footer_blog">
+            <div class="row">
+              <!-- <div class="col-md-4"></div> -->
+              <div class="col-md-6">
+                <div class="main-heading left_text">
+                  <h2>ABOUT BOOKIEBAZAAR</h2>
+                </div>
+                <p>bookibazaar is an online Bookstore with 100+ different titles for very renowned authors from all over
+                  the world.
+                  We sell only original book copies, either new or used with very attractive prices.
+                  <br>
+                  contact us via facebook, instagram or through our website to trade in your old books, and get your new
+                  favourite copy.
+                </p>
+                <ul class="social_icons">
+                  <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
 
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <!-- wow animation -->
-      <script src="js/wow.js"></script>
-      <!-- custom js -->
-      <script src="js/custom.js"></script>
-      <script src="js/addBook_form.js"></script>
+              <div class="col-md-2"></div>
+              <div class="col-md-4">
+                <div class="main-heading left_text">
+                  <h2>Contact us</h2>
+                </div>
+                <p>23 Faggala Street
+
+                  <br>
+                  <span style="font-size:18px;"><a href="tel:+9876543210">+02 25416141</a></span>
+
+                  <span style="font-size:18px;"><a href="tel:+9876543210">support@bookibazaar.com</a></span>
+
+                </p>
+                <div class="footer_mail-section">
+                  <form>
+                    <fieldset>
+                      <div class="field">
+                        <input placeholder="Email" type="text">
+                        <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cprt">
+            <p>BOOKIEBAZAAR © Copyrights 2023 Design by EYZ</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <script src="js/categories_form.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- menu js -->
+    <script src="js/menumaker.js"></script>
+    <!-- wow animation -->
+    <script src="js/wow.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <script src="js/addBook_form.js"></script>
 
   </body>
 
