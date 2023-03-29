@@ -22,7 +22,13 @@ public class HomeController extends HttpServlet {
         ServletContext context = getServletContext();
         ShopBooks shopBooks = (ShopBooks)context.getAttribute("shopBooks");
         List<BookDto> listOfBooksDto =  shopBooks.getBooks(1);
-        List<BookDto> bookSample = listOfBooksDto.subList(0, 8);
+        List<BookDto> bookSample;
+        if(listOfBooksDto.size()>=8){
+            bookSample = listOfBooksDto.subList(0, 8);
+        }else {
+            bookSample = listOfBooksDto.subList(0, listOfBooksDto.size());
+        }
+
         
         req.setAttribute("bookSample", bookSample);
 

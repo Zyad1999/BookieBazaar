@@ -323,8 +323,6 @@
 
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <!-- menu js -->
-      <script src="js/menumaker.js"></script>
       <!-- wow animation -->
       <script src="js/wow.js"></script>
       <!-- custom js -->

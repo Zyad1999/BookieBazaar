@@ -68,7 +68,7 @@ public class AddBookController extends HttpServlet {
         }
         System.out.println(bookDto.toString());
         System.out.println(getServletContext().getRealPath("//images//book_images"));
-        Pages.SHOP.include(request, response);
+        Pages.SHOP.redirect(request, response);
     }
 
 }
