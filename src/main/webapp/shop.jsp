@@ -317,57 +317,7 @@
       </div>
     </div>
 
-    <!-- footer -->
-    <footer class="footer_style_2">
-      <div class="container-fuild">
-        <div class="row">
-
-          <div class="footer_blog">
-            <div class="row">
-              <!-- <div class="col-md-4"></div> -->
-              <div class="col-md-6">
-                <div class="main-heading left_text">
-                  <h2>It Next Theme</h2>
-                </div>
-                <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores
-                  sit
-                  ipsum velit purus aliquet, massa fringilla leo orci.</p>
-                <ul class="social_icons">
-                  <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                </ul>
-              </div>
-
-              <div class="col-md-2"></div>
-              <div class="col-md-4">
-                <div class="main-heading left_text">
-                  <h2>Contact us</h2>
-                </div>
-                <p>123 Second Street Fifth Avenue,<br>
-                  Manhattan, New York<br>
-                  <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span>
-                </p>
-                <div class="footer_mail-section">
-                  <form>
-                    <fieldset>
-                      <div class="field">
-                        <input placeholder="Email" type="text">
-                        <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                      </div>
-                    </fieldset>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="cprt">
-            <p>BOOKIEBAZAAR © Copyrights 2023 Design by EYZ</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- end footer -->
+    <%@include file="footer.jsp" %>
 
     <script src="js/categories_form.js"></script>
 

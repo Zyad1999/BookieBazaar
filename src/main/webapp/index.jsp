@@ -102,7 +102,8 @@
                                  data-splitout="none" data-responsive_offset="on"
                                  style="z-index: 7; white-space: nowrap;">
                                 Available On
-                                It.Next
+                                BOOKIEBAZAAR
+
                             </div>
                         </li>
                         <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"
@@ -159,7 +160,7 @@
                                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000"
                                  data-splitin="chars"
                                  data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05"
-                                 style="z-index: 6; white-space: nowrap;">Fast & Affordable
+                                 style="z-index: 6; white-space: nowrap;">Book is a friend 
                             </div>
                             <!-- LAYER NR. 3 -->
                             <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
@@ -175,7 +176,7 @@
                                  data-splitout="none" data-responsive_offset="on"
                                  style="z-index: 7; white-space: nowrap;">
                                 Available On
-                                It.Next
+                                BOOKIEBAZAAR
                             </div>
                         </li>
                         <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"
@@ -230,7 +231,7 @@
                                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000"
                                  data-splitin="chars"
                                  data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05"
-                                 style="z-index: 6; white-space: nowrap;">We Will Fix It
+                                 style="z-index: 6; white-space: nowrap;">Your Books In One Place
                             </div>
                             <!-- LAYER NR. 3 -->
                             <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0"
@@ -247,7 +248,8 @@
                                  data-splitout="none" data-responsive_offset="on"
                                  style="z-index: 7; white-space: nowrap;">
                                 Available On
-                                It.Next
+                                BOOKIEBAZAAR
+
                             </div>
                         </li>
                     </ul>
