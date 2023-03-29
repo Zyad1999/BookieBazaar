@@ -10,7 +10,11 @@ function validateForm(e) {
     const bookPrice = form.querySelector('input[name="bookPrice"]');
     const bookPages = form.querySelector('input[name="bookPages"]');
     const bookDescription  = document.getElementById("bookDescription");
-    const bookLanguage = form.querySelector('input[name="bookLanguage"]');
+
+    const bookLanguageArabic  = document.getElementById("bookLanguageArabic");
+    const bookLanguageEnglish  = document.getElementById("bookLanguageEnglish");
+
+     const bookLanguage = form.querySelector('input[name="bookLanguage"]');
     const bookImage = form.querySelector('input[name="bookImage"]');
 
 
@@ -50,12 +54,12 @@ function validateForm(e) {
         return;
     }
 
-  
-    if (!bookLanguage.checked) {
-        error = 'book language is invalid';
+    if ( !(bookLanguageEnglish.checked || bookLanguageArabic.checked)) {
+        error = 'book language  is required';
         showError();
         return;
     }
+   
        if (bookDescription.value==null || bookDescription.value=="") {
          error = 'book description is required';
          showError();
