@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
               <!-- logo start -->
-              <div class="logo"> <a href="it_home.jsp"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
+              <div class="logo"> <a href="home"><img src="images/logos/it_logo.png" alt="logo" /></a> Profile</div>
               <!-- logo end -->
             </div>
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -81,7 +81,7 @@
                     </li>
                     <c:choose>
                       <c:when test="${sessionScope.currentUser != null}">
-                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
                           <ul>
                             <li><a href="profile">Profile</a></li>
                             <c:if test="${sessionScope.currentUser.isAdmin eq true}">
@@ -98,7 +98,7 @@
                         </li>
                       </c:otherwise>
                     </c:choose>
-                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a> Cart</li>
                   </ul>
                 </div>
                 <div class="search_icon">
@@ -134,15 +134,11 @@
                       <fieldset class="row">
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">PHONE NUMBER</h5>
+                          <input class="field_custom" placeholder="Phone Number" type="number" name="phone"
+                                 value="${user.phoneNumber}">
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">JOB</h5>
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                          <input class="field_custom" placeholder="Phone Number" type="number" name="phone"
-                            value="${user.phoneNumber}">
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <input class="field_custom" placeholder="Job" type="text" name="job" value="${user.job}">
                         </div>
                         <div class="field col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -181,17 +177,13 @@
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">CREDIT LIMIT</h5>
+                          <input class="field_custom" placeholder="Credit Limit" type="number" name="credit"
+                                 value="${user.creditLimit}">
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">BIRTH DATE</h5>
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                          <input class="field_custom" placeholder="Credit Limit" type="number" name="credit"
-                            value="${user.creditLimit}">
-                        </div>
-                        <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <input placeholder="Birth Date" class="field_custom" type="text" name="birthdate"
-                            onfocus="(this.type='date')" onblur="(this.type='text')" value="${user.birthDate}" />
+                                 onfocus="(this.type='date')" onblur="(this.type='text')" value="${user.birthDate}" />
                         </div>
                         <c:if test="${not empty requestScope.updateFailed}">
                           <div class="center" style="color: red">${requestScope.updateFailed}</div>

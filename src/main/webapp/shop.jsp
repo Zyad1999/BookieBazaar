@@ -81,7 +81,7 @@
                     </li>
                     <c:choose>
                       <c:when test="${sessionScope.currentUser != null}">
-                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        <li><a href="profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
                           <ul>
                             <li><a href="profile">Profile</a></li>
                             <c:if test="${sessionScope.currentUser.isAdmin eq true}">
@@ -98,7 +98,7 @@
                         </li>
                       </c:otherwise>
                     </c:choose>
-                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>
                   </ul>
                 </div>
                 <div class="search_icon">
@@ -134,7 +134,8 @@
                         <h4>
                           <a href="book?bookId=${book.id}">
                             <c:out value="${book.name}" />
-                          </a></h4>
+                          </a>
+                        </h4>
                       </div>
                       <div class="product_price">
                         <p><span class="new_price">$
@@ -154,12 +155,12 @@
 
               <div class="side_bar">
                 <div class="side_bar_blog">
-                   <div class="side_bar" style="margin-bottom:20px">
+                  <div class="side_bar" style="margin-bottom:20px">
                     <c:if test="${sessionScope.currentUser.isAdmin eq true}">
                       <a href="#addBook" class="btn sqaure_bt" data-toggle="modal">Add Book</a>
                     </c:if>
-                   </div>
-         
+                  </div>
+
 
 
                   <h4>SEARCH</h4>
@@ -240,17 +241,17 @@
         </div>
       </div>
 
-        <div class="paginator" id="paginator">
-          <ul id="ulPaginator">
-            <c:forEach var="i" begin="1" end="${noOfPages}" varStatus="loop">
-              <li>
-                <a href="shop?page=${i}&name=${param.name}">
-                  ${i}
-                </a>
-              </li> 
-            </c:forEach>
-          </ul>
-        </div>
+      <div class="paginator" id="paginator">
+        <ul id="ulPaginator">
+          <c:forEach var="i" begin="1" end="${noOfPages}" varStatus="loop">
+            <li>
+              <a href="shop?page=${i}&name=${param.name}">
+                ${i}
+              </a>
+            </li>
+          </c:forEach>
+        </ul>
+      </div>
 
 
       <!-- Edit Modal HTML -->
@@ -264,56 +265,56 @@
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Name</label> <input type="text" name="bookName" class="field_custom" >
+                  <label>Name</label> <input type="text" name="bookName" class="field_custom">
                 </div>
                 <div class="form-group">
-                  <label>Author</label> <input type="text" name="bookAuthor" class="field_custom" >
+                  <label>Author</label> <input type="text" name="bookAuthor" class="field_custom">
                 </div>
                 <div class="form-group">
-                  <label>Category</label> <input type="text" name="bookCategoty" class="field_custom" >
+                  <label>Category</label> <input type="text" name="bookCategoty" class="field_custom">
                 </div>
-    
-    
+
+
                 <div class="form-group">
-                  <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom" >
+                  <label>Quantity</label> <input type="number" name="bookQuantity" class="field_custom">
                 </div>
 
                 <div class="form-group">
-                  <label>Price</label><input type="number" class="field_custom" name="bookPrice" >
+                  <label>Price</label><input type="number" class="field_custom" name="bookPrice">
                 </div>
 
                 <div class="form-group">
-                  <label>Number Of Pages</label> <input type="number" class="field_custom" name="bookPages" >
+                  <label>Number Of Pages</label> <input type="number" class="field_custom" name="bookPages">
                 </div>
                 <!-- <div class="form-group">
                   <label>Language</label> <input type="text" name="bookLanguage" class="field_custom" required>
                 </div> -->
-    
+
                 <div class="form-group">
                   <label>Language</label>
-                  <input type="radio"  name="bookLanguage" value="Arabic" >
+                  <input type="radio" name="bookLanguage" value="Arabic">
                   <label>Arabic</label>
-                  <input type="radio"  name="bookLanguage" value="English" >
+                  <input type="radio" name="bookLanguage" value="English">
                   <label>English</label>
                 </div>
-    
+
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea class="field_custom" id="bookDescription" name="bookDescription" ></textarea>
+                  <textarea class="field_custom" id="bookDescription" name="bookDescription"></textarea>
                 </div>
-    
+
                 <div class="form-group">
                   <label>Image</label>
-                  <input type="file" class="field_custom" name="bookImage" >
+                  <input type="file" class="field_custom" name="bookImage">
                 </div>
               </div>
-    
+
               <div class="modal-footer">
-    
+
                 <button type="button" value="Add" data-dismiss="modal" class="btn sqaure_bt">Cancel</button>
-    
+
                 <button type="submit" value="Add" class="btn sqaure_bt">Add</button>
-    
+
               </div>
             </form>
           </div>
@@ -334,8 +335,8 @@
               <div class="col-lg-8 col-md-8 col-sm-8 offset-lg-2 offset-md-2 offset-sm-2 col-xs-10 col-xs-offset-1">
                 <div class="navbar-search">
                   <form action="shop" method="Get" id="search-global-form" class="search-global">
-                    <input type="text" placeholder="Type to search" autocomplete="off" name="bookNamePara" id="search" value=""
-                      class="search-global__input">
+                    <input type="text" placeholder="Type to search" autocomplete="off" name="bookNamePara" id="search"
+                      value="" class="search-global__input">
                     <button class="search-global__btn"><i class="fa fa-search"></i></button>
                     <div class="search-global__note">Begin typing your search above and press return to search.</div>
                   </form>
@@ -348,64 +349,12 @@
     </div>
     <!-- End Model search bar -->
 
-    <!-- footer -->
-    <footer class="footer_style_2">
-      <div class="container-fuild">
-        <div class="row">
+    <%@include file="footer.jsp" %>
 
-          <div class="footer_blog">
-            <div class="row">
-              <!-- <div class="col-md-4"></div> -->
-              <div class="col-md-6">
-                <div class="main-heading left_text">
-                  <h2>It Next Theme</h2>
-                </div>
-                <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores
-                  sit
-                  ipsum velit purus aliquet, massa fringilla leo orci.</p>
-                <ul class="social_icons">
-                  <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                </ul>
-              </div>
-
-              <div class="col-md-2"></div>
-              <div class="col-md-4">
-                <div class="main-heading left_text">
-                  <h2>Contact us</h2>
-                </div>
-                <p>123 Second Street Fifth Avenue,<br>
-                  Manhattan, New York<br>
-                  <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span>
-                </p>
-                <div class="footer_mail-section">
-                  <form>
-                    <fieldset>
-                      <div class="field">
-                        <input placeholder="Email" type="text">
-                        <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                      </div>
-                    </fieldset>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="cprt">
-            <p>BOOKIEBAZAAR © Copyrights 2023 Design by EYZ</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- end footer -->
-
-    <script src="js/categories_form.js"></script>
+      <script src="js/categories_form.js"></script>
 
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <!-- menu js -->
-      <script src="js/menumaker.js"></script>
       <!-- wow animation -->
       <script src="js/wow.js"></script>
       <!-- custom js -->

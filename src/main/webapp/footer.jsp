@@ -13,8 +13,6 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="">
-  <!-- site icons -->
-  <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
   <!-- bootstrap css -->
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <!-- Site css -->
@@ -55,11 +53,13 @@
             <!-- <div class="col-md-4"></div> -->
             <div class="col-md-6">
               <div class="main-heading left_text">
-                <h2>It Next Theme</h2>
+                <h2>ABOUT  BOOKIEBAZAAR</h2>
               </div>
-              <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores
-                sit
-                ipsum velit purus aliquet, massa fringilla leo orci.</p>
+              <p>bookibazaar is an online Bookstore with 100+ different titles for very renowned authors from all over the world.
+                We sell only original book copies, either new or used with very attractive prices.
+                <br>
+                contact us via facebook, instagram or through our website to trade in your old books, and get your new favourite copy.
+              </p>
               <ul class="social_icons">
                 <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                 <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -72,9 +72,13 @@
               <div class="main-heading left_text">
                 <h2>Contact us</h2>
               </div>
-              <p>123 Second Street Fifth Avenue,<br>
-                Manhattan, New York<br>
-                <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span>
+              <p>23 Faggala Street
+              
+              <br>
+                <span style="font-size:18px;"><a href="tel:+9876543210">+02 25416141</a></span>
+
+                <span style="font-size:18px;"><a href="tel:+9876543210">support@bookibazaar.com</a></span>
+
               </p>
               <div class="footer_mail-section">
                 <form>
