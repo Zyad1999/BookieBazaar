@@ -13,6 +13,8 @@ function validateForm(e) {
     const bookLanguage = form.querySelector('input[name="bookLanguage"]');
 
 
+    const bookLanguageArabic  = document.getElementById("bookLanguageArabic");
+    const bookLanguageEnglish  = document.getElementById("bookLanguageEnglish");
 
     if (!bookName.value || !/^[A-Za-z\s]*$/.test(bookName.value)) {
         error = 'book name is invalid(letters and spaces only).';
@@ -50,11 +52,12 @@ function validateForm(e) {
     }
 
   
-    if (!bookLanguage.checked) {
-        error = 'book language is invalid';
+    if ( !(bookLanguageEnglish.checked || bookLanguageArabic.checked)) {
+        error = 'book language  is required';
         showError();
         return;
     }
+   
        if (bookDescription.value==null || bookDescription.value=="") {
          error = 'book description is required';
          showError();
