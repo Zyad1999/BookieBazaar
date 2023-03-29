@@ -66,6 +66,7 @@
                 </tbody>
               </table>
               <span id="checkoutMsg" class="center" style="color: red"></span>
+              <span class="cartError" class="center" style="color: red">${error}</span>
             </div>
             <div class="shopping-cart-cart">
               <table>
@@ -78,14 +79,30 @@
                   </tr>
                   <tr>
                     <td>
-                      <h3>Total</h3>
+                      <h3>Items</h3>
                     </td>
                     <td class="text-right">
-                      <h4>$55.00</h4>
+                      <h4 class="itemsTotal">$ ${itemsTotal}</h4>
                     </td>
                   </tr>
                   <tr>
-                    <td><button type="button" class="button">Continue Shopping</button></td>
+                    <td>
+                      <h3>Shipping</h3>
+                    </td>
+                    <td class="text-right">
+                      <h4>$ 5</h4>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Total</h3>
+                    </td>
+                    <td class="text-right">
+                      <h4 class="total">$ ${total}</h4>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><button href="/shop" type="button" class="button">Continue Shopping</button></td>
                     <td><button class="button" id="checkoutBtn">Checkout</button></td>
                   </tr>
                 </tbody>
