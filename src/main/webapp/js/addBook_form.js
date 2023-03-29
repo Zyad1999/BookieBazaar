@@ -30,6 +30,7 @@ function validateForm(e) {
         showError();
         return;
     }
+    
     if (!bookCategoty.value || !/^[A-Za-z\s]*$/.test(bookCategoty.value) || bookCategoty.value.length >25) {
         error = 'book category is invalid(letters and spaces only) and length at most 25 char.';
         showError();
