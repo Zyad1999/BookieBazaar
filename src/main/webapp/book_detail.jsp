@@ -256,16 +256,16 @@
 
 
                 <c:if test="${currentBook.language eq 'ENG'}">
-                  <input type="radio" name="bookLanguage" value="Arabic">
+                  <input type="radio" name="bookLanguage" id="bookLanguageArabic" value="Arabic">
                   <label>Arabic</label>
-                  <input type="radio" name="bookLanguage" value="English" checked>
+                  <input type="radio" name="bookLanguage" id="bookLanguageEnglish" value="English" checked>
                   <label>English</label>
                 </c:if>
 
                 <c:if test="${currentBook.language eq 'ARAB'}">
-                  <input type="radio" name="bookLanguage" value="Arabic" checked>
+                  <input type="radio" name="bookLanguage" id="bookLanguageArabic" value="Arabic" checked>
                   <label>Arabic</label>
-                  <input type="radio" name="bookLanguage" value="English">
+                  <input type="radio" name="bookLanguage" id="bookLanguageEnglish" value="English">
                   <label>English</label>
                 </c:if>
 

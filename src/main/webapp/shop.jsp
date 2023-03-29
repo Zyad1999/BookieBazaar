@@ -289,12 +289,12 @@
                 <!-- <div class="form-group">
                   <label>Language</label> <input type="text" name="bookLanguage" class="field_custom" required>
                 </div> -->
-
+                
                 <div class="form-group">
                   <label>Language</label>
-                  <input type="radio" name="bookLanguage" value="Arabic">
+                  <input type="radio"  name="bookLanguage" id="bookLanguageArabic" value="Arabic" >
                   <label>Arabic</label>
-                  <input type="radio" name="bookLanguage" value="English">
+                  <input type="radio"  name="bookLanguage" id="bookLanguageEnglish" value="English" >
                   <label>English</label>
                 </div>
 
