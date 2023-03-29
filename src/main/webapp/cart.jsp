@@ -13,6 +13,7 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
 </head>
 
 <body id="default_theme" class="it_serv_shopping_cart shopping-cart">

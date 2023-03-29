@@ -13,6 +13,7 @@
             }
         }
     </style>
+    <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
 </head>
 
 <body id="default_theme" class="book_images">

@@ -14,6 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="css/profileStyle.css" />
+    <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
 </head>
 
 <body id="default_theme" class="book_images" style="background-color: #fff;">

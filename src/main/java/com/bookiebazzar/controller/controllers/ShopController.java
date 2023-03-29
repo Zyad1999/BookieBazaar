@@ -75,7 +75,6 @@ public class ShopController extends HttpServlet {
             }
         }
         try {
-            System.out.println(req.getParameter("minPages"));
             String nameSearch = req.getParameter("nameSearch");
             String authorSearch = req.getParameter("authorSearch");
             Integer minPages = (req.getParameter("minPages") == "")|| (req.getParameter("minPages") == null)? null
