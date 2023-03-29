@@ -42,10 +42,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/employee.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/employee.js"></script>
     <!-- site icons -->
   </head>
 
@@ -182,18 +180,25 @@
                         </div>
                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <h5 style="margin-bottom: 5px; margin-top: 3px">BIRTH DATE</h5>
-                          <input placeholder="Birth Date" class="field_custom" type="text" name="birthdate"
+                          <input placeholder="Birth Date" class="field_custom" type="text" name="birthdate" min="1920-01-01" max="2010-01-01"
                                  onfocus="(this.type='date')" onblur="(this.type='text')" value="${user.birthDate}" />
                         </div>
                         <c:if test="${not empty requestScope.updateFailed}">
                           <div class="center" style="color: red">${requestScope.updateFailed}</div>
                         </c:if>
-                        <div class="center">
-                          <a class="btn sqaure_bt" style="margin-right: 10px ;" href="profile">cancel</a>
-                          <button class="btn sqaure_bt" style="margin-right: 10px ;" type="submit">save</button>
-                          <a href="#updatePassword" class="btn sqaure_bt" data-toggle="modal">
-                            update password</a>
-                        </div>
+                        <!-- <div class="center"> -->
+                          <div class="col-sm-2"></div>
+                          <div class="col-sm-3">
+                            <a class="btn sqaure_bt" style="margin-right: 10px ;" href="profile">cancel</a>
+                          </div>
+                          <div class="col-sm-3">
+                            <button class="btn sqaure_bt" style="margin-right: 10px ;" type="submit">save</button>
+                          </div>
+                          <div class="col-sm-3">
+                            <a href="#updatePassword" class="btn sqaure_bt" data-toggle="modal">
+                              update password</a>
+                          </div>
+                        <!-- </div> -->
                       </fieldset>
                     </form>
                   </div>

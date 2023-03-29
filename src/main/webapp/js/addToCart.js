@@ -20,9 +20,11 @@ addToCartForm.addEventListener('submit', (event) => {
             data: {quantity: newQuantity, bookId: cartItem.book.id},
             success: function (response) {
                 console.log(response);
+                $('.addToCartMsg').text(response.item.quantity+" item of "+cartItem.book.name+" available in cart");
             },
             error: function (xhr, status, error) {
                 console.error(error);
+                $('.addToCartMsg').text("Failed, Please try again");
             }
         });
     } else {
@@ -36,6 +38,7 @@ addToCartForm.addEventListener('submit', (event) => {
                 cartItems[existingItemIndex].quantity = cartItems[existingItemIndex].book.quantity;
             }
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            $('.addToCartMsg').text(cartItems[existingItemIndex].quantity+" item of "+cartItems[existingItemIndex].book.name+" available in cart");
         } else {
             console.log("item not found");
             if(cartItem.quantity > cartItem.book.quantity){
@@ -44,6 +47,7 @@ addToCartForm.addEventListener('submit', (event) => {
             cartItems.push(cartItem);
             console.log(cartItems);
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            $('.addToCartMsg').text(cartItem.quantity+" item of "+cartItem.book.name+" available in cart");
         }
     }
 });

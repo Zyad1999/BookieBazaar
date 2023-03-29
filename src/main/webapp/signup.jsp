@@ -89,7 +89,7 @@
                                                    name="credit">
                                         </div>
                                         <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <input placeholder="Birth Date" class="field_custom" type="text"
+                                            <input placeholder="Birth Date" class="field_custom" type="text" min="1920-01-01" max="2010-01-01"
                                                    name="birthdate" onfocus="(this.type='date')"
                                                    onblur="(this.type='text')"/>
                                         </div>

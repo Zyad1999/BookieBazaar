@@ -278,8 +278,8 @@
             <c:forEach items="${requestScope.bookSample}" var="book">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all center" style="max-width: 300px">
                     <div class="product_list">
-                        <div class="product_img"><img class="img-responsive" width="300" height="400"
-                                                      src="images/book_images/${book.img}" alt=""></div>
+                        <div class="product_img"><a href="book?bookId=${book.id}"> <img class="img-responsive" width="260" height="350"
+                                                      src="images/book_images/${book.img}" alt=""></a></div>
                         <div class="product_detail_btm">
                             <div class="center">
                                 <h4><a href="book?bookId=${book.id}">
@@ -287,7 +287,7 @@
                                 </a></h4>
                             </div>
                             <div class="product_price">
-                                <p><span class="new_price">$
+                                <p><span class="new_price">&pound;
                             <c:out value="${book.price}"/>
                           </span></p>
                             </div>

@@ -37,10 +37,10 @@ if (!loggedin) {
       <input max="${item.book.quantity}" min="0" class="price_table form-control quantity-input" value="${item.quantity}" type="number">
     </td>
     <td class="col-sm-1 col-md-1 text-center">
-      <p class="price_table book-price">$ ${item.book.price}</p>
+      <p class="price_table book-price">&pound; ${item.book.price}</p>
     </td>
     <td class="col-sm-1 col-md-1 text-center">
-      <p class="price_table total_price">$ ${item.book.price * item.quantity}</p>
+      <p class="price_table total_price">&pound; ${item.book.price * item.quantity}</p>
     </td>
     <td class="col-sm-1 col-md-1 btnmain"><button type="button" class="bt_main"><i class="fa fa-trash"></i>
         Remove</button>
@@ -51,11 +51,12 @@ if (!loggedin) {
     console.log(tot);
     console.log($('.itemsTotal'));
     console.log($('.total'));
-    $('.itemsTotal').text("$ "+tot);
+    $('.itemsTotal').text("£ "+tot);
     if(tot>0){
-        $('.total').text("$ "+(tot+5));
+        $('.shipping').text("£ "+(5));
+        $('.total').text("£ "+(tot+5));
     }else {
-        $('.total').text("$ "+(tot));
+        $('.total').text("£ "+(tot));
     }
 
 }
@@ -96,14 +97,14 @@ function changeQuantityLoggedIn(tr, newQuantity, itemId, bookPrice, totalPriceNe
                 if (newQuantity <= 0) {
                     tr.remove();
                     var newTotal = orderTotal-totalPriceOld;
-                    $('.itemsTotal').text("$ "+newTotal);
-                    $('.total').text("$ "+(newTotal+5));
+                    $('.itemsTotal').text("£ "+newTotal);
+                    $('.total').text("£ "+(newTotal+5));
                 } else {
                     var totalPrice = bookPrice * newQuantity;
-                    totalPriceNew.text("$ " + totalPrice);
+                    totalPriceNew.text("£ " + totalPrice);
                     var newTotal = orderTotal-totalPriceOld+totalPrice;
-                    $('.itemsTotal').text("$ "+newTotal);
-                    $('.total').text("$ "+(newTotal+5));
+                    $('.itemsTotal').text("£ "+newTotal);
+                    $('.total').text("£ "+(newTotal+5));
                 }
             }
         },
@@ -121,16 +122,16 @@ function changeQuantityLocal(tr, newQuantity, itemId, bookPrice, totalPriceNew, 
         tr.remove();
         cartItems.splice(1,existingItemIndex);
         var newTotal = orderTotal-totalPriceOld;
-        $('.itemsTotal').text("$ "+newTotal);
-        $('.total').text("$ "+(newTotal+5));
+        $('.itemsTotal').text("£ "+newTotal);
+        $('.total').text("£ "+(newTotal+5));
     }else {
         cartItems[existingItemIndex].quantity = newQuantity;
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         var totalPrice = bookPrice * newQuantity;
-        totalPriceNew.text("$ " + totalPrice);
+        totalPriceNew.text("£ " + totalPrice);
         var newTotal = orderTotal-totalPriceOld+totalPrice;
-        $('.itemsTotal').text("$ "+newTotal);
-        $('.total').text("$ "+(newTotal+5));
+        $('.itemsTotal').text("£ "+newTotal);
+        $('.total').text("£ "+(newTotal+5));
     }
 }
 
@@ -144,8 +145,8 @@ function deleteItemLoggedIn(tr, itemId, totalPriceOld) {
             if (response.deleted) {
                 tr.remove();
                 var newTotal = orderTotal-totalPriceOld;
-                $('.itemsTotal').text("$ "+newTotal);
-                $('.total').text("$ "+(newTotal+5));
+                $('.itemsTotal').text("£ "+newTotal);
+                $('.total').text("£ "+(newTotal+5));
             }
         }
     });
@@ -159,6 +160,6 @@ function deleteItemLocal(tr, itemId, totalPriceOld) {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     tr.remove();
     var newTotal = orderTotal-totalPriceOld;
-    $('.itemsTotal').text("$ "+newTotal);
-    $('.total').text("$ "+(newTotal+5));
+    $('.itemsTotal').text("£ "+newTotal);
+    $('.total').text("£ "+(newTotal+5));
 }

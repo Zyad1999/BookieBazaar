@@ -39,10 +39,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/employee.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/employee.js"></script>
   </head>
 
   <body id="default_theme" class="it_shop_list">
@@ -121,13 +119,13 @@
           <div class="col-md-12">
             <div class="row">
 
-              <div class="col-xl-6 col-lg-12 col-md-12">
+              <div class="col-xl-5 col-lg-12 col-md-12">
                 <div class="product_detail_feature_img hizoom hi2">
-                  <div class='hizoom hi2'> <img src="images/book_images/${currentBook.img}" alt="#" /> </div>
+                  <div class='hizoom hi2'> <img src="images/book_images/${currentBook.img}" width="300" height="460" alt="#" /> </div>
                 </div>
               </div>
 
-              <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
+              <div class="col-xl-7 col-lg-12 col-md-12 product_detail_side detail_style1">
                 <div class="product-heading">
                   <h2>${currentBook.name}</h2>
                 </div>
@@ -154,7 +152,8 @@
                         <input step="1" min="1" max="${currentBook.quantity}" name="quantity" value="1" title="Qty"
                           class="input-text qty text" id="quantity" size="4" type="number">
                       </div>
-                      <button type="submit" class="btn sqaure_bt">Add to cart</button>
+                      <button type="submit" class="btn sqaure_bt">Add to cart</button><br><br>
+                      <span class="text-success addToCartMsg" ></span>
                     </form>
                   </c:if>
                   <c:if test="${currentBook.quantity eq 0}">
@@ -185,18 +184,18 @@
             </div>
             <div class="row">
 
-              <c:forEach items="${listOfBooks}" var="bookData" begin = "1" end = "4">
+              <c:forEach items="${listOfBooks}" var="bookData" begin = "1" end = "3">
 
-              <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+              <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all" style="max-width: 300px">
                 <div class="product_list">
-                  <div class="product_img"> <img class="img-responsive" width="400" height="350"
-                      src="images/book_images/${bookData.img}" alt=""> </div>
+                  <div class="product_img"><a href="book?bookId=${bookData.id}"> <img class="img-responsive" width="260" height="350"
+                      src="images/book_images/${bookData.img}" alt=""></a></div>
                   <div class="product_detail_btm">
                     <div class="center">
                       <h4><a href="book?bookId=${bookData.id}">${bookData.name}</a></h4>
                     </div>
                     <div class="product_price">
-                      <p><span class="new_price">${bookData.price}</span></p>
+                      <p><span class="new_price">&pound; ${bookData.price}</span></p>
                     </div>
                   </div>
                 </div>

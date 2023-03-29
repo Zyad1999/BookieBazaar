@@ -53,10 +53,10 @@
                           <input max="${cart.book.quantity}" min="0" class="price_table form-control quantity-input" value="${cart.quantity}" type="number">
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table book-price">$ ${cart.book.price}</p>
+                          <p class="price_table book-price">&pound; ${cart.book.price}</p>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center">
-                          <p class="price_table total_price">$ ${cart.book.price*cart.quantity}</p>
+                          <p class="price_table total_price">&pound; ${cart.book.price*cart.quantity}</p>
                         </td>
                         <td class="col-sm-1 col-md-1 btnmain"><button type="button" class="bt_main"><i class="fa fa-trash"></i>
                             Remove</button>
@@ -83,7 +83,7 @@
                       <h3>Items</h3>
                     </td>
                     <td class="text-right">
-                      <h4 class="itemsTotal">$ 0${itemsTotal}</h4>
+                      <h4 class="itemsTotal">&pound; ${itemsTotal}</h4>
                     </td>
                   </tr>
                   <tr>
@@ -91,11 +91,11 @@
                       <h3>Shipping</h3>
                     </td>
                     <td class="text-right">
-                      <c:if test="${not empty sessionScope.setOfCartItem}">
-                        <h4>$ 5</h4>
+                      <c:if test="${not empty requestScope.setOfCartItem}">
+                        <h4 class="shipping">&pound; 5</h4>
                       </c:if>
-                      <c:if test="${empty sessionScope.setOfCartItem}">
-                        <h4>$ 0</h4>
+                      <c:if test="${empty requestScope.setOfCartItem}">
+                        <h4  class="shipping">&pound; 0</h4>
                       </c:if>
                     </td>
                   </tr>
@@ -104,7 +104,7 @@
                       <h3>Total</h3>
                     </td>
                     <td class="text-right">
-                      <h4 class="total">$ 0${total}</h4>
+                      <h4 class="total">&pound; ${total}</h4>
                     </td>
                   </tr>
                   <tr>
