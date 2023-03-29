@@ -19,37 +19,37 @@ function validateForm(e) {
 
 
 
-    if (!bookName.value || !/^[A-Za-z\s]*$/.test(bookName.value)) {
-        error = 'book name is invalid(letters and spaces only).';
+    if (!bookName.value || !/^[A-Za-z\s]*$/.test(bookName.value) || bookName.value.length >25) {
+        error = 'book name is invalid(letters and spaces only) and length at most 25 char.';
         showError();
         return;
     }
 
-    if (!bookAuthor.value || !/^[A-Za-z\s]*$/.test(bookAuthor.value)) {
-        error = 'book author is invalid(letters and spaces only)';
+    if (!bookAuthor.value || !/^[A-Za-z\s]*$/.test(bookAuthor.value) || bookAuthor.value.length >25) {
+        error = 'book author is invalid(letters and spaces only) and length at most 25 char.';
         showError();
         return;
     }
-    if (!bookCategoty.value || !/^[A-Za-z\s]*$/.test(bookCategoty.value)) {
-        error = 'book category is invalid(letters and spaces only)';
-        showError();
-        return;
-    }
-
-    if (!bookQuantity.value || isNaN(bookQuantity.value)) {
-        error = 'book quantity is invalid(numbers only)';
+    if (!bookCategoty.value || !/^[A-Za-z\s]*$/.test(bookCategoty.value) || bookCategoty.value.length >25) {
+        error = 'book category is invalid(letters and spaces only) and length at most 25 char.';
         showError();
         return;
     }
 
-    if (!bookPrice.value || isNaN(bookPrice.value)) {
-        error = 'book price is invalid(numbers only)';
+    if (!bookQuantity.value || isNaN(bookQuantity.value) || bookQuantity.value.length>4) {
+        error = 'book quantity is invalid(numbers only) and length at most 4 char.';
         showError();
         return;
     }
 
-    if (!bookPages.value || isNaN(bookPages.value)) {
-        error = 'number of pages is invalid(numbers only)';
+    if (!bookPrice.value || isNaN(bookPrice.value) || bookPrice.value.length>4) {
+        error = 'book price is invalid(numbers only) and length at most 4 char.';
+        showError();
+        return;
+    }
+
+    if (!bookPages.value || isNaN(bookPages.value)|| bookPages.value.length>4) {
+        error = 'number of pages is invalid(numbers only) and length at most 4 char.';
         showError();
         return;
     }
@@ -60,8 +60,8 @@ function validateForm(e) {
         return;
     }
    
-       if (bookDescription.value==null || bookDescription.value=="") {
-         error = 'book description is required';
+       if (bookDescription.value==null || bookDescription.value=="" || bookDescription.value.length >25 ) {
+         error = 'book description is required and length at most 25 char.';
          showError();
          return;
      }
