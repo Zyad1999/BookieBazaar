@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
               <!-- logo start -->
-              <div class="logo"> <a href="home"><img src="images/logos/it_logo.png" alt="logo" /></a> Profile</div>
+              <div class="logo"> <a href="home"><img src="images/logos/it_logo.png" alt="logo" /></a></div>
               <!-- logo end -->
             </div>
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -98,7 +98,7 @@
                         </li>
                       </c:otherwise>
                     </c:choose>
-                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a> Cart</li>
+                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>
                   </ul>
                 </div>
                 <div class="search_icon">
