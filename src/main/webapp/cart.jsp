@@ -82,7 +82,7 @@
                       <h3>Items</h3>
                     </td>
                     <td class="text-right">
-                      <h4 class="itemsTotal">$ ${itemsTotal}</h4>
+                      <h4 class="itemsTotal">$ 0${itemsTotal}</h4>
                     </td>
                   </tr>
                   <tr>
@@ -90,7 +90,12 @@
                       <h3>Shipping</h3>
                     </td>
                     <td class="text-right">
-                      <h4>$ 5</h4>
+                      <c:if test="${not empty sessionScope.setOfCartItem}">
+                        <h4>$ 5</h4>
+                      </c:if>
+                      <c:if test="${empty sessionScope.setOfCartItem}">
+                        <h4>$ 0</h4>
+                      </c:if>
                     </td>
                   </tr>
                   <tr>
@@ -98,7 +103,7 @@
                       <h3>Total</h3>
                     </td>
                     <td class="text-right">
-                      <h4 class="total">$ ${total}</h4>
+                      <h4 class="total">$ 0${total}</h4>
                     </td>
                   </tr>
                   <tr>

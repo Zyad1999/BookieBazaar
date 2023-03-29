@@ -52,7 +52,12 @@ if (!loggedin) {
     console.log($('.itemsTotal'));
     console.log($('.total'));
     $('.itemsTotal').text("$ "+tot);
-    $('.total').text("$ "+(tot+5));
+    if(tot>0){
+        $('.total').text("$ "+(tot+5));
+    }else {
+        $('.total').text("$ "+(tot));
+    }
+
 }
 
 $(".quantity-input").on("change", function () {
